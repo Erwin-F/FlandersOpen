@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
+  <Relationship Type="http://schemas.microsoft.com/packaging/2010/07/manifest" Target="/FlandersOpen.Web.nuspec" Id="Re931c84795134744" />
+  <Relationship Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="/package/services/metadata/core-properties/80a4ce40a9d54c5baa75fb937fd126ae.psmdcp" Id="R42fbf775eca1428d" />
+</Relationships>
