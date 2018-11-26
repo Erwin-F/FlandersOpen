@@ -14,6 +14,7 @@ export const routes = (
     <Switch>
       <AppRoute exact path="/" layout={NavLayout} component={Home} />
       <AppRoute path="/counter"  layout={NavLayout} component={AutoBindCounter} />
+      <AppRoute path="/counterprivate"  layout={NavLayout} private component={AutoBindCounter} />
       <AppRoute path="/fetchdata"  layout={NavLayout} component={FetchData} />
       <AppRoute path="/nonavigation"  layout={NoMenuLayout} component={NoNavigation} />
     </Switch>
