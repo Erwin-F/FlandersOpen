@@ -8,6 +8,7 @@ import NoMenuLayout from "./components/common/NoMenuLayout";
 
 import UsersPage from "./components/Users/UsersPage";
 import LoginPage from "./components/Login/LoginPage";
+import RegisterPage from "./components/Register/RegisterPage";
 
 //TODO To remove
 import { Home } from "./components/Home";
@@ -26,6 +27,7 @@ export const routes = (
       <AppRoute path="/counterprivate"  layout={NavLayout} private component={AutoBindCounter} />
 
       <AppRoute path="/login" layout={NoMenuLayout} component={LoginPage} />
+      <AppRoute path="/register" layout={NoMenuLayout} component={RegisterPage} />
       <AppRoute path="/users" layout={NavLayout} private component={UsersPage} />
     </Switch>
   </DefaultLayout>
