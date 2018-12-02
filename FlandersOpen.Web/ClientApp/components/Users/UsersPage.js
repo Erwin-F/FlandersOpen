@@ -1,3 +1,61 @@
+import React, { Component } from "react";
+import { AppContext } from "../common/AppContext";
+import AutoBindComponent from "../common/AutobindComponent"
+import UsersPageHelper from "./UsersPageHelper";
+
+export class UsersPage extends AutoBindComponent {
+    constructor(props, context) {
+        super(props, context);
+
+        this.state = { 
+            users: [],
+            user: null
+        };
+
+        this.pageHelper = new UsersPageHelper(this);
+    }
+
+    componentWillMount() {
+        this.pageHelper.init();
+    }
+
+    render() {
+        return (
+            <div>
+                Test
+            </div>
+        );
+    }
+}
+
+export default React.forwardRef((props, ref) => (
+    <AppContext.Consumer>
+        {appContext => <UserPage {...props} appContext={appContext} ref={ref} />}
+    </AppContext.Consumer>
+));
+
+/*
+class Button extends React.Component {
+  componentDidMount() {
+    alert(this.props.theme);
+  }
+
+  render() {
+    const { theme, children } = this.props;
+    return (
+      <button className={theme ? 'dark' : 'light'}>
+        {children}
+      </button>
+    );
+  }
+}
+
+export default React.forwardRef((props, ref) => (
+  <ThemeContext.Consumer>
+    {theme => <Button {...props} theme={theme} ref={ref} />}
+  </ThemeContext.Consumer>
+));
+*/ 
 
 
 /*

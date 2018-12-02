@@ -8,16 +8,18 @@ class AppProvider extends React.Component {
 
         this.state = {
             ajaxCounter: 0,
-            incrementAjaxCounter: () => {
+            ajaxStarted: () => {
                 this.setState({
                     ajaxCounter: this.state.ajaxCounter + 1
                 });
             },
-            decrementAjaxCounter: () => {
+            ajaxEnded: () => {
                 this.setState({
                     ajaxCounter: this.state.ajaxCounter - 1
                 });
-            }
+            },
+            loggedIn: false,
+            user: null
         };
     }
 

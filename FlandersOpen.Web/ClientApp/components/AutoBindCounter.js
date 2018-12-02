@@ -20,7 +20,7 @@ handleOnIncrementButton(){
 
 handleOnIncrementAjax(context){
   return function() {
-    context.incrementAjaxCounter;
+    context.ajaxStarted();
   }
 }
 

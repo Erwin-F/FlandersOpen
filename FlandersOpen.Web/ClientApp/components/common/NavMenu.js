@@ -47,6 +47,11 @@ export class NavMenu extends Component {
                     <span className="glyphicon glyphicon-th-list" /> Fetch data
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to={"/users"} activeClassName="active">
+                    <span className="glyphicon glyphicon-user" /> Users
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>

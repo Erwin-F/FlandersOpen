@@ -32,7 +32,7 @@ export class Counter extends Component {
 
         <AppContext.Consumer>
             {(context) => (
-              <button onClick={() => {context.incrementAjaxCounter()}}>
+              <button onClick={() => {context.ajaxStarted()}}>
                 Increment ajax {context.ajaxCounter}
               </button>
             )}
