@@ -11,11 +11,10 @@ export class UsersPage extends AutoBindComponent {
             users: [],
             user: null
         };
-
-        this.pageHelper = new UsersPageHelper(this);
     }
 
     componentWillMount() {
+        this.pageHelper = new UsersPageHelper(this);
         this.pageHelper.init();
     }
 
