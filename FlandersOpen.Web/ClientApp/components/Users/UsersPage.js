@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { AppContext } from "../common/AppContext";
 import AutoBindComponent from "../common/AutobindComponent"
 import UsersPageHelper from "./UsersPageHelper";
