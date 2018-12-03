@@ -64,7 +64,7 @@ namespace FlandersOpen.Web.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost]
+        [HttpPost("register")]
         public IActionResult Register([FromBody]UserDto userDto)
         {
             // map dto to entity

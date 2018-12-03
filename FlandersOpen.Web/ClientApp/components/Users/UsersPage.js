@@ -29,7 +29,7 @@ export class UsersPage extends AutoBindComponent {
 
 export default React.forwardRef((props, ref) => (
     <AppContext.Consumer>
-        {appContext => <UserPage {...props} appContext={appContext} ref={ref} />}
+        {appContext => <UsersPage {...props} appContext={appContext} ref={ref} />}
     </AppContext.Consumer>
 ));
 

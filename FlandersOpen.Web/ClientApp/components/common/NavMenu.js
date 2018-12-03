@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AppContext } from "./AppContext";
+import { userService } from "../services/userService";
 
 export class NavMenu extends Component {
   render() {
@@ -51,6 +52,11 @@ export class NavMenu extends Component {
                   <NavLink to={"/users"} activeClassName="active">
                     <span className="glyphicon glyphicon-user" /> Users
                   </NavLink>
+                </li>
+                <li>
+                  <Link to={"/"} onClick={userService.logout}>
+                    <span className="glyphicon glyphicon-user" /> Logout
+                  </Link>
                 </li>
               </ul>
             </div>
