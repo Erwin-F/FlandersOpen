@@ -1,5 +1,7 @@
 using System.Text;
-using FlandersOpen.Web.Data;
+using FlandersOpen.Command;
+using FlandersOpen.Infrastructure;
+using FlandersOpen.Read;
 using FlandersOpen.Web.Helpers;
 using FlandersOpen.Web.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -26,6 +28,10 @@ namespace FlandersOpen.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
+            
+            //            services.AddDbContext<ApplicationDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
             services.AddMvc();
 
@@ -57,6 +63,8 @@ namespace FlandersOpen.Web
 
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
+            BindCommands.Execute(services);
+            BindQueries.Execute(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

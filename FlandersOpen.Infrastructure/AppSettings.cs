@@ -1,4 +1,4 @@
-﻿namespace FlandersOpen.Web.Helpers
+﻿namespace FlandersOpen.Infrastructure
 {
     public class AppSettings
     {
