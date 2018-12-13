@@ -1,10 +1,8 @@
 # Flanders Open Rugby App
 
 **TODO List:**
-- Implement CQRS
 - Implement Entity 
 - Implement ValueObject
-- Implement ApplicationDbContext
 - Upgrade to Bootstrap 4
 - Hide menu when not logged on
 - Implement toastr
@@ -16,4 +14,3 @@
 - After Register, approval needed
 - use real DB
 - Verify password on update
-- Seperate further CQRS => Dapper on queries

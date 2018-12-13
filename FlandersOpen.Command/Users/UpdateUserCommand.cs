@@ -13,9 +13,9 @@ namespace FlandersOpen.Command.Users
 
     internal sealed class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand>
     {
-        private readonly DataContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public UpdateUserCommandHandler(DataContext context)
+        public UpdateUserCommandHandler(ApplicationDbContext context)
         {
             _context = context;
         }

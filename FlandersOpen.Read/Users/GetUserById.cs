@@ -1,6 +1,8 @@
 ﻿using System.Data.SqlClient;
 using Dapper;
+using FlandersOpen.Infrastructure;
 using FlandersOpen.Read.Dtos;
+using Microsoft.Extensions.Options;
 
 namespace FlandersOpen.Read.Users
 {
@@ -11,19 +13,18 @@ namespace FlandersOpen.Read.Users
 
     internal sealed class GetUserByIdHandler : IQueryHandler<GetUserById, UserDto>
     {
-        private readonly string _connection;
+        private readonly ConnectionStrings _connectionstrings;
 
-        public GetUserByIdHandler()
+        public GetUserByIdHandler(ConnectionStrings connectionstrings)
         {
-            //TODO Insert Connection String
-            _connection = "";
+            _connectionstrings = connectionstrings;
         }
 
         public UserDto Handle(GetUserById query)
         {
             const string sql = @"SELECT Id, Username, Firstname, Lastname FROM Users WHERE Id = @Id";
 
-            using (var connection = new SqlConnection(_connection))
+            using (var connection = new SqlConnection(_connectionstrings.Default))
             {
                 var user = connection.QueryFirstOrDefault<UserDto>(sql, new { query.Id });
 

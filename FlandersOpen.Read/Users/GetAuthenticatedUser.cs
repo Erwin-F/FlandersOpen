@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data.SqlClient;
 using Dapper;
+using FlandersOpen.Infrastructure;
 using FlandersOpen.Read.Dtos;
+using Microsoft.Extensions.Options;
 
 namespace FlandersOpen.Read.Users
 {
@@ -13,19 +15,18 @@ namespace FlandersOpen.Read.Users
 
     internal sealed class GetAuthenticatedUserHandler : IQueryHandler<GetAuthenticatedUser, AuthenticatedUserDto>
     {
-        private readonly string _connection;
+        private readonly ConnectionStrings _connectionstrings;
 
-        public GetAuthenticatedUserHandler()
+        public GetAuthenticatedUserHandler(ConnectionStrings connectionstrings)
         {
-            //TODO Insert Connection String
-            _connection = "";
+            _connectionstrings = connectionstrings;
         }
 
         public AuthenticatedUserDto Handle(GetAuthenticatedUser query)
         {
             const string sql = @"SELECT Id, Username, Firstname, Lastname, PasswordHash, PasswordSalt FROM Users WHERE Username = @Username";
 
-            using (var connection = new SqlConnection(_connection))
+            using (var connection = new SqlConnection(_connectionstrings.Default))
             {
                 var user = connection.QueryFirstOrDefault<UserWithPasswordDto>(sql, new { query.Username });
 

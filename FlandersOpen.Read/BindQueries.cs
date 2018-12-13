@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Collections.Generic;
+using FlandersOpen.Read.Dtos;
+using FlandersOpen.Read.Users;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace FlandersOpen.Read
 {
@@ -8,13 +11,9 @@ namespace FlandersOpen.Read
         {
             services.AddSingleton<QueryService>();
 
-            /*
-services.AddTransient<ICommandHandler<DisenrollCommand>, DisenrollCommandHandler>();
-services.AddTransient<IQueryHandler<GetListQuery, List<StudentDto>>, GetListQueryHandler>();
-
- */
-
-
+            services.AddTransient<IQueryHandler<GetUserById, UserDto>, GetUserByIdHandler>();
+            services.AddTransient<IQueryHandler<GetAuthenticatedUser, AuthenticatedUserDto>, GetAuthenticatedUserHandler>();
+            services.AddTransient<IQueryHandler<GetAllUsers, IEnumerable<UserDto>>, GetAllUsersHandler>();
         }
     }
 }

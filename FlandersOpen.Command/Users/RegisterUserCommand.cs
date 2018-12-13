@@ -13,9 +13,9 @@ namespace FlandersOpen.Command.Users
 
     internal sealed class RegisterUserCommandHandler : ICommandHandler<RegisterUserCommand>
     {
-        private readonly DataContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public RegisterUserCommandHandler(DataContext context)
+        public RegisterUserCommandHandler(ApplicationDbContext context)
         {
             _context = context;
         }

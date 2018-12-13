@@ -9,7 +9,9 @@ namespace FlandersOpen.Command
         {
             services.AddSingleton<CommandBus>();
 
-            services.AddTransient<ICommandHandler<DeleteUserCommand>, DeleteUserCommandHandler>();            
+            services.AddTransient<ICommandHandler<DeleteUserCommand>, DeleteUserCommandHandler>();
+            services.AddTransient<ICommandHandler<RegisterUserCommand>, RegisterUserCommandHandler>();
+            services.AddTransient<ICommandHandler<UpdateUserCommand>, UpdateUserCommandHandler>();
         }
     }
 }

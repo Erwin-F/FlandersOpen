@@ -3,7 +3,6 @@ using FlandersOpen.Command;
 using FlandersOpen.Infrastructure;
 using FlandersOpen.Read;
 using FlandersOpen.Web.Helpers;
-using FlandersOpen.Web.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,17 +27,19 @@ namespace FlandersOpen.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            
-            //            services.AddDbContext<ApplicationDbContext>(options =>
-            //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
+            var connectionString = new ConnectionStrings(Configuration.GetConnectionString("DefaultConnection"));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString.Default));
+            
+            services.AddSingleton(connectionString);
+
             services.AddMvc();
 
 
             // configure strongly typed settings objects
             var appSettingsSection = Configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
+
 
             // configure jwt authentication
             var appSettings = appSettingsSection.Get<AppSettings>();
@@ -62,7 +63,6 @@ namespace FlandersOpen.Web
                 });
 
             // configure DI for application services
-            services.AddScoped<IUserService, UserService>();
             BindCommands.Execute(services);
             BindQueries.Execute(services);
         }
