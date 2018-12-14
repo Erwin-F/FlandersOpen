@@ -1,5 +1,5 @@
-﻿using FlandersOpen.Command;
-using FlandersOpen.Command.Users;
+﻿using FlandersOpen.Application;
+using FlandersOpen.Application.Users;
 using FlandersOpen.Infrastructure;
 using FlandersOpen.Read;
 using FlandersOpen.Web.Helpers;

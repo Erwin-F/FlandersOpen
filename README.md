@@ -2,7 +2,7 @@
 
 **TODO List:**
 - Implement Entity 
-- Implement ValueObject
+- Implement ValueObject on username & pasword
 - Upgrade to Bootstrap 4
 - Hide menu when not logged on
 - Implement toastr

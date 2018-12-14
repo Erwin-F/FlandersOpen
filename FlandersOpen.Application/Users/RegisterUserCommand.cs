@@ -1,7 +1,8 @@
 ﻿using FlandersOpen.Domain.Entities;
 using FlandersOpen.Infrastructure;
+using FlandersOpen.Persistence;
 
-namespace FlandersOpen.Command.Users
+namespace FlandersOpen.Application.Users
 {
     public sealed class RegisterUserCommand : ICommand
     {

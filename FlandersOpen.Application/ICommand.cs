@@ -1,4 +1,4 @@
-﻿namespace FlandersOpen.Command
+﻿namespace FlandersOpen.Application
 {
     public interface ICommand
     {

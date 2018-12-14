@@ -2,7 +2,7 @@
 using FlandersOpen.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace FlandersOpen.Infrastructure
+namespace FlandersOpen.Persistence
 {
     public static class ContextExtensions
     {

@@ -4,7 +4,7 @@ using FlandersOpen.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace FlandersOpen.Infrastructure
+namespace FlandersOpen.Persistence
 {
     public class ApplicationDbContext : DbContext
     {

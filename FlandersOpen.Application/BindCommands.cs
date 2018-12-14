@@ -1,7 +1,7 @@
-﻿using FlandersOpen.Command.Users;
+﻿using FlandersOpen.Application.Users;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FlandersOpen.Command
+namespace FlandersOpen.Application
 {
     public static class BindCommands
     {

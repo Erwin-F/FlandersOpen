@@ -1,7 +1,7 @@
 ﻿using System;
 using FlandersOpen.Infrastructure;
 
-namespace FlandersOpen.Command
+namespace FlandersOpen.Application
 {
     public sealed class CommandBus
     {
