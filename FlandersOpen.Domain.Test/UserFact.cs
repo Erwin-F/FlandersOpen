@@ -68,5 +68,40 @@ namespace FlandersOpen.Domain.Test
 
             Assert.False(user.HasDifferentUsername("test"));
         }
+
+        [Fact]
+        public void RegisterSetsModificationDate()
+        {
+            var user = User.Register("test", "firstname", "lastname", "testpassword");
+
+            Assert.False(user.ModificationDate == default(DateTime));
+        }
+
+        [Fact]
+        public void UpdateModifiesUser()
+        {
+            var user = User.Register("test", "firstname", "lastname", "testpassword");
+
+            var id = user.Id;
+
+            user.Update("bla", "bla", "bla", "bla");
+
+            Assert.True(user.Id == id);
+
+            Assert.Equal("bla", user.Username);
+            Assert.Equal("bla", user.FirstName);
+            Assert.Equal("bla", user.LastName);
+        }
+
+        [Fact]
+        public void UpdateModifiesPassword()
+        {
+            var user = User.Register("test", "firstname", "lastname", "testpassword");
+
+            user.Update("bla", "bla", "bla", "bla");
+
+            Assert.False(user.IsCorrectPassword("testpassword"));
+            Assert.True(user.IsCorrectPassword("bla"));            
+        }
     }
 }

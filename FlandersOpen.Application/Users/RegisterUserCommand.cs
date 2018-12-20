@@ -11,6 +11,7 @@ namespace FlandersOpen.Application.Users
         public string LastName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string VerifiedPassword { get; set; }
     }
 
     internal sealed class RegisterUserCommandHandler : ICommandHandler<RegisterUserCommand>
@@ -24,6 +25,8 @@ namespace FlandersOpen.Application.Users
 
         public Result Handle(RegisterUserCommand command)
         {
+            if (command.Password != command.VerifiedPassword) return Result.Fail($"Password verification wrong");
+
             if (_context.Users.UsernameAlreadyExists(command.Username))
             {
                 return Result.Fail($"Username {command.Username} is already taken");

@@ -10,8 +10,6 @@
 - submitting on login not working (use increment ajax call..) + redirect to correct page
 - registering on register not working  (use increment ajax call..) + redirect to correct page
 - Error Handling => as in timesheet module
-- change userService
 - 404 page
 - After Register, approval needed
-- use real DB
 - Verify password on update

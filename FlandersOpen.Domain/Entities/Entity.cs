@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FlandersOpen.Domain.DomainEvents;
 
 namespace FlandersOpen.Domain.Entities
@@ -6,11 +7,11 @@ namespace FlandersOpen.Domain.Entities
     public abstract class Entity
     {
         int? _requestedHashCode;
-        int _Id;
+        Guid _Id;
 
         private List<INotification> _domainEvents;
 
-        public virtual int Id
+        public virtual Guid Id
         {
             get => _Id;
             protected set => _Id = value;
@@ -29,7 +30,7 @@ namespace FlandersOpen.Domain.Entities
 
         public bool IsTransient()
         {
-            return Id == default(int);
+            return Id == default(Guid);
         }
 
         public override bool Equals(object obj)

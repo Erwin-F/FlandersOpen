@@ -13,7 +13,8 @@ export class RegisterPage extends AutoBindComponent {
                 firstName: "",
                 lastName: "",
                 username: "",
-                password: ""
+                password: "",
+                verifiedPassword: ""
             },
             submitted: false
         };
@@ -39,7 +40,7 @@ export class RegisterPage extends AutoBindComponent {
  
         this.setState({ submitted: true });
         const { user } = this.state;
-        if (user.firstName && user.lastName && user.username && user.password) {
+        if (user.firstName && user.lastName && user.username && user.password && user.verifiedPassword) {
             this.pageHelper.register(user);
         }
     }
@@ -77,6 +78,13 @@ export class RegisterPage extends AutoBindComponent {
                         <input type="password" className="form-control" name="password" value={user.password} onChange={this.handleOnChange} />
                         {submitted && !user.password &&
                             <div className="help-block">Password is required</div>
+                        }
+                    </div>
+                    <div className={'form-group' + (submitted && !user.verifiedPassword ? ' has-error' : '')}>
+                        <label htmlFor="verifiedPassword">Verify Password</label>
+                        <input type="password" className="form-control" name="verifiedPassword" value={user.verifiedPassword} onChange={this.handleOnChange} />
+                        {submitted && !user.verifiedPassword &&
+                            <div className="help-block">Verification password is required</div>
                         }
                     </div>
                     <div className="form-group">
