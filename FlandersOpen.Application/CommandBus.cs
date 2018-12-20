@@ -3,7 +3,7 @@ using FlandersOpen.Infrastructure;
 
 namespace FlandersOpen.Application
 {
-    public sealed class CommandBus
+    public sealed class CommandBus : ICommandBus
     {
         private readonly IServiceProvider _provider;
 

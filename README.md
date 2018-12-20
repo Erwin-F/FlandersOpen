@@ -4,6 +4,7 @@
 - Implement Entity 
 - Implement ValueObject on username & pasword
 - Upgrade to Bootstrap 4
+- implement react authorization correctly
 - Hide menu when not logged on
 - Implement toastr
 - submitting on login not working (use increment ajax call..) + redirect to correct page

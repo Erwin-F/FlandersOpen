@@ -1,12 +1,10 @@
 ﻿using FlandersOpen.Application;
+using FlandersOpen.Application.Services;
 using FlandersOpen.Application.Users;
-using FlandersOpen.Infrastructure;
 using FlandersOpen.Read;
-using FlandersOpen.Web.Helpers;
 using FlandersOpen.Read.Users;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 
 namespace FlandersOpen.Web.Controllers
 {
@@ -15,28 +13,24 @@ namespace FlandersOpen.Web.Controllers
     [Route("api/user")]
     public class UserController : BaseController
     {
-        private readonly AppSettings _appSettings;
-        private readonly CommandBus _commandBus;
-        private readonly QueryService _queryService;
+        private readonly IAuthenticationService _authService;
+        private readonly ICommandBus _commandBus;
+        private readonly IQueryService _queryService;
 
-        public UserController(IOptions<AppSettings> appSettings, CommandBus commandBus, QueryService queryService)
+        public UserController(IAuthenticationService authService, ICommandBus commandBus, IQueryService queryService)
         {
-            _appSettings = appSettings.Value;
+            _authService = authService;
             _commandBus = commandBus;
             _queryService = queryService;
         }
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate([FromBody]GetAuthenticatedUser query)
+        public IActionResult Authenticate([FromBody]UserCredentials credentials)
         {
-            var authUser = _queryService.Dispatch(query);
+            var authenticatedUser = _authService.GetToken(credentials);
 
-            if (authUser == null) return Unauthorized();
-
-            authUser.Token = SecurityHelper.GetToken(_appSettings.Secret, authUser.Id);
-
-            return Ok(authUser);
+            return authenticatedUser == null ? Unauthorized() : Ok(authenticatedUser);
         }
 
         [AllowAnonymous]

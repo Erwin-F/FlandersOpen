@@ -30,8 +30,11 @@ namespace FlandersOpen.Web
 
             var connectionString = new ConnectionStrings(Configuration.GetConnectionString("DefaultConnection"));
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString.Default));
-            
             services.AddSingleton(connectionString);
+
+            BindServices.Execute(services);
+            BindCommands.Execute(services);
+            BindQueries.Execute(services);
 
             services.AddMvc();
 
@@ -61,10 +64,6 @@ namespace FlandersOpen.Web
                         ValidateAudience = false
                     };
                 });
-
-            // configure DI for application services
-            BindCommands.Execute(services);
-            BindQueries.Execute(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

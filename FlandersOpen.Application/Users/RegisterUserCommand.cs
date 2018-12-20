@@ -1,4 +1,5 @@
-﻿using FlandersOpen.Domain.Entities;
+﻿using System;
+using FlandersOpen.Domain.Entities;
 using FlandersOpen.Infrastructure;
 using FlandersOpen.Persistence;
 
@@ -32,7 +33,7 @@ namespace FlandersOpen.Application.Users
             _context.Users.Add(user);
             _context.SaveChanges();
 
-            return Result.Ok<int>(user.Id);
+            return Result.Ok<Guid>(user.Id);
         }
     }
 }

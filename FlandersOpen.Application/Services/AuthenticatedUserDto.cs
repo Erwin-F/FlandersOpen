@@ -1,8 +1,10 @@
-﻿namespace FlandersOpen.Read.Dtos
+﻿using System;
+
+namespace FlandersOpen.Application.Services
 {
     public sealed class AuthenticatedUserDto
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Username { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }

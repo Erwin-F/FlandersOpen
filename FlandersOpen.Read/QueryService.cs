@@ -2,7 +2,7 @@
 
 namespace FlandersOpen.Read
 {
-    public sealed class QueryService
+    public sealed class QueryService : IQueryService
     {
         private readonly IServiceProvider _provider;
 

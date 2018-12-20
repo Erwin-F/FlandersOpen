@@ -7,11 +7,11 @@ namespace FlandersOpen.Application
     {
         public static void Execute(IServiceCollection services)
         {
-            services.AddSingleton<CommandBus>();
+            services.AddScoped<ICommandBus, CommandBus>();
 
-            services.AddTransient<ICommandHandler<DeleteUserCommand>, DeleteUserCommandHandler>();
-            services.AddTransient<ICommandHandler<RegisterUserCommand>, RegisterUserCommandHandler>();
-            services.AddTransient<ICommandHandler<UpdateUserCommand>, UpdateUserCommandHandler>();
+            services.AddScoped<ICommandHandler<DeleteUserCommand>, DeleteUserCommandHandler>();
+            services.AddScoped<ICommandHandler<RegisterUserCommand>, RegisterUserCommandHandler>();
+            services.AddScoped<ICommandHandler<UpdateUserCommand>, UpdateUserCommandHandler>();            
         }
     }
 }
