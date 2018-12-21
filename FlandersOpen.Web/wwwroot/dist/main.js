@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7ded61ce9399fbfc0f2a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3551137ff063f5f00861"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -5690,7 +5690,8 @@ var RegisterPage = exports.RegisterPage = function (_AutoBindComponent) {
                 firstName: "",
                 lastName: "",
                 username: "",
-                password: ""
+                password: "",
+                verifiedPassword: ""
             },
             submitted: false
         };
@@ -5722,7 +5723,7 @@ var RegisterPage = exports.RegisterPage = function (_AutoBindComponent) {
             this.setState({ submitted: true });
             var user = this.state.user;
 
-            if (user.firstName && user.lastName && user.username && user.password) {
+            if (user.firstName && user.lastName && user.username && user.password && user.verifiedPassword) {
                 this.pageHelper.register(user);
             }
         }
@@ -5803,6 +5804,21 @@ var RegisterPage = exports.RegisterPage = function (_AutoBindComponent) {
                             "div",
                             { className: "help-block" },
                             "Password is required"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: 'form-group' + (submitted && !user.verifiedPassword ? ' has-error' : '') },
+                        _react2.default.createElement(
+                            "label",
+                            { htmlFor: "verifiedPassword" },
+                            "Verify Password"
+                        ),
+                        _react2.default.createElement("input", { type: "password", className: "form-control", name: "verifiedPassword", value: user.verifiedPassword, onChange: this.handleOnChange }),
+                        submitted && !user.verifiedPassword && _react2.default.createElement(
+                            "div",
+                            { className: "help-block" },
+                            "Verification password is required"
                         )
                     ),
                     _react2.default.createElement(

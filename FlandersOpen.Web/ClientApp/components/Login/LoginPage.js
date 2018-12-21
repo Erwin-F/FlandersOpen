@@ -27,9 +27,10 @@ export class LoginPage extends AutoBindComponent {
 
     handleOnSubmit(e){
         e.preventDefault();
- 
         this.setState({ submitted: true });
+
         const { username, password } = this.state;
+
         if (username && password) {
             this.pageHelper.login(username, password);
         }
