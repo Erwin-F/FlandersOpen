@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AppContext } from "./AppContext";
 import { userService } from "../services/userService";
 
-export class NavMenu extends Component {
+export class PublicMenu extends Component {
   render() {
     return (
       <React.Fragment>
@@ -49,13 +49,8 @@ export class NavMenu extends Component {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/users"} activeClassName="active">
-                    <span className="glyphicon glyphicon-user" /> Users
-                  </NavLink>
-                </li>
-                <li>
-                  <Link to={"/"} onClick={userService.logout}>
-                    <span className="glyphicon glyphicon-user" /> Logout
+                  <Link to={"/login"}>
+                    <span className="glyphicon glyphicon-user" /> Login
                   </Link>
                 </li>
               </ul>

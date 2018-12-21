@@ -1,10 +1,11 @@
 import React from "react";
-import { NavMenu } from "./NavMenu";
 
-const NavLayout = (props) => (
+const NoMenuLayout = (props) => (
     <React.Fragment>
-    <div className="col-sm-12">
-{props.children}</div></React.Fragment>
+        <div className="col-sm-12">
+            {props.children}
+        </div>
+    </React.Fragment>
 );
 
-export default NavLayout;
+export default NoMenuLayout;

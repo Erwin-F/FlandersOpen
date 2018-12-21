@@ -11,7 +11,8 @@ export class LoginPage extends AutoBindComponent {
         this.state = { 
             username: "",
             password: "",
-            submitted: false
+            submitted: false,
+            authenticationError: ""
         };
     }
 
@@ -65,6 +66,10 @@ export class LoginPage extends AutoBindComponent {
                         }
                         <Link to="/register" className="btn btn-link">Register</Link>
                     </div>
+                    {this.state.authenticationError === "" ? null :
+                    <div>
+                        <span style={{color: "red"}}>{this.state.authenticationError}</span>
+                    </div>}
                 </form>
             </div>
         );

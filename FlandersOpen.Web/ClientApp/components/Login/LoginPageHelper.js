@@ -1,5 +1,4 @@
 import assign from "object-assign";
-import { userService } from "../services/userService";
 
 import userApi from "../../api/userApi";
 
@@ -18,20 +17,23 @@ export default class LoginPageHelper {
         userApi.login(username, password)
             .then((response) => {
                 this.appContext.ajaxEnded();
-                const user = response.data;
+                const data = response.data;
+                const user = data.result;
 
                 if (user && user.token) {
                     localStorage.setItem('user', JSON.stringify(user));
-                    //TODO Redirect to home
+
+                    this.context.setState({ authenticationError: "" });
+
+                    const history = this.context.props.history;
+                    history.push("/");
                 } else {
-                    //TODO show error
+                    this.context.setState({ authenticationError: data.errorMessage });
                 }
             })
             .catch((ex) => {
                 this.appContext.ajaxEnded();
-                //TODO do something with error
+                this.context.setState({ authenticationError: "Username or Password wrong" });
             });
-
-        userService.login(username, password);
     }
 }
