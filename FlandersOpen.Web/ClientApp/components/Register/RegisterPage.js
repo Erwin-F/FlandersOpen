@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { AppContext } from "../common/AppContext";
-import AutoBindComponent from "../common/AutobindComponent"
+import AutoBindComponent from "../common/AutobindComponent";
 import RegisterPageHelper from "./RegisterPageHelper";
 
 export class RegisterPage extends AutoBindComponent {

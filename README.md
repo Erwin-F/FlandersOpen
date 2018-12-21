@@ -1,6 +1,7 @@
 # Flanders Open Rugby App
 
 **TODO List:**
+- Implement Proptypes on all components
 - Implement Entity 
 - Implement ValueObject on username & pasword
 - Upgrade to Bootstrap 4
@@ -12,3 +13,4 @@
 - 404 page
 - After Register, approval needed
 - Verify password on update
+- Remove UserService

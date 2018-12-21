@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { RouteComponentProps } from "react-router";
 import { AppContext } from "./common/AppContext";
-import AutoBindComponent from "./common/AutobindComponent"
+import AutoBindComponent from "./common/AutobindComponent";
 
 export class AutoBindCounter extends AutoBindComponent {
   constructor(props, context) {

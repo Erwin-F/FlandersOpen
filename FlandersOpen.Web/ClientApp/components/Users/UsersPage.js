@@ -2,6 +2,7 @@ import React from "react";
 import { AppContext } from "../common/AppContext";
 import AutoBindComponent from "../common/AutobindComponent"
 import UsersPageHelper from "./UsersPageHelper";
+import Loader from "../common/Loader";
 
 export class UsersPage extends AutoBindComponent {
     constructor(props, context) {
@@ -14,16 +15,14 @@ export class UsersPage extends AutoBindComponent {
     }
 
     componentWillMount() {
-        this.pageHelper = new UsersPageHelper(this);
-        this.pageHelper.init();
+        // this.pageHelper = new UsersPageHelper(this);
+        // this.pageHelper.init();
     }
 
     render() {
         return (
-            <div>
-                Test
-            </div>
-        );
+            <Loader />
+            );
     }
 }
 

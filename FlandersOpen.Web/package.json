@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-preset-stage-2": "^6.24.1"
+    "babel-preset-stage-2": "^6.24.1",
+    "react-spinkit": "^3.0.0"
   }
 }

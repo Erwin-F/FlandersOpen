@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AppContext } from "../common/AppContext";
 import AutoBindComponent from "../common/AutobindComponent"
 import LoginPageHelper from "./LoginPageHelper";
+import Loader from "../common/Loader";
 
 export class LoginPage extends AutoBindComponent {
     constructor(props, context) {
