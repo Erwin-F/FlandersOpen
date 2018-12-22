@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AppContext } from "./AppContext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { userService } from "../services/userService";
 
 export class PublicMenu extends Component {
@@ -35,22 +37,22 @@ export class PublicMenu extends Component {
               <ul className="nav navbar-nav">
                 <li>
                   <NavLink to={"/"} exact activeClassName="active">
-                    <span className="glyphicon glyphicon-home" /> Home
+                    <FontAwesomeIcon icon="football-ball" /> Home
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to={"/counter"} activeClassName="active">
-                    <span className="glyphicon glyphicon-education" /> Counter
+                  <FontAwesomeIcon icon="th-list" /> Counter
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to={"/fetchdata"} activeClassName="active">
-                    <span className="glyphicon glyphicon-th-list" /> Fetch data
+                  <FontAwesomeIcon icon="th-list" /> Fetch data
                   </NavLink>
                 </li>
                 <li>
                   <Link to={"/login"}>
-                    <span className="glyphicon glyphicon-user" /> Login
+                    <FontAwesomeIcon icon="user" /> Login
                   </Link>
                 </li>
               </ul>

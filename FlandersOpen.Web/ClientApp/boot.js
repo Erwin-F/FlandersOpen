@@ -7,7 +7,18 @@ import { BrowserRouter } from "react-router-dom";
 import * as RoutesModule from "./routes";
 let routes = RoutesModule.routes;
 
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import * as icons from '@fortawesome/free-solid-svg-icons';
+
 function renderApp() {
+  library.add(icons.faIgloo);
+  library.add(icons.faUsers);
+  library.add(icons.faUser);
+  library.add(icons.faUserSlash);
+  library.add(icons.faFootballBall);
+  library.add(icons.faThList);
+
   // This code starts up the React app when it runs in a browser. It sets up the routing
   // configuration and injects the app into a DOM element.
   const baseUrl = document.getElementsByTagName("base")[0].getAttribute("href");
