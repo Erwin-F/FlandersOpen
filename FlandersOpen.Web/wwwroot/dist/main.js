@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d3acfa37cbeec2d73d4d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6d85bf835ef524406b97"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -2540,6 +2540,8 @@ var _reactRouterDom = __webpack_require__(11);
 
 var _DefaultLayout = __webpack_require__(91);
 
+var _DefaultLayout2 = _interopRequireDefault(_DefaultLayout);
+
 var _AppRoute = __webpack_require__(90);
 
 var _AppRoute2 = _interopRequireDefault(_AppRoute);
@@ -2584,7 +2586,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 
 var routes = exports.routes = _react2.default.createElement(
-  _DefaultLayout.DefaultLayout,
+  _DefaultLayout2.default,
   null,
   _react2.default.createElement(
     _reactRouterDom.Switch,
@@ -8702,7 +8704,6 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.DefaultLayout = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -8720,6 +8721,10 @@ var _Loader = __webpack_require__(21);
 
 var _Loader2 = _interopRequireDefault(_Loader);
 
+var _propTypes = __webpack_require__(5);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -8734,7 +8739,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var DefaultLayout = exports.DefaultLayout = function (_Component) {
+var DefaultLayout = function (_Component) {
   _inherits(DefaultLayout, _Component);
 
   function DefaultLayout() {
@@ -8778,6 +8783,12 @@ var DefaultLayout = exports.DefaultLayout = function (_Component) {
   return DefaultLayout;
 }(_react.Component);
 
+DefaultLayout.propTypes = {
+  children: _propTypes2.default.object.isRequired
+};
+
+var _default = DefaultLayout;
+exports.default = _default;
 ;
 
 (function () {
@@ -8790,6 +8801,7 @@ var DefaultLayout = exports.DefaultLayout = function (_Component) {
   }
 
   reactHotLoader.register(DefaultLayout, "DefaultLayout", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/DefaultLayout.js");
+  reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/DefaultLayout.js");
   leaveModule(module);
 })();
 
@@ -8815,6 +8827,10 @@ var _PublicMenu = __webpack_require__(96);
 
 var _PrivateMenu = __webpack_require__(95);
 
+var _propTypes = __webpack_require__(5);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -8838,6 +8854,10 @@ var MenuLayout = function MenuLayout(props) {
       props.children
     )
   );
+};
+
+MenuLayout.propTypes = {
+  children: _propTypes2.default.object.isRequired
 };
 
 var _default = MenuLayout;
@@ -8876,6 +8896,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(5);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -8894,6 +8918,10 @@ var NoMenuLayout = function NoMenuLayout(props) {
             props.children
         )
     );
+};
+
+NoMenuLayout.propTypes = {
+    children: _propTypes2.default.object.isRequired
 };
 
 var _default = NoMenuLayout;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import { DefaultLayout } from "./components/common/DefaultLayout";
+import DefaultLayout from "./components/common/DefaultLayout";
 import AppRoute from "./components/common/AppRoute";
 import MenuLayout from "./components/common/MenuLayout";
 import NoMenuLayout from "./components/common/NoMenuLayout";

@@ -4,17 +4,24 @@ using FlandersOpen.Domain.DomainEvents;
 
 namespace FlandersOpen.Domain.Entities
 {
-    public abstract class Entity
+    public abstract class Entity : IEntity
     {
         int? _requestedHashCode;
-        Guid _Id;
+        private Guid _id;
+        private DateTime _modificationDate;
 
         private List<INotification> _domainEvents;
 
         public virtual Guid Id
         {
-            get => _Id;
-            protected set => _Id = value;
+            get => _id;
+            protected set => _id = value;
+        }
+
+        public DateTime ModificationDate
+        {
+            get => _modificationDate;
+            protected set => _modificationDate = value;
         }
 
         public List<INotification> DomainEvents => _domainEvents;

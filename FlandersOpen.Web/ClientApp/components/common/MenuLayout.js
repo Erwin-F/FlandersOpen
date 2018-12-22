@@ -1,6 +1,7 @@
 import React from "react";
 import { PublicMenu } from "./PublicMenu";
 import { PrivateMenu } from "./PrivateMenu";
+import PropTypes from "prop-types";
 
 const MenuLayout = (props) => (
     <React.Fragment>
@@ -12,5 +13,9 @@ const MenuLayout = (props) => (
       </div>
     </React.Fragment>
 );
+
+MenuLayout.propTypes = {
+  children: PropTypes.object.isRequired
+};
 
 export default MenuLayout;

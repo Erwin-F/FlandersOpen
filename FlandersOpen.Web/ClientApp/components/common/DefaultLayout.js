@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import AppProvider from "./AppProvider";
 import { AppContext } from "./AppContext";
 import Loader from "./Loader";
+import PropTypes from "prop-types";
 
-export class DefaultLayout extends Component {
+class DefaultLayout extends Component {
   render() {
     return (
       <AppProvider>
@@ -20,3 +21,9 @@ export class DefaultLayout extends Component {
     );
   }
 }
+
+DefaultLayout.propTypes = {
+  children: PropTypes.object.isRequired
+};
+
+export default DefaultLayout;

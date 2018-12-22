@@ -34,6 +34,6 @@ class AppProvider extends React.Component {
 
 AppProvider.propTypes = {
     children: PropTypes.object.isRequired
-}
+};
 
 export default AppProvider;

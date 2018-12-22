@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const NoMenuLayout = (props) => (
     <React.Fragment>
@@ -7,5 +8,9 @@ const NoMenuLayout = (props) => (
         </div>
     </React.Fragment>
 );
+
+NoMenuLayout.propTypes = {
+    children: PropTypes.object.isRequired
+  };  
 
 export default NoMenuLayout;
