@@ -17,7 +17,7 @@ export class LoginPage extends AutoBindComponent {
         };
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.pageHelper = new LoginPageHelper(this);
         this.pageHelper.logout();
     }

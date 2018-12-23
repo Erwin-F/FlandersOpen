@@ -1,9 +1,10 @@
 # Flanders Open Rugby App
 
 **TODO List:**
-- Upgrade to Bootstrap 4
 - implement react authorization correctly
 - Implement toastr
+- implement Loader correctly
+- Implement loader outside menu
 - registering on register not working  (use increment ajax call..) + redirect to correct page
 - Error Handling => as in timesheet module
 - 404 page

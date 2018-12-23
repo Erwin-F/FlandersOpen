@@ -9,19 +9,38 @@ export class UsersPage extends AutoBindComponent {
         super(props, context);
 
         this.state = { 
-            users: [],
-            user: null
+            users: []
         };
     }
 
-    componentWillMount() {
-        // this.pageHelper = new UsersPageHelper(this);
-        // this.pageHelper.init();
+    componentDidMount() {
+        this.pageHelper = new UsersPageHelper(this);        
+        this.pageHelper.init();
+    }
+
+    handleOnDelete(userId) {
+        return function(e){
+            this.pageHelper.deleteUser(userId);
+        }
     }
 
     render() {
+        const { users } = this.state;
+        const user = JSON.parse(localStorage.getItem('user'));
+
         return (
-            <Loader />
+            <div className="col-md-6 col-md-offset-3">
+                <h1>Hi {user.firstname}!</h1>
+                <h3>All registered users:</h3>                
+                <ul>
+                    {users.map((u, index) =>
+                        <li key={u.id}>
+                            {u.firstname + ' ' + u.lastname}
+                            <span> - <a onClick={this.handleOnDelete(u.id)}>Delete</a></span>
+                        </li>
+                    )}
+                </ul>
+            </div>
             );
     }
 }
@@ -31,87 +50,3 @@ export default React.forwardRef((props, ref) => (
         {appContext => <UsersPage {...props} appContext={appContext} ref={ref} />}
     </AppContext.Consumer>
 ));
-
-/*
-class Button extends React.Component {
-  componentDidMount() {
-    alert(this.props.theme);
-  }
-
-  render() {
-    const { theme, children } = this.props;
-    return (
-      <button className={theme ? 'dark' : 'light'}>
-        {children}
-      </button>
-    );
-  }
-}
-
-export default React.forwardRef((props, ref) => (
-  <ThemeContext.Consumer>
-    {theme => <Button {...props} theme={theme} ref={ref} />}
-  </ThemeContext.Consumer>
-));
-*/ 
-
-
-/*
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
- 
-import { userActions } from '../_actions';
- 
-class HomePage extends React.Component {
-    componentDidMount() {
-        this.props.dispatch(userActions.getAll());
-    }
- 
-    handleDeleteUser(id) {
-        return (e) => this.props.dispatch(userActions.delete(id));
-    }
- 
-    render() {
-        const { user, users } = this.props;
-        return (
-            <div className="col-md-6 col-md-offset-3">
-                <h1>Hi {user.firstName}!</h1>
-                <p>You're logged in with React and ASP.NET Core 2.0!!</p>
-                <h3>All registered users:</h3>
-                {users.loading && <em>Loading users...</em>}
-                {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-                {users.items &&
-                    <ul>
-                        {users.items.map((user, index) =>
-                            <li key={user.id}>
-                                {user.firstName + ' ' + user.lastName}
-                                {
-                                    user.deleting ? <em> - Deleting...</em>
-                                    : user.deleteError ? <span className="text-danger"> - ERROR: {user.deleteError}</span>
-                                    : <span> - <a onClick={this.handleDeleteUser(user.id)}>Delete</a></span>
-                                }
-                            </li>
-                        )}
-                    </ul>
-                }
-                <p>
-                    <Link to="/login">Logout</Link>
-                </p>
-            </div>
-        );
-    }
-}
- 
-function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user } = authentication;
-    return {
-        user,
-        users
-    };
-}
- 
-const connectedHomePage = connect(mapStateToProps)(HomePage);
-export { connectedHomePage as HomePage };
-*/

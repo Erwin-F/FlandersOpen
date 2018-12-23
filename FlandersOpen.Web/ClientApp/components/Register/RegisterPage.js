@@ -20,7 +20,7 @@ export class RegisterPage extends AutoBindComponent {
         };
     }
 
-    componentWillMount(){
+    componentDidMount(){
         this.pageHelper = new RegisterPageHelper(this);        
     }
 

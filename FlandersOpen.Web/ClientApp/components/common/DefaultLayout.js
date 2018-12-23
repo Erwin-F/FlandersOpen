@@ -10,11 +10,7 @@ class DefaultLayout extends Component {
       <AppProvider>
         <div className="container-fluid">
           <div className="row">
-          <AppContext.Consumer>
-              {(context) => (context.ajaxCounter <= 0 ?
-              this.props.children : <Loader />
-              )}
-            </AppContext.Consumer>
+            {this.props.children}
           </div>
         </div>
       </AppProvider>
