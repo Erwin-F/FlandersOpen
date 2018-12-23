@@ -1,6 +1,6 @@
 # Flanders Open Rugby App
 
-##TODO List:##
+## TODO List: ##
 
 ### React ###
 - implement react authorization correctly
