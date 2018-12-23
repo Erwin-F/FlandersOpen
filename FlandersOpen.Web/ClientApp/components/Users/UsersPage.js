@@ -1,6 +1,6 @@
 import React from "react";
 import { AppContext } from "../common/AppContext";
-import AutoBindComponent from "../common/AutobindComponent"
+import AutoBindComponent from "../common/AutobindComponent";
 import UsersPageHelper from "./UsersPageHelper";
 import Loader from "../common/Loader";
 

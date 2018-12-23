@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 import * as RoutesModule from "./routes";
 let routes = RoutesModule.routes;
 
+import "../node_modules/toastr/build/toastr.min.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as icons from '@fortawesome/free-solid-svg-icons';

@@ -1,5 +1,6 @@
 import assign from "object-assign";
 import userApi from "../../api/userApi";
+import { showToastrError, showToastrSuccess, showToastrWarning } from "../../util/toastr";
 
 export default class UserPageHelper {
     constructor(context) {
@@ -16,6 +17,7 @@ export default class UserPageHelper {
                 const users = data.result;
 
                 if (users) {
+                    showToastrSuccess("users loaded");
                     this.context.setState({ users: users });
                 } else {
                     this.context.setState({ authenticationError: data.errorMessage }); //TODO Toastr Error
@@ -23,7 +25,7 @@ export default class UserPageHelper {
             })
             .catch((ex) => {
                 this.appContext.ajaxEnded();
-                this.context.setState({ authenticationError: "Username or Password wrong" }); //TODO Toastr Error
+                showToastrError(ex); 
             });
     }
 
@@ -37,6 +39,7 @@ export default class UserPageHelper {
             })
             .catch((ex) => {
                 this.appContext.ajaxEnded();
+                showToastrError(ex); 
             });
     }
 }
