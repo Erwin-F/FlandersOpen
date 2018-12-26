@@ -13,7 +13,13 @@
 
 ### .Net ###
 - upgrade to Net core 2.2
+- upgrade ef core
 - After Register, approval needed
 - Verify password on update
 - Implement Entity
 - Implement ValueObject on username & pasword
+
+### Pages ###
+- Pitches Grids
+- Teams
+- Referees

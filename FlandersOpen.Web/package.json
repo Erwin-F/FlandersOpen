@@ -52,6 +52,7 @@
     "bootstrap": "^4.2.1",
     "eslint": "^5.11.0",
     "popper.js": "^1.14.6",
+    "react-bootstrap-table-next": "^2.0.0",
     "react-spinkit": "^3.0.0",
     "toastr": "^2.1.4"
   }
