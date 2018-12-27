@@ -12,8 +12,6 @@
 - Remove UserService
 
 ### .Net ###
-- upgrade to Net core 2.2
-- upgrade ef core
 - After Register, approval needed
 - Verify password on update
 - Implement Entity
