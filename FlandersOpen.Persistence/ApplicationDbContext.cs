@@ -15,7 +15,7 @@ namespace FlandersOpen.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.HasDefaultSchema("fo"); RelationalModelBuilderExtensions
+            modelBuilder.HasDefaultSchema("fo");
             modelBuilder.Entity<User>(ConfigureUser);
         }
 
