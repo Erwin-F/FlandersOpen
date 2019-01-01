@@ -1,28 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using FlandersOpen.Domain.DomainEvents;
 
-namespace FlandersOpen.Domain.Entities
+namespace FlandersOpen.Domain.SeedWork
 {
     public abstract class Entity : IEntity
     {
         int? _requestedHashCode;
-        private Guid _id;
-        private DateTime _modificationDate;
 
         private List<INotification> _domainEvents;
 
-        public virtual Guid Id
-        {
-            get => _id;
-            protected set => _id = value;
-        }
-
-        public DateTime ModificationDate
-        {
-            get => _modificationDate;
-            protected set => _modificationDate = value;
-        }
+        public virtual Guid Id { get; protected set; }
+        public DateTime ModificationDate { get; protected set; }
 
         public List<INotification> DomainEvents => _domainEvents;
         public void AddDomainEvent(INotification eventItem)
@@ -44,16 +32,15 @@ namespace FlandersOpen.Domain.Entities
         {
             if (obj == null || !(obj is Entity))
                 return false;
-            if (ReferenceEquals(this, obj))
+            if (Object.ReferenceEquals(this, obj))
                 return true;
             if (this.GetType() != obj.GetType())
                 return false;
-            var item = (Entity)obj;
-
+            Entity item = (Entity)obj;
             if (item.IsTransient() || this.IsTransient())
                 return false;
-
-            return item.Id == this.Id;
+            else
+                return item.Id == this.Id;
         }
 
         public override int GetHashCode()
@@ -61,21 +48,21 @@ namespace FlandersOpen.Domain.Entities
             if (!IsTransient())
             {
                 if (!_requestedHashCode.HasValue)
-                    _requestedHashCode = Id.GetHashCode() ^ 31;
+                    _requestedHashCode = this.Id.GetHashCode() ^ 31;
                 // XOR for random distribution. See:
                 // https://blogs.msdn.microsoft.com/ericlippert/2011/02/28/guidelines-and-rules-for-gethashcode/
-
                 return _requestedHashCode.Value;
             }
-
-            return base.GetHashCode();
+            else
+                return base.GetHashCode();
         }
-
         public static bool operator ==(Entity left, Entity right)
         {
-            return left == null ? Equals(right, null) : left.Equals(right);
+            if (Object.Equals(left, null))
+                return (Object.Equals(right, null));
+            else
+                return left.Equals(right);
         }
-
         public static bool operator !=(Entity left, Entity right)
         {
             return !(left == right);

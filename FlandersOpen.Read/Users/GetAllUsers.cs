@@ -22,7 +22,7 @@ namespace FlandersOpen.Read.Users
 
         public IEnumerable<UserDto> Handle(GetAllUsers query)
         {
-            const string sql = @"SELECT Id, Username, Firstname, Lastname FROM fo.Users";
+            const string sql = @"SELECT Id, Username, Firstname, Lastname, Enabled FROM fo.Users";
 
             using (var connection = new SqlConnection(_connectionstrings.Default))
             {

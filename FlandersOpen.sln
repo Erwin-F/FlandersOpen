@@ -25,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{5EF5784A-117E-40A3-B06F-1B86356DA065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlandersOpen.Domain.Test", "FlandersOpen.Domain.Test\FlandersOpen.Domain.Test.csproj", "{3719910A-DF09-4BCF-81CE-9D5AAE996FDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlandersOpen.Domain.Test", "FlandersOpen.Domain.Test\FlandersOpen.Domain.Test.csproj", "{3719910A-DF09-4BCF-81CE-9D5AAE996FDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

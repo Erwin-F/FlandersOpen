@@ -9,5 +9,8 @@ export default class RegisterPageHelper {
 
     register(user) {
         userService.register(user);
+
+        const history = this.context.props.history;
+        history.push("/");
     }
 }

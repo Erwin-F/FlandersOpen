@@ -33,7 +33,7 @@ namespace FlandersOpen.Application.Services
 
             if (user == null) return null;
 
-            if (user.IsCorrectPassword(credentials.Password))
+            if (user.IsEnabledAndHasCorrectPassword(credentials.Password))
             {
                 return new AuthenticatedUserDto
                 {

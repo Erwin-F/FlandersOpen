@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FlandersOpen.Domain.Entities
+namespace FlandersOpen.Domain.SeedWork
 {
     public interface IEntity
     {

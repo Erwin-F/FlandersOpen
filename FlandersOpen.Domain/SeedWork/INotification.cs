@@ -1,4 +1,4 @@
-﻿namespace FlandersOpen.Domain.DomainEvents
+﻿namespace FlandersOpen.Domain.SeedWork
 {
     public interface INotification
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FlandersOpen.Domain.ValueObjects
+namespace FlandersOpen.Domain.SeedWork
 {
     public abstract class ValueObject
     {

@@ -17,6 +17,14 @@ namespace FlandersOpen.Persistence
         {
             modelBuilder.HasDefaultSchema("fo");
             modelBuilder.Entity<User>(ConfigureUser);
+            modelBuilder.Entity<Competition>(ConfigureCompetition);
+        }
+
+        private void ConfigureCompetition(EntityTypeBuilder<Competition> builder)
+        {
+            builder.Property(e => e.Name).IsRequired();
+            builder.OwnsOne(e => e.ShortName).Property(e => e.Value).HasColumnName("ShortName").IsRequired();
+            builder.OwnsOne(e => e.Color).Property(e => e.Value).HasColumnName("Color").IsRequired();
         }
 
         private static void ConfigureUser(EntityTypeBuilder<User> builder)

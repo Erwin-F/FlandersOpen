@@ -8,5 +8,6 @@ namespace FlandersOpen.Read.Dtos
         public string Username { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
+        public bool Enabled { get; set; }
     }
 }

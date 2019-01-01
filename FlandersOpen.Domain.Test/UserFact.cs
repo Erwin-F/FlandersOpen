@@ -26,7 +26,7 @@ namespace FlandersOpen.Domain.Test
         {
             var user = User.Register("test", "firstname", "lastname", "testpassword");
 
-            Assert.True(user.IsCorrectPassword("testpassword"));
+            Assert.True(user.IsEnabledAndHasCorrectPassword("testpassword"));
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace FlandersOpen.Domain.Test
         {
             var user = User.Register("test", "firstname", "lastname", "testpassword");
 
-            Assert.False(user.IsCorrectPassword("testpassword."));
+            Assert.False(user.IsEnabledAndHasCorrectPassword("testpassword."));
         }
 
         [Fact]
@@ -100,8 +100,8 @@ namespace FlandersOpen.Domain.Test
 
             user.Update("bla", "bla", "bla", "bla");
 
-            Assert.False(user.IsCorrectPassword("testpassword"));
-            Assert.True(user.IsCorrectPassword("bla"));            
+            Assert.False(user.IsEnabledAndHasCorrectPassword("testpassword"));
+            Assert.True(user.IsEnabledAndHasCorrectPassword("bla"));            
         }
     }
 }
