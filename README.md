@@ -3,6 +3,7 @@
 ## TODO List: ##
 
 ### React ###
+- update react security vulnarabilities
 - implement Loader correctly
 - Implement loader outside menu
 - register via userapi => toastr error or redirect
@@ -11,6 +12,7 @@
 - Remove UserService
 
 ### .Net ###
+- Test DB
 - Test Command validation
 - Implement ValueObject on username & pasword
 - Use FluentValidator on Commands

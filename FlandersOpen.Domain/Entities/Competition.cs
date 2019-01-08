@@ -24,8 +24,15 @@ namespace FlandersOpen.Domain.Entities
         public static Competition Create(string name, ShortName shortName, ColorString color)
         {
             return new Competition(name, shortName, color);
-
-            //TODO Create Table
         }
+        
+        public void Update(string name, ShortName shortName, ColorString color)
+        {
+            Name = name;
+            ShortName = shortName;
+            Color = color;
+            ModificationDate = DateTime.Now;
+        }
+        
     }
 }

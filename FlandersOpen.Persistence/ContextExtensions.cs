@@ -10,5 +10,10 @@ namespace FlandersOpen.Persistence
         {
             return users.Any(u => u.HasSameUsername(username));
         }
+
+        public static bool CompetitionAlreadyExists(this DbSet<Competition> competitions, string name)
+        {
+            return competitions.Any(c => c.Name == name);
+        }
     }
 }

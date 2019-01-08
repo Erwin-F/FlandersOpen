@@ -1,6 +1,7 @@
 ﻿using FlandersOpen.Application;
 using FlandersOpen.Application.Competitions;
 using FlandersOpen.Read;
+using FlandersOpen.Read.Competitions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,12 +30,12 @@ namespace FlandersOpen.Web.Controllers
             return FromResult(result);
         }
 
-        //[HttpGet]
-        //public IActionResult GetAll()
-        //{
-        //    var users = _queryService.Dispatch(new GetAllUsers());
-        //    return Ok(users);
-        //}
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var competitions = _queryService.Dispatch(new GetAllCompetitions());
+            return Ok(competitions);
+        }
 
         //[HttpGet("{id}")]
         //public IActionResult GetById(int id)
@@ -43,20 +44,19 @@ namespace FlandersOpen.Web.Controllers
         //    return Ok(user);
         //}
 
-        //[HttpPut("{id}")]
-        //public IActionResult Update(int id, [FromBody]UpdateUserCommand command)
-        //{
-        //    command.Id = id;
-        //    var result = _commandBus.Dispatch(command);
-        //    return FromResult(result);
-        //}
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody]UpdateCompetitionCommand command)
+        {
+            command.Id = id;
+            var result = _commandBus.Dispatch(command);
+            return FromResult(result);
+        }
 
-        //[HttpDelete("{id}")]
-        //public IActionResult Delete(int id)
-        //{
-        //    var result = _commandBus.Dispatch(new DeleteUserCommand { Id = id });
-        //    return FromResult(result);
-        //}
-
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var result = _commandBus.Dispatch(new DeleteCompetitionCommand { Id = id });
+            return FromResult(result);
+        }
     }
 }
