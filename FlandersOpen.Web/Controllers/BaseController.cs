@@ -1,4 +1,5 @@
-﻿using FlandersOpen.Infrastructure;
+﻿using System.Collections.Generic;
+using FlandersOpen.Infrastructure;
 using FlandersOpen.Web.Helpers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,10 +21,15 @@ namespace FlandersOpen.Web.Controllers
         {
             return BadRequest(Envelope.Error(errorMessage));
         }
-
+        
         protected IActionResult FromResult(Result result)
         {
             return result.IsSuccess ? Ok() : Error(result.Error);
+        }
+
+        protected IActionResult FromValidation(Dictionary<string, IList<string>> validationMessages)
+        {
+            return base.Ok(Envelope.Invalid(validationMessages));
         }
     }
 }

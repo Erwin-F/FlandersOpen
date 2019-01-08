@@ -37,6 +37,8 @@ namespace FlandersOpen.Web.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody]RegisterUserCommand command)
         {
+            if (!command.IsValid()) return FromValidation(command.ValidationMessages);
+            
             var result = _commandBus.Dispatch(command);
             return FromResult(result);
         }
@@ -58,6 +60,8 @@ namespace FlandersOpen.Web.Controllers
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody]UpdateUserCommand command)
         {
+            if (!command.IsValid()) return FromValidation(command.ValidationMessages);
+            
             command.Id = id;
             var result = _commandBus.Dispatch(command);
             return FromResult(result);

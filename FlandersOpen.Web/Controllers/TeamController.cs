@@ -20,7 +20,7 @@ namespace FlandersOpen.Web.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var teams = _queryService.Dispatch(new GetAllTeams());
+            var teams = _queryService.Dispatch(new GetAllTeams()); //TODO Query wrong
             return Ok(teams);
         }
     }

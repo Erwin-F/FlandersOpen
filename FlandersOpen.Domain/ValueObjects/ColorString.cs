@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using FlandersOpen.Domain.SeedWork;
+using FlandersOpen.Domain.Extensions;
 
 namespace FlandersOpen.Domain.ValueObjects
 {
@@ -14,7 +15,7 @@ namespace FlandersOpen.Domain.ValueObjects
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException("Cannot be empty", nameof(value));
 
-            if (value.Length < 6 || value.Length > 6 || !IsHexadecimal(value))
+            if (!value.InColorRange())
                 throw new ArgumentException("Needs to be between 000000 and FFFFFF", nameof(value));
 
             Value = value;
@@ -22,13 +23,13 @@ namespace FlandersOpen.Domain.ValueObjects
 
         public ColorString(int red, int green, int blue)
         {
-            if (!IsInColorRange(red))
+            if (!red.IsInColorRange())
                 throw new ArgumentException("Needs to be in range 0 - 255", nameof(red));
 
-            if (!IsInColorRange(green))
+            if (!green.IsInColorRange())
                 throw new ArgumentException("Needs to be in range 0 - 255", nameof(green));
 
-            if (!IsInColorRange(blue))
+            if (!blue.IsInColorRange())
                 throw new ArgumentException("Needs to be in range 0 - 255", nameof(blue));
 
             Value = $"{red:X2}{green:X2}{blue:X2}";
@@ -37,16 +38,6 @@ namespace FlandersOpen.Domain.ValueObjects
         protected override IEnumerable<object> GetEqualityComponents()
         {
             yield return Value;
-        }
-
-        private bool IsHexadecimal(string value)
-        {
-            return int.TryParse(value, NumberStyles.HexNumber, null, out _);
-        }
-
-        private bool IsInColorRange(int value)
-        {
-            return value >= 0 && value <= 255;
         }
     }
 }

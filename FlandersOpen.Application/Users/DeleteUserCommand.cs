@@ -3,7 +3,7 @@ using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Users
 {
-    public sealed class DeleteUserCommand : ICommand
+    public sealed class DeleteUserCommand : BaseCommand
     {
         public int Id { get; set; }
     }
