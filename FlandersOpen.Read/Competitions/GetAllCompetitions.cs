@@ -3,7 +3,6 @@ using System.Data.SqlClient;
 using Dapper;
 using FlandersOpen.Infrastructure;
 using FlandersOpen.Read.Dtos;
-using FlandersOpen.Read.Users;
 
 namespace FlandersOpen.Read.Competitions
 {
@@ -11,18 +10,18 @@ namespace FlandersOpen.Read.Competitions
     {
     }
 
-    internal sealed class GetAllUsersHandler : IQueryHandler<GetAllCompetitions, IEnumerable<CompetitionDto>>
+    internal sealed class GetAllCompetitionsHandler : IQueryHandler<GetAllCompetitions, IEnumerable<CompetitionDto>>
     {
         private readonly ConnectionStrings _connectionstrings;
 
-        public GetAllUsersHandler(ConnectionStrings connectionstrings)
+        public GetAllCompetitionsHandler(ConnectionStrings connectionstrings)
         {
             _connectionstrings = connectionstrings;
         }
 
         public IEnumerable<CompetitionDto> Handle(GetAllCompetitions query)
         {
-            const string sql = @"SELECT Id, Name, ShortName, Color FROM fo.Cometitions";
+            const string sql = @"SELECT Id, Name, ShortName, Color FROM fo.Competitions";
 
             using (var connection = new SqlConnection(_connectionstrings.Default))
             {

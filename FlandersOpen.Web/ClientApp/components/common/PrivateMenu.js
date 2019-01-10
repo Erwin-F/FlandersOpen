@@ -45,8 +45,8 @@ export class PrivateMenu extends Component {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to={"/fetchdata"} activeClassName="active">
-                  <FontAwesomeIcon icon="th-list" /> Fetch data
+                  <NavLink to={"/competitions"} activeClassName="active">
+                  <FontAwesomeIcon icon="th-list" /> Competitions
                   </NavLink>
                 </li>
                 <li>
