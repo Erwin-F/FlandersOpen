@@ -49,6 +49,7 @@ namespace FlandersOpen.Domain.SeedWork
             {
                 if (!_requestedHashCode.HasValue)
                     _requestedHashCode = this.Id.GetHashCode() ^ 31;
+         
                 // XOR for random distribution. See:
                 // https://blogs.msdn.microsoft.com/ericlippert/2011/02/28/guidelines-and-rules-for-gethashcode/
                 return _requestedHashCode.Value;

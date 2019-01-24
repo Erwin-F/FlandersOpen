@@ -6,7 +6,7 @@ using FlandersOpen.Domain.Extensions;
 
 namespace FlandersOpen.Domain.ValueObjects
 {
-    public class ColorString : ValueObject
+    public sealed class ColorString : ValueObject
     {
         public string Value { get; }
 

@@ -4,7 +4,7 @@ namespace FlandersOpen.Application.Validation
 {
     public static class StringValidations
     {
-        public static ValidationRule NotEmpty(this ValidationRule rule, string message = null)
+        public static ValidationRule NotEmpty(this ValidationRule<string> rule, string message = null)
         {
             rule.Message = message ?? ValidationMessages.IsRequired;            
             rule.IsValid = !string.IsNullOrWhiteSpace(rule.Value);
@@ -12,7 +12,7 @@ namespace FlandersOpen.Application.Validation
             return rule;
         }
 
-        public static ValidationRule MaxLength(this ValidationRule rule, int maximum, string message = null)
+        public static ValidationRule<string> MaxLength(this ValidationRule<string> rule, int maximum, string message = null)
         {
             rule.Message = message ?? string.Format(ValidationMessages.MaxLength, maximum);
             rule.IsValid = string.IsNullOrWhiteSpace(rule.Value) || rule.Value.Length > maximum;
@@ -20,7 +20,7 @@ namespace FlandersOpen.Application.Validation
             return rule;
         }  
         
-        public static ValidationRule IsColorString(this ValidationRule rule, string message = null)
+        public static ValidationRule<string> IsColorString(this ValidationRule<string> rule, string message = null)
         {
             rule.Message = message ?? ValidationMessages.IsColorString;
             rule.IsValid = rule.Value.InColorRange();
@@ -28,7 +28,7 @@ namespace FlandersOpen.Application.Validation
             return rule;
         }
         
-        public static ValidationRule SamePasswordValue(this ValidationRule rule, string toCompare, string message = null)
+        public static ValidationRule<string> SamePasswordValue(this ValidationRule<string> rule, string toCompare, string message = null)
         {
             rule.Message = message ?? ValidationMessages.SamePasswordValue;
             rule.IsValid = rule.Value.Equals(toCompare);

@@ -4,7 +4,7 @@ using FlandersOpen.Domain.SeedWork;
 
 namespace FlandersOpen.Domain.ValueObjects
 {
-    public class ShortName : ValueObject
+    public sealed class ShortName : ValueObject
     {
         public string Value { get; }
 

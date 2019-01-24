@@ -7,5 +7,6 @@ namespace FlandersOpen.Application.Validation
         public static readonly string IsColorString = "is not a valid color";
         public static readonly string SameValue = "has not the same value";
         public static readonly string SamePasswordValue = "Your password and confirmation password do not match";
+        public static readonly string GreaterThan = "needs to be greater than {0}";
     }
 }

@@ -15,10 +15,10 @@ namespace FlandersOpen.Application.Competitions
 
         public CreateCompetitionCommand()
         {
-            ValidationRules.Add(ValidationRule.For(() => Name).NotEmpty());
-            ValidationRules.Add(ValidationRule.For(() => ShortName).NotEmpty().MaxLength(5));
-            ValidationRules.Add(ValidationRule.For(() => Color).NotEmpty());      
-            ValidationRules.Add(ValidationRule.For(() => Color).IsColorString());
+            ValidationRules.Add(ValidationRule<string>.For(() => Name).NotEmpty());
+            ValidationRules.Add(ValidationRule<string>.For(() => ShortName).NotEmpty().MaxLength(5));
+            ValidationRules.Add(ValidationRule<string>.For(() => Color).NotEmpty());      
+            ValidationRules.Add(ValidationRule<string>.For(() => Color).IsColorString());
         }
     }
 
@@ -44,7 +44,7 @@ namespace FlandersOpen.Application.Competitions
             _context.Competitions.Add(competition);
             _context.SaveChanges();
             
-            return Result.Ok<Guid>(competition.Id);
+            return Result.Ok(competition.Id);
         }
     }
 }

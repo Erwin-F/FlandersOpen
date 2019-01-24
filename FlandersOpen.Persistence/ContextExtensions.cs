@@ -15,5 +15,10 @@ namespace FlandersOpen.Persistence
         {
             return competitions.Any(c => c.Name == name);
         }
+
+        public static bool PitchNumberAlreadyExists(this DbSet<Pitch> pitches, int nr)
+        {
+            return pitches.Any(p => p.Number == nr);
+        }
     }
 }
