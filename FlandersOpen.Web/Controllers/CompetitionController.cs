@@ -37,12 +37,12 @@ namespace FlandersOpen.Web.Controllers
             return Ok(competitions);
         }
 
-        //[HttpGet("{id}")]
-        //public IActionResult GetById(int id)
-        //{
-        //    var user = _queryService.Dispatch(new GetUserById { Id = id });
-        //    return Ok(user);
-        //}
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var user = _queryService.Dispatch(new GetCompetitionById { Id = id });
+            return Ok(user);
+        }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, [FromBody]UpdateCompetitionCommand command)

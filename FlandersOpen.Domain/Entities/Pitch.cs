@@ -25,7 +25,7 @@ namespace FlandersOpen.Domain.Entities
 
         public List<Timeslot> Timeslots { get; private set; }
 
-        public static Pitch Add(string name, int number, int orderNumber)
+        public static Pitch Create(string name, int number, int orderNumber)
         {
             return new Pitch(name, number, orderNumber);
         }
@@ -38,34 +38,53 @@ namespace FlandersOpen.Domain.Entities
             ModificationDate = DateTime.Now;
         }
 
-        public void AddTimeslot(Time time, int duration)
+        public void AddTimeslot(Time startTime, int duration)
         {
-            if (Timeslots.Any(t => t.InConflict(time)))
-                throw new ArgumentException($"Time {time.Value} in conflict with existing timeslot");
+            if (Timeslots.Any(t => t.InConflict(startTime)))
+                throw new ArgumentException($"Time {startTime.Value} in conflict with existing timeslot");
 
-            var slot = new Timeslot(Id, time, duration);
+            var slot = Timeslot.Create(Id, startTime, duration);
             Timeslots.Add(slot);
+        }
+
+        public void AddContinuousTimeslots(Time startTime, Time endTime, int eventDurationInMinutes)
+        {
+            while (true)
+            {
+                var slot = GetNextFreeTimeslot(startTime, eventDurationInMinutes);
+                if (slot == null) return;
+                if (slot.EndTime > endTime) return;
+
+                Timeslots.Add(slot);
+            }
+        }
+
+        public Timeslot GetNextFreeTimeslot(Time starttime, int duration)
+        {
+            var realStarttime = starttime;
+
+            while (Timeslots.Any(t => t.InConflict(realStarttime)))
+            {
+                if (realStarttime.IsEndOfDay()) return null;
+
+                realStarttime = realStarttime.AddMinutes(1);
+            }
+
+            return realStarttime.IsTimeAvailableInDay(duration) ? Timeslot.Create(Id, realStarttime, duration) : null;
         }
 
         //public void ModifyTimeslotDuration(Time time, int duration)
         //{
         //    var slot = Timeslots.FirstOrDefault(t => t.StartTime == time);
-
         //    if (slot == null)
         //        throw new ArgumentException($"No timeslot found at given time {time.Value}");
-
-            
         //}
 
         //public void AddEvent(Time time, Event @event)
         //{
         //    var slot = Timeslots.FirstOrDefault(t => t.StartTime == time);
-
         //    if (slot == null)
         //        throw new ArgumentException($"No timeslot found at given time {time.Value}");
-
-
-            
         //}
     }
 }

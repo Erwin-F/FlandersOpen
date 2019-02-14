@@ -17,6 +17,7 @@ namespace FlandersOpen.Read
             services.AddTransient<IQueryHandler<GetAllUsers, IEnumerable<UserDto>>, GetAllUsersHandler>();
             services.AddTransient<IQueryHandler<GetAllTeams, IEnumerable<TeamDto>>, GetAllTeamsHandler>();
             services.AddTransient<IQueryHandler<GetAllCompetitions, IEnumerable<CompetitionDto>>, GetAllCompetitionsHandler>();
+            services.AddTransient<IQueryHandler<GetCompetitionById, CompetitionDto>, GetCompetitionByIdHandler>();
         }
     }
 }

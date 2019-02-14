@@ -14,18 +14,21 @@ namespace FlandersOpen.Domain.Entities
 
         public Event Event { get; private set; }
 
-        internal Timeslot (Guid pitchId, Time time, int durationInMinutes)
-        {
-            PitchId = pitchId;
-            StartTime = time;
-            EndTime = StartTime.AddMinutes(durationInMinutes);
-        }
-
-        internal Timeslot (Guid pitchId, Time startTime, Time endTime)
+        private Timeslot (Guid pitchId, Time startTime, Time endTime)
         {
             PitchId = pitchId;
             StartTime = startTime;
             EndTime = endTime;
+        }
+
+        internal static Timeslot Create(Guid pitchId, Time startTime, Time endTime)
+        {
+            return new Timeslot(pitchId, startTime, endTime);
+        }
+
+        internal static Timeslot Create(Guid pitchId, Time startTime, int durationInMinutes)
+        {
+            return new Timeslot(pitchId, startTime, startTime.AddMinutes(durationInMinutes));
         }
 
         internal bool InConflict(Time time)

@@ -3,7 +3,7 @@ using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Competitions
 {
-    public class DeleteCompetitionCommand: BaseCommand
+    public sealed class DeleteCompetitionCommand: BaseCommand
     {
         public int Id { get; set; }
     }

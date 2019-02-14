@@ -7,7 +7,7 @@ using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Competitions
 {
-    public class UpdateCompetitionCommand  : BaseCommand
+    public sealed class UpdateCompetitionCommand  : BaseCommand
     {        
         public int Id { get; set; }
         public string Name { get; set; }

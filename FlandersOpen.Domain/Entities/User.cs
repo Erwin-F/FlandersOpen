@@ -24,7 +24,7 @@ namespace FlandersOpen.Domain.Entities
         public string Username { get; private set; }
         public byte[] PasswordHash { get; private set; }
         public byte[] PasswordSalt { get; private set; }
-        public bool Enabled { get; set; }
+        public bool Enabled { get; private set; }
 
         public static User Register(string username, string firstname, string lastname, string password)
         {
@@ -51,16 +51,9 @@ namespace FlandersOpen.Domain.Entities
             ModificationDate = DateTime.Now;
         }
 
-        private void SetPassword(string password)
+        public void Enable()
         {
-            if (string.IsNullOrWhiteSpace(password)) return;
-
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                PasswordSalt = hmac.Key;
-                PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            }
-
+            Enabled = true;
         }
 
         public bool IsEnabledAndHasCorrectPassword(string password)
@@ -81,6 +74,18 @@ namespace FlandersOpen.Domain.Entities
             }
 
             return true;
+        }
+
+        private void SetPassword(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password)) return;
+
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                PasswordSalt = hmac.Key;
+                PasswordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            }
+
         }
     }
 }

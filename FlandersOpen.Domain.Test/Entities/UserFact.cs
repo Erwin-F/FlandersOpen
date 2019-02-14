@@ -1,8 +1,7 @@
 using System;
-using FlandersOpen.Domain.Entities;
 using Xunit;
 
-namespace FlandersOpen.Domain.Test
+namespace FlandersOpen.Domain.Entities.Test
 {
     public class UserFact
     {
@@ -25,7 +24,8 @@ namespace FlandersOpen.Domain.Test
         public void VerifyPasswordReturnsTrue()
         {
             var user = User.Register("test", "firstname", "lastname", "testpassword");
-
+            user.Enable();
+            
             Assert.True(user.IsEnabledAndHasCorrectPassword("testpassword"));
         }
 
@@ -99,6 +99,7 @@ namespace FlandersOpen.Domain.Test
             var user = User.Register("test", "firstname", "lastname", "testpassword");
 
             user.Update("bla", "bla", "bla", "bla");
+            user.Enable();
 
             Assert.False(user.IsEnabledAndHasCorrectPassword("testpassword"));
             Assert.True(user.IsEnabledAndHasCorrectPassword("bla"));            
