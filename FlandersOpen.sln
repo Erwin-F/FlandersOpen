@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28606.126
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlandersOpen.Web", "FlandersOpen.Web\FlandersOpen.Web.csproj", "{A110CE11-9465-446D-8F25-06BF96436138}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{5EF5784A-117E-40A3-B06F-1B86356DA065}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlandersOpen.Domain.Test", "FlandersOpen.Domain.Test\FlandersOpen.Domain.Test.csproj", "{3719910A-DF09-4BCF-81CE-9D5AAE996FDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlandersOpen.Application.Test", "FlandersOpen.Application.Test\FlandersOpen.Application.Test.csproj", "{77488B15-7762-458E-9822-9E516E643E7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +123,18 @@ Global
 		{3719910A-DF09-4BCF-81CE-9D5AAE996FDB}.Release|x64.Build.0 = Release|Any CPU
 		{3719910A-DF09-4BCF-81CE-9D5AAE996FDB}.Release|x86.ActiveCfg = Release|Any CPU
 		{3719910A-DF09-4BCF-81CE-9D5AAE996FDB}.Release|x86.Build.0 = Release|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Debug|x64.Build.0 = Debug|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Debug|x86.Build.0 = Debug|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Release|x64.ActiveCfg = Release|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Release|x64.Build.0 = Release|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Release|x86.ActiveCfg = Release|Any CPU
+		{77488B15-7762-458E-9822-9E516E643E7B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +147,7 @@ Global
 		{1C85596E-0F49-4624-9DFF-BB548F5A4923} = {F14AD52F-7B88-4398-B1E0-7CC88F5E8CBA}
 		{5A4521D3-9D0D-4BF2-A6AF-616FA1815137} = {8C91476F-ED01-480A-8EB7-C584B26D227E}
 		{3719910A-DF09-4BCF-81CE-9D5AAE996FDB} = {F463F9C3-6F69-45F7-8513-4997705FC40F}
+		{77488B15-7762-458E-9822-9E516E643E7B} = {F14AD52F-7B88-4398-B1E0-7CC88F5E8CBA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0134346D-F0E6-46ED-8425-66F1CC2412AC}

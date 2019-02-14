@@ -17,6 +17,7 @@ namespace FlandersOpen.Domain.Entities
             Number = number;
             OrderNumber = orderNumber;
             ModificationDate = DateTime.Now;
+            Timeslots = new List<Timeslot>();
         }
 
         public string Name { get; private set; }

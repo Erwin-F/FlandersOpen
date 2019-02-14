@@ -4,7 +4,7 @@ namespace FlandersOpen.Application.Validation
 {
     public static class StringValidations
     {
-        public static ValidationRule NotEmpty(this ValidationRule<string> rule, string message = null)
+        public static ValidationRule<string> NotEmpty(this ValidationRule<string> rule, string message = null)
         {
             rule.Message = message ?? ValidationMessages.IsRequired;            
             rule.IsValid = !string.IsNullOrWhiteSpace(rule.Value);
