@@ -15,10 +15,10 @@ namespace FlandersOpen.Application.Competitions
 
         public CreateCompetitionCommand()
         {
-            ValidationRules.Add(ValidationRule<string>.For(() => Name).NotEmpty());
-            ValidationRules.Add(ValidationRule<string>.For(() => ShortName).NotEmpty().MaxLength(5));
-            ValidationRules.Add(ValidationRule<string>.For(() => Color).NotEmpty());      
-            ValidationRules.Add(ValidationRule<string>.For(() => Color).IsColorString());
+            ValidationRules.Add(ValidationRule.For(() => Name).NotEmpty());
+            ValidationRules.Add(ValidationRule.For(() => ShortName).NotEmpty().MaxLength(5));
+            ValidationRules.Add(ValidationRule.For(() => Color).NotEmpty());      
+            ValidationRules.Add(ValidationRule.For(() => Color).IsColorString());
         }
     }
 

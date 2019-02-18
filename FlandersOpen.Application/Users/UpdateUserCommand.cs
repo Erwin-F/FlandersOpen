@@ -15,11 +15,11 @@ namespace FlandersOpen.Application.Users
 
         public UpdateUserCommand()
         {
-            ValidationRules.Add(ValidationRule<string>.For(() => FirstName).NotEmpty());
-            ValidationRules.Add(ValidationRule<string>.For(() => LastName).NotEmpty());
-            ValidationRules.Add(ValidationRule<string>.For(() => Username).NotEmpty());
-            ValidationRules.Add(ValidationRule<string>.For(() => Password).NotEmpty());
-            ValidationRules.Add(ValidationRule<string>.For(() => VerifiedPassword).NotEmpty().SamePasswordValue(Password));            
+            ValidationRules.Add(ValidationRule.For(() => FirstName).NotEmpty());
+            ValidationRules.Add(ValidationRule.For(() => LastName).NotEmpty());
+            ValidationRules.Add(ValidationRule.For(() => Username).NotEmpty());
+            ValidationRules.Add(ValidationRule.For(() => Password).NotEmpty());
+            ValidationRules.Add(ValidationRule.For(() => VerifiedPassword).NotEmpty().SamePasswordValue(Password));            
         }
     }
 

@@ -14,8 +14,8 @@ namespace FlandersOpen.Application.Pitches
 
         public UpdatePitchCommand()
         {
-            ValidationRules.Add(ValidationRule<string>.For(() => Name).NotEmpty());
-            ValidationRules.Add(ValidationRule<int>.For(() => Number).GreaterThan(0));
+            ValidationRules.Add(ValidationRule.For(() => Name).NotEmpty());
+            ValidationRules.Add(ValidationRule.For(() => Number).GreaterThan(0));
         }
     }
 

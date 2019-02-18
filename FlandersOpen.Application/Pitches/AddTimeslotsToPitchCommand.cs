@@ -18,8 +18,8 @@ namespace FlandersOpen.Application.Pitches
 
         public AddTimeslotsToPitchCommand()
         {
-            ValidationRules.Add(ValidationRule<int>.For(() => PitchNumber).GreaterThan(0));
-            ValidationRules.Add(ValidationRule<int>.For(() => EventDurationInMinutes).GreaterThan(0));
+            ValidationRules.Add(ValidationRule.For(() => PitchNumber).GreaterThan(0));
+            ValidationRules.Add(ValidationRule.For(() => EventDurationInMinutes).GreaterThan(0));
         }
     }
 
