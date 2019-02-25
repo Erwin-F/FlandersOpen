@@ -19,12 +19,12 @@ export default class CompetitionsPageHelper {
                 if (competitions) {
                     this.context.setState({ competitions: competitions });
                 } else {
-                    showToastrError(data.errorMessage); 
+                    showToastrError(data.errorMessage);
                 }
             })
             .catch((ex) => {
                 this.appContext.ajaxEnded();
-                showToastrError(ex); 
+                showToastrError(ex);
             });
     }
 
@@ -38,7 +38,7 @@ export default class CompetitionsPageHelper {
             })
             .catch((ex) => {
                 this.appContext.ajaxEnded();
-                showToastrError(ex); 
+                showToastrError(ex);
             });
     }
 }

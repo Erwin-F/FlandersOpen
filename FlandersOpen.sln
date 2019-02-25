@@ -27,7 +27,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlandersOpen.Domain.Test", "FlandersOpen.Domain.Test\FlandersOpen.Domain.Test.csproj", "{3719910A-DF09-4BCF-81CE-9D5AAE996FDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlandersOpen.Application.Test", "FlandersOpen.Application.Test\FlandersOpen.Application.Test.csproj", "{77488B15-7762-458E-9822-9E516E643E7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlandersOpen.Application.Test", "FlandersOpen.Application.Test\FlandersOpen.Application.Test.csproj", "{77488B15-7762-458E-9822-9E516E643E7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlandersOpen.Persistence.Test", "FlandersOpen.Persistence.Test\FlandersOpen.Persistence.Test.csproj", "{FA224D11-7C48-4248-86A8-2616665B7507}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,6 +137,18 @@ Global
 		{77488B15-7762-458E-9822-9E516E643E7B}.Release|x64.Build.0 = Release|Any CPU
 		{77488B15-7762-458E-9822-9E516E643E7B}.Release|x86.ActiveCfg = Release|Any CPU
 		{77488B15-7762-458E-9822-9E516E643E7B}.Release|x86.Build.0 = Release|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Debug|x64.Build.0 = Debug|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Debug|x86.Build.0 = Debug|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Release|x64.ActiveCfg = Release|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Release|x64.Build.0 = Release|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Release|x86.ActiveCfg = Release|Any CPU
+		{FA224D11-7C48-4248-86A8-2616665B7507}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -148,6 +162,7 @@ Global
 		{5A4521D3-9D0D-4BF2-A6AF-616FA1815137} = {8C91476F-ED01-480A-8EB7-C584B26D227E}
 		{3719910A-DF09-4BCF-81CE-9D5AAE996FDB} = {F463F9C3-6F69-45F7-8513-4997705FC40F}
 		{77488B15-7762-458E-9822-9E516E643E7B} = {F14AD52F-7B88-4398-B1E0-7CC88F5E8CBA}
+		{FA224D11-7C48-4248-86A8-2616665B7507} = {8C91476F-ED01-480A-8EB7-C584B26D227E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0134346D-F0E6-46ED-8425-66F1CC2412AC}

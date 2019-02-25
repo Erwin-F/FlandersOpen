@@ -2,8 +2,9 @@
 using FlandersOpen.Application.Validation;
 using FlandersOpen.Domain.Entities;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 using FlandersOpen.Domain.ValueObjects;
+using FlandersOpen.Application.Repositories;
+using System.Threading.Tasks;
 
 namespace FlandersOpen.Application.Competitions
 {
@@ -24,25 +25,24 @@ namespace FlandersOpen.Application.Competitions
 
     internal sealed class CreateCompetitionCommandHandler : ICommandHandler<CreateCompetitionCommand>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICompetitionRepository _repository;
 
-        public CreateCompetitionCommandHandler(ApplicationDbContext context)
+        public CreateCompetitionCommandHandler(ICompetitionRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
         
         public Result Handle(CreateCompetitionCommand command)
         {
             if (!command.IsValid()) return Result.Fail("Invalid command"); 
             
-            if (_context.Competitions.CompetitionAlreadyExists(command.Name))
+            if (_repository.AlreadyExists(command.Name))
             {
                 return Result.Fail($"Competition {command.Name} is already taken");
             }            
 
-            var competition = Competition.Create(command.Name, new ShortName(command.ShortName), new ColorString(command.Color));
-            _context.Competitions.Add(competition);
-            _context.SaveChanges();
+            var competition = Competition.Build(command.Name, new ShortName(command.ShortName), new ColorString(command.Color));
+            _repository.Add(competition);
             
             return Result.Ok(competition.Id);
         }

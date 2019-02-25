@@ -41,7 +41,7 @@ namespace FlandersOpen.Web
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString.Default));
             services.AddSingleton(connectionString);
 
-
+            BindRepositories.Execute(services);
             BindServices.Execute(services);
             BindCommands.Execute(services);
             BindQueries.Execute(services);

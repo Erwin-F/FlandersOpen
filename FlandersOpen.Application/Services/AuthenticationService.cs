@@ -1,10 +1,9 @@
 ﻿using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
+using FlandersOpen.Application.Repositories;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
@@ -18,18 +17,18 @@ namespace FlandersOpen.Application.Services
 
     internal sealed class AuthenticationService : IAuthenticationService
     {
-        private readonly ApplicationDbContext _context;
         private readonly AppSettings _appSettings;
+        private readonly IUserRepository _repository;
 
-        public AuthenticationService(ApplicationDbContext context, IOptions<AppSettings> appSettings)
+        public AuthenticationService(IUserRepository repository, IOptions<AppSettings> appSettings)
         {
-            _context = context;
             _appSettings = appSettings.Value;
+            _repository = repository;
         }
 
         public AuthenticatedUserDto GetToken(UserCredentials credentials)
         {
-            var user = _context.Users.SingleOrDefault(u => u.Username == credentials.Username);
+            var user = _repository.GetByUsername(credentials.Username);
 
             if (user == null) return null;
 

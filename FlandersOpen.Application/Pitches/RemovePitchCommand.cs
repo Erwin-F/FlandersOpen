@@ -1,6 +1,6 @@
 ﻿using System.Linq;
+using FlandersOpen.Application.Repositories;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Pitches
 {
@@ -11,20 +11,19 @@ namespace FlandersOpen.Application.Pitches
 
     internal sealed class RemovePitchCommandHandler : ICommandHandler<RemovePitchCommand>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IPitchRepository _repository;
 
-        public RemovePitchCommandHandler(ApplicationDbContext context)
+        public RemovePitchCommandHandler(IPitchRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public Result Handle(RemovePitchCommand command)
         {
-            var pitch = _context.Pitches.FirstOrDefault(p => p.Number == command.Number);
+            var pitch = _repository.GetByNumberWithItems(command.Number);
             if (pitch == null) return Result.Fail($"No pitch found for number {command.Number}");
 
-            _context.Pitches.Remove(pitch);
-            _context.SaveChanges();
+            _repository.Delete(pitch);
 
             return Result.Ok();
         }

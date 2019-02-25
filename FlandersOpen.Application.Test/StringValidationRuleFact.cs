@@ -14,7 +14,7 @@ namespace FlandersOpen.Application.Test
         {
             TestString = "test";
 
-            var rule = ValidationRule<string>.For(() => TestString).NotEmpty();
+            var rule = ValidationRule.For(() => TestString).NotEmpty();
 
             Assert.True(rule.IsValid);
         }
@@ -24,7 +24,7 @@ namespace FlandersOpen.Application.Test
         {
             TestString = null;
 
-            var rule = ValidationRule<string>.For(() => TestString).NotEmpty();
+            var rule = ValidationRule.For(() => TestString).NotEmpty();
 
             Assert.False(rule.IsValid);
         }

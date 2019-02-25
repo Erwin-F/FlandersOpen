@@ -1,14 +1,14 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 using Dapper;
 using FlandersOpen.Infrastructure;
 using FlandersOpen.Read.Dtos;
-using Microsoft.Extensions.Options;
 
 namespace FlandersOpen.Read.Users
 {
     public sealed class GetUserById : IQuery<UserDto>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 
     internal sealed class GetUserByIdHandler : IQueryHandler<GetUserById, UserDto>

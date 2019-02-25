@@ -1,12 +1,13 @@
-﻿using FlandersOpen.Application.Validation;
+﻿using System;
+using FlandersOpen.Application.Repositories;
+using FlandersOpen.Application.Validation;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Users
 {
     public sealed class UpdateUserCommand : BaseCommand
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get; set; }
@@ -25,30 +26,29 @@ namespace FlandersOpen.Application.Users
 
     internal sealed class UpdateUserCommandHandler : ICommandHandler<UpdateUserCommand>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IUserRepository _repository;
 
-        public UpdateUserCommandHandler(ApplicationDbContext context)
+        public UpdateUserCommandHandler(IUserRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public Result Handle(UpdateUserCommand command)
         {
             if (!command.IsValid()) return Result.Fail("Invalid command");
             
-            var user = _context.Users.Find(command.Id);
+            var user = _repository.GetById(command.Id);
 
             if (user == null) return Result.Fail($"No user found for Id {command.Id}");
 
-            if (user.HasDifferentUsername(command.Username) && _context.Users.UsernameAlreadyExists(command.Username))
+            if (user.HasDifferentUsername(command.Username) && _repository.UsernameAlreadyExists(command.Username))
             {
                 return Result.Fail($"Username {command.Username} is already taken");
             }
 
             user.Update(command.Username, command.FirstName, command.LastName, command.Password);
 
-            _context.Users.Update(user);
-            _context.SaveChanges();
+            _repository.Update(user);
 
             return Result.Ok();
         }

@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FlandersOpen.Infrastructure\FlandersOpen.Infrastructure.csproj" />
-    <ProjectReference Include="..\FlandersOpen.Persistence\FlandersOpen.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>

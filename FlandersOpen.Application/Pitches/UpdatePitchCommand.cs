@@ -1,7 +1,7 @@
 ﻿using System;
+using FlandersOpen.Application.Repositories;
 using FlandersOpen.Application.Validation;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Pitches
 {
@@ -21,27 +21,26 @@ namespace FlandersOpen.Application.Pitches
 
     internal sealed class UpdatePitchCommandHandler : ICommandHandler<UpdatePitchCommand>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IPitchRepository _repository;
 
-        public UpdatePitchCommandHandler(ApplicationDbContext context)
+        public UpdatePitchCommandHandler(IPitchRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public Result Handle(UpdatePitchCommand command)
         {
             if (!command.IsValid()) return Result.Fail("Invalid command");
-
-            var pitch = _context.Pitches.Find(command.Id);
+           
+            var pitch = _repository.GetById(command.Id);
             if (pitch == null) return Result.Fail($"No pitch found for number {command.Number}");
 
-            if (pitch.Number != command.Number && _context.Pitches.PitchNumberAlreadyExists(command.Number))
+            if (pitch.Number != command.Number && _repository.NumberAlreadyExists(command.Number))
             {
                 return Result.Fail($"Pitch number {command.Number} already exists");
             }
 
             pitch.Update(command.Name, pitch.Number, pitch.OrderNumber);
-            _context.SaveChanges();
 
             return Result.Ok(pitch.Id);
         }

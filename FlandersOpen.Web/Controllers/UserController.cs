@@ -1,4 +1,5 @@
-﻿using FlandersOpen.Application;
+﻿using System;
+using FlandersOpen.Application;
 using FlandersOpen.Application.Services;
 using FlandersOpen.Application.Users;
 using FlandersOpen.Read;
@@ -51,14 +52,14 @@ namespace FlandersOpen.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetById(Guid id)
         {
             var user = _queryService.Dispatch(new GetUserById { Id = id });
             return Ok(user);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody]UpdateUserCommand command)
+        public IActionResult Update(Guid id, [FromBody]UpdateUserCommand command)
         {
             if (!command.IsValid()) return FromValidation(command.ValidationMessages);
             
@@ -68,7 +69,7 @@ namespace FlandersOpen.Web.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Guid id)
         {
             var result = _commandBus.Dispatch(new DeleteUserCommand{ Id = id });
             return FromResult(result);

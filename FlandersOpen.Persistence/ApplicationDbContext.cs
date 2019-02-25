@@ -14,6 +14,8 @@ namespace FlandersOpen.Persistence
         public DbSet<User> Users { get; set; }
         public DbSet<Competition> Competitions { get; set; }
         public DbSet<Pitch> Pitches { get; set; }
+        public DbSet<Timeslot> Timeslots { get; set; }
+        public DbSet<Event> Events { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,13 +24,28 @@ namespace FlandersOpen.Persistence
             modelBuilder.Entity<User>(ConfigureUser);
             modelBuilder.Entity<Competition>(ConfigureCompetition);
             modelBuilder.Entity<Pitch>(ConfigurePitches);
+            modelBuilder.Entity<Timeslot>(ConfigureTimeslots);
+            modelBuilder.Entity<Event>(ConfigureEvents);
+        }
+
+        private void ConfigureEvents(EntityTypeBuilder<Event> builder)
+        {            
+            builder.OwnsOne(e => e.Color).Property(e => e.Value).HasColumnName("Color");
+        }
+
+        private void ConfigureTimeslots(EntityTypeBuilder<Timeslot> builder)
+        {
+            builder.Property(e => e.PitchId).IsRequired();
+            builder.OwnsOne(e => e.StartTime).Property(e => e.Value).HasColumnName("StartTime").IsRequired();
+            builder.OwnsOne(e => e.EndTime).Property(e => e.Value).HasColumnName("EndTime").IsRequired();
         }
 
         private void ConfigurePitches(EntityTypeBuilder<Pitch> builder)
         {
             builder.Property(e => e.Name).IsRequired();
             builder.Property(e => e.Number).IsRequired();
-            builder.HasMany<Timeslot>();
+            builder.Property(e => e.OrderNumber).IsRequired();
+            builder.HasMany<Timeslot>().WithOne(e => e.Pitch).HasForeignKey(e => e.PitchId);
         }
 
         private void ConfigureCompetition(EntityTypeBuilder<Competition> builder)

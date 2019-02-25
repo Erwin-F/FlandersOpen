@@ -1,4 +1,5 @@
-﻿using FlandersOpen.Application;
+﻿using System;
+using FlandersOpen.Application;
 using FlandersOpen.Application.Competitions;
 using FlandersOpen.Read;
 using FlandersOpen.Read.Competitions;
@@ -38,14 +39,14 @@ namespace FlandersOpen.Web.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetById(Guid id)
         {
             var user = _queryService.Dispatch(new GetCompetitionById { Id = id });
             return Ok(user);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody]UpdateCompetitionCommand command)
+        public IActionResult Update(Guid id, [FromBody]UpdateCompetitionCommand command)
         {
             command.Id = id;
             var result = _commandBus.Dispatch(command);
@@ -53,7 +54,7 @@ namespace FlandersOpen.Web.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(Guid id)
         {
             var result = _commandBus.Dispatch(new DeleteCompetitionCommand { Id = id });
             return FromResult(result);

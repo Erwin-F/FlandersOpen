@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using FlandersOpen.Application.Repositories;
 using FlandersOpen.Application.Validation;
 using FlandersOpen.Domain.ValueObjects;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Pitches
 {
@@ -25,21 +21,21 @@ namespace FlandersOpen.Application.Pitches
 
     internal sealed class AddTimeslotsToPitchCommandHandler : ICommandHandler<AddTimeslotsToPitchCommand>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IPitchRepository _repository;
 
-        public AddTimeslotsToPitchCommandHandler(ApplicationDbContext context)
+        public AddTimeslotsToPitchCommandHandler(IPitchRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public Result Handle(AddTimeslotsToPitchCommand command)
         {
-            var pitch = _context.Pitches.FirstOrDefault(p => p.Number == command.PitchNumber);
+            var pitch = _repository.GetByNumberWithItems(command.PitchNumber);
             if (pitch == null) return Result.Fail($"No pitch found for number {command.PitchNumber}");
 
             pitch.AddContinuousTimeslots(command.StartTime, command.EndTime, command.EventDurationInMinutes);
-
-            _context.SaveChanges();
+            _repository.Update(pitch);
+            
             return Result.Ok();
         }
     }

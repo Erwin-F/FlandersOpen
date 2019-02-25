@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\FlandersOpen.Application\FlandersOpen.Application.csproj" />
     <ProjectReference Include="..\FlandersOpen.Infrastructure\FlandersOpen.Infrastructure.csproj" />
+    <ProjectReference Include="..\FlandersOpen.Persistence\FlandersOpen.Persistence.csproj" />
     <ProjectReference Include="..\FlandersOpen.Read\FlandersOpen.Read.csproj" />
   </ItemGroup>
 

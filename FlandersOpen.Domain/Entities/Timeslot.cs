@@ -12,6 +12,8 @@ namespace FlandersOpen.Domain.Entities
         public Time StartTime { get; private set; }
         public Time EndTime { get; private set; }
 
+        public Pitch Pitch { get; private set; }
+
         public Event Event { get; private set; }
 
         private Timeslot (Guid pitchId, Time startTime, Time endTime)
@@ -21,12 +23,12 @@ namespace FlandersOpen.Domain.Entities
             EndTime = endTime;
         }
 
-        internal static Timeslot Create(Guid pitchId, Time startTime, Time endTime)
+        internal static Timeslot Build(Guid pitchId, Time startTime, Time endTime)
         {
             return new Timeslot(pitchId, startTime, endTime);
         }
 
-        internal static Timeslot Create(Guid pitchId, Time startTime, int durationInMinutes)
+        internal static Timeslot Build(Guid pitchId, Time startTime, int durationInMinutes)
         {
             return new Timeslot(pitchId, startTime, startTime.AddMinutes(durationInMinutes));
         }

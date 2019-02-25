@@ -21,25 +21,25 @@ export class CompetitionsPage extends AutoBindComponent {
     }
 
     handleOnDelete(userId) {
-        return function(e){
+        return function (e) {
             this.pageHelper.deleteUser(userId);
-        }
+        };
     }
 
     render() {
         const { competitions: competitions } = this.state;
 
         const columns = [
-            { dataField: 'id', text: 'Id' }, 
-            { dataField: 'name', text: 'Name' }, 
+            { dataField: 'id', text: 'Id' },
+            { dataField: 'name', text: 'Name' },
             { dataField: 'shortName', text: 'Short name' },
-            { dataField: 'color', text: 'Color' }            
+            { dataField: 'color', text: 'Color' }
         ];
 
         return (
             <div className="col-md-6 col-md-offset-3">
                 <h1>Competitions</h1>
-                <BootstrapTable keyField="id" bootstrap4 striped data={ competitions } columns={ columns } />
+                <BootstrapTable keyField="id" bootstrap4 striped data={competitions} columns={columns} />
             </div>
         );
     }

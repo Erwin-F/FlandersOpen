@@ -10,7 +10,7 @@ namespace FlandersOpen.Read.Competitions
 {
     public class GetCompetitionById : IQuery<CompetitionDto>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 
     internal sealed class GetCompetitionByIdHandler : IQueryHandler<GetCompetitionById, CompetitionDto>

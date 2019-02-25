@@ -26,7 +26,7 @@ namespace FlandersOpen.Domain.Entities
 
         public List<Timeslot> Timeslots { get; private set; }
 
-        public static Pitch Create(string name, int number, int orderNumber)
+        public static Pitch Build(string name, int number, int orderNumber)
         {
             return new Pitch(name, number, orderNumber);
         }
@@ -44,7 +44,7 @@ namespace FlandersOpen.Domain.Entities
             if (Timeslots.Any(t => t.InConflict(startTime)))
                 throw new ArgumentException($"Time {startTime.Value} in conflict with existing timeslot");
 
-            var slot = Timeslot.Create(Id, startTime, duration);
+            var slot = Timeslot.Build(Id, startTime, duration);
             Timeslots.Add(slot);
         }
 
@@ -71,8 +71,14 @@ namespace FlandersOpen.Domain.Entities
                 realStarttime = realStarttime.AddMinutes(1);
             }
 
-            return realStarttime.IsTimeAvailableInDay(duration) ? Timeslot.Create(Id, realStarttime, duration) : null;
+            return realStarttime.IsTimeAvailableInDay(duration) ? Timeslot.Build(Id, realStarttime, duration) : null;
         }
+
+
+
+
+
+
 
         //public void ModifyTimeslotDuration(Time time, int duration)
         //{

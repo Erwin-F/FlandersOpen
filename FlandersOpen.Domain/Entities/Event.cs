@@ -16,9 +16,9 @@ namespace FlandersOpen.Domain.Entities
         public string Name { get; private set; }
         public ColorString Color { get; private set; }
 
-        //Game
+        //GameId
 
-        public static Event Create(string name, ColorString color)
+        public static Event Build(string name, ColorString color)
         {
             return new Event(name, color);
         }

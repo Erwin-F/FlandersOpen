@@ -21,7 +21,7 @@ namespace FlandersOpen.Domain.Entities
         public ShortName ShortName { get; private set; }
         public ColorString Color { get; private set; }
 
-        public static Competition Create(string name, ShortName shortName, ColorString color)
+        public static Competition Build(string name, ShortName shortName, ColorString color)
         {
             return new Competition(name, shortName, color);
         }

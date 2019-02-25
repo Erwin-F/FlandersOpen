@@ -1,15 +1,14 @@
 using System;
+using FlandersOpen.Application.Repositories;
 using FlandersOpen.Application.Validation;
-using FlandersOpen.Domain.Entities;
 using FlandersOpen.Domain.ValueObjects;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Competitions
 {
     public sealed class UpdateCompetitionCommand  : BaseCommand
     {        
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string ShortName { get; set; }
         public string Color { get; set; }
@@ -25,29 +24,28 @@ namespace FlandersOpen.Application.Competitions
 
     internal sealed class UpdateCompetitionCommandHandler : ICommandHandler<UpdateCompetitionCommand>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICompetitionRepository _repository;
 
-        public UpdateCompetitionCommandHandler(ApplicationDbContext context)
+        public UpdateCompetitionCommandHandler(ICompetitionRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public Result Handle(UpdateCompetitionCommand command)
         {
             if (!command.IsValid()) return Result.Fail("Invalid command");
             
-            var competition = _context.Competitions.Find(command.Id);
+            var competition =  _repository.GetById(command.Id);
             if (competition == null) return Result.Fail($"No competition found for Id {command.Id}");
 
-            if (_context.Competitions.CompetitionAlreadyExists(command.Name))
+            if (_repository.AlreadyExists(command.Name))
             {
                 return Result.Fail($"Competition {command.Name} is already taken");
             }            
 
             competition.Update(command.Name, new ShortName(command.ShortName), new ColorString(command.Color));
             
-            _context.Competitions.Update(competition);
-            _context.SaveChanges();
+            _repository.Update(competition);            
 
             return Result.Ok(competition.Id);
         }

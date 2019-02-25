@@ -1,8 +1,7 @@
-﻿using System;
+﻿using FlandersOpen.Application.Repositories;
 using FlandersOpen.Application.Validation;
 using FlandersOpen.Domain.Entities;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Users
 {
@@ -26,24 +25,23 @@ namespace FlandersOpen.Application.Users
 
     internal sealed class RegisterUserCommandHandler : ICommandHandler<RegisterUserCommand>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly IUserRepository _repository;
 
-        public RegisterUserCommandHandler(ApplicationDbContext context)
+        public RegisterUserCommandHandler(IUserRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public Result Handle(RegisterUserCommand command)
         {
             if (!command.IsValid()) return Result.Fail("Invalid command"); 
-            if (_context.Users.UsernameAlreadyExists(command.Username))
+            if (_repository.UsernameAlreadyExists(command.Username))
             {
                 return Result.Fail($"Username {command.Username} is already taken");
             }
             
             var user = User.Register(command.Username, command.FirstName, command.LastName, command.Password);
-            _context.Users.Add(user);
-            _context.SaveChanges();
+            _repository.Add(user);
 
             return Result.Ok(user.Id);
         }

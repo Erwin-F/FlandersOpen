@@ -8,7 +8,12 @@ namespace FlandersOpen.Domain.ValueObjects
 {
     public sealed class Time : ValueObject
     {
-        public DateTime Value { get; }
+        private Time()
+        {
+            Value = new DateTime(2000, 1, 1, 0, 0, 0);
+        }
+
+        public DateTime Value { get; private set; }
 
         public Time(int hour, int minutes)
         {

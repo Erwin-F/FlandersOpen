@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ba962871dff93e648348"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0bc3117bab199181e939"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1658,7 +1658,7 @@ var AppContext = exports.AppContext = _react2.default.createContext();
     return;
   }
 
-  reactHotLoader.register(AppContext, "AppContext", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/AppContext.js");
+  reactHotLoader.register(AppContext, "AppContext", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/AppContext.js");
   leaveModule(module);
 })();
 
@@ -1976,8 +1976,8 @@ exports.default = _default;
 		return;
 	}
 
-	reactHotLoader.register(AutoBindComponent, "AutoBindComponent", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/AutobindComponent.js");
-	reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/AutobindComponent.js");
+	reactHotLoader.register(AutoBindComponent, "AutoBindComponent", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/AutobindComponent.js");
+	reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/AutobindComponent.js");
 	leaveModule(module);
 })();
 
@@ -2213,8 +2213,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(Loader, "Loader", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/Loader.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/Loader.js");
+    reactHotLoader.register(Loader, "Loader", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/Loader.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/Loader.js");
     leaveModule(module);
 })();
 
@@ -3154,16 +3154,16 @@ function handleError(error) {
         return;
     }
 
-    reactHotLoader.register(userService, 'userService', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(login, 'login', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(logout, 'logout', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(getAll, 'getAll', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(getById, 'getById', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(register, 'register', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(update, 'update', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(_delete, '_delete', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(handleResponse, 'handleResponse', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
-    reactHotLoader.register(handleError, 'handleError', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(userService, 'userService', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(login, 'login', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(logout, 'logout', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(getAll, 'getAll', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(getById, 'getById', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(register, 'register', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(update, 'update', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(_delete, '_delete', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(handleResponse, 'handleResponse', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
+    reactHotLoader.register(handleError, 'handleError', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/services/userService.js');
     leaveModule(module);
 })();
 
@@ -3267,7 +3267,7 @@ var routes = exports.routes = _react2.default.createElement(
     return;
   }
 
-  reactHotLoader.register(routes, "routes", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/routes.js");
+  reactHotLoader.register(routes, "routes", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/routes.js");
   leaveModule(module);
 })();
 
@@ -3313,7 +3313,7 @@ function authHeader() {
         return;
     }
 
-    reactHotLoader.register(authHeader, 'authHeader', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/util/authHeader.js');
+    reactHotLoader.register(authHeader, 'authHeader', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/util/authHeader.js');
     leaveModule(module);
 })();
 
@@ -3382,11 +3382,11 @@ function showToastrWarning(message) {
         return;
     }
 
-    reactHotLoader.register(toastrOptions, 'toastrOptions', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/util/toastr.js');
-    reactHotLoader.register(showToastrSuccess, 'showToastrSuccess', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/util/toastr.js');
-    reactHotLoader.register(showToastrError, 'showToastrError', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/util/toastr.js');
-    reactHotLoader.register(showToastrInfo, 'showToastrInfo', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/util/toastr.js');
-    reactHotLoader.register(showToastrWarning, 'showToastrWarning', 'D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/util/toastr.js');
+    reactHotLoader.register(toastrOptions, 'toastrOptions', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/util/toastr.js');
+    reactHotLoader.register(showToastrSuccess, 'showToastrSuccess', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/util/toastr.js');
+    reactHotLoader.register(showToastrError, 'showToastrError', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/util/toastr.js');
+    reactHotLoader.register(showToastrInfo, 'showToastrInfo', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/util/toastr.js');
+    reactHotLoader.register(showToastrWarning, 'showToastrWarning', 'D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/util/toastr.js');
     leaveModule(module);
 })();
 
@@ -6697,9 +6697,9 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(routePrefix, "routePrefix", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/api/userApi.js");
-    reactHotLoader.register(userApi, "userApi", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/api/userApi.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/api/userApi.js");
+    reactHotLoader.register(routePrefix, "routePrefix", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/api/userApi.js");
+    reactHotLoader.register(userApi, "userApi", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/api/userApi.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/api/userApi.js");
     leaveModule(module);
 })();
 
@@ -9282,8 +9282,8 @@ if (true) {
     return;
   }
 
-  reactHotLoader.register(routes, "routes", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/boot.js");
-  reactHotLoader.register(renderApp, "renderApp", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/boot.js");
+  reactHotLoader.register(routes, "routes", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/boot.js");
+  reactHotLoader.register(renderApp, "renderApp", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/boot.js");
   leaveModule(module);
 })();
 
@@ -17121,9 +17121,9 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(routePrefix, "routePrefix", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/api/competitionApi.js");
-    reactHotLoader.register(competitionApi, "competitionApi", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/api/competitionApi.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/api/competitionApi.js");
+    reactHotLoader.register(routePrefix, "routePrefix", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/api/competitionApi.js");
+    reactHotLoader.register(competitionApi, "competitionApi", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/api/competitionApi.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/api/competitionApi.js");
     leaveModule(module);
 })();
 
@@ -17266,7 +17266,7 @@ var AutoBindCounter = exports.AutoBindCounter = function (_AutoBindComponent) {
     return;
   }
 
-  reactHotLoader.register(AutoBindCounter, "AutoBindCounter", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/AutoBindCounter.js");
+  reactHotLoader.register(AutoBindCounter, "AutoBindCounter", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/AutoBindCounter.js");
   leaveModule(module);
 })();
 
@@ -17403,8 +17403,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(CompetitionsPage, "CompetitionsPage", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Competitions/CompetitionsPage.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Competitions/CompetitionsPage.js");
+    reactHotLoader.register(CompetitionsPage, "CompetitionsPage", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Competitions/CompetitionsPage.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Competitions/CompetitionsPage.js");
     leaveModule(module);
 })();
 
@@ -17513,8 +17513,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(CompetitionsPageHelper, "CompetitionsPageHelper", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Competitions/CompetitionsPageHelper.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Competitions/CompetitionsPageHelper.js");
+    reactHotLoader.register(CompetitionsPageHelper, "CompetitionsPageHelper", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Competitions/CompetitionsPageHelper.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Competitions/CompetitionsPageHelper.js");
     leaveModule(module);
 })();
 
@@ -17692,7 +17692,7 @@ var FetchData = exports.FetchData = function (_Component) {
     return;
   }
 
-  reactHotLoader.register(FetchData, "FetchData", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/FetchData.js");
+  reactHotLoader.register(FetchData, "FetchData", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/FetchData.js");
   leaveModule(module);
 })();
 
@@ -17945,7 +17945,7 @@ var Home = exports.Home = function (_Component) {
     return;
   }
 
-  reactHotLoader.register(Home, "Home", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Home.js");
+  reactHotLoader.register(Home, "Home", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Home.js");
   leaveModule(module);
 })();
 
@@ -18161,8 +18161,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(LoginPage, "LoginPage", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Login/LoginPage.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Login/LoginPage.js");
+    reactHotLoader.register(LoginPage, "LoginPage", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Login/LoginPage.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Login/LoginPage.js");
     leaveModule(module);
 })();
 
@@ -18266,8 +18266,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(LoginPageHelper, "LoginPageHelper", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Login/LoginPageHelper.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Login/LoginPageHelper.js");
+    reactHotLoader.register(LoginPageHelper, "LoginPageHelper", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Login/LoginPageHelper.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Login/LoginPageHelper.js");
     leaveModule(module);
 })();
 
@@ -18516,8 +18516,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(RegisterPage, "RegisterPage", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Register/RegisterPage.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Register/RegisterPage.js");
+    reactHotLoader.register(RegisterPage, "RegisterPage", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Register/RegisterPage.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Register/RegisterPage.js");
     leaveModule(module);
 })();
 
@@ -18592,8 +18592,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(RegisterPageHelper, "RegisterPageHelper", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Register/RegisterPageHelper.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Register/RegisterPageHelper.js");
+    reactHotLoader.register(RegisterPageHelper, "RegisterPageHelper", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Register/RegisterPageHelper.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Register/RegisterPageHelper.js");
     leaveModule(module);
 })();
 
@@ -18742,8 +18742,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(UsersPage, "UsersPage", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Users/UsersPage.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Users/UsersPage.js");
+    reactHotLoader.register(UsersPage, "UsersPage", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Users/UsersPage.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Users/UsersPage.js");
     leaveModule(module);
 })();
 
@@ -18853,8 +18853,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(UserPageHelper, "UserPageHelper", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Users/UsersPageHelper.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/Users/UsersPageHelper.js");
+    reactHotLoader.register(UserPageHelper, "UserPageHelper", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Users/UsersPageHelper.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/Users/UsersPageHelper.js");
     leaveModule(module);
 })();
 
@@ -18959,8 +18959,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(AppProvider, "AppProvider", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/AppProvider.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/AppProvider.js");
+    reactHotLoader.register(AppProvider, "AppProvider", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/AppProvider.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/AppProvider.js");
     leaveModule(module);
 })();
 
@@ -19025,8 +19025,8 @@ exports.default = _default;
     return;
   }
 
-  reactHotLoader.register(AppRoute, "AppRoute", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/AppRoute.js");
-  reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/AppRoute.js");
+  reactHotLoader.register(AppRoute, "AppRoute", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/AppRoute.js");
+  reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/AppRoute.js");
   leaveModule(module);
 })();
 
@@ -19131,8 +19131,8 @@ exports.default = _default;
     return;
   }
 
-  reactHotLoader.register(DefaultLayout, "DefaultLayout", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/DefaultLayout.js");
-  reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/DefaultLayout.js");
+  reactHotLoader.register(DefaultLayout, "DefaultLayout", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/DefaultLayout.js");
+  reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/DefaultLayout.js");
   leaveModule(module);
 })();
 
@@ -19204,8 +19204,8 @@ exports.default = _default;
     return;
   }
 
-  reactHotLoader.register(MenuLayout, "MenuLayout", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/MenuLayout.js");
-  reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/MenuLayout.js");
+  reactHotLoader.register(MenuLayout, "MenuLayout", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/MenuLayout.js");
+  reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/MenuLayout.js");
   leaveModule(module);
 })();
 
@@ -19268,8 +19268,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(NoMenuLayout, "NoMenuLayout", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/NoMenuLayout.js");
-    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/NoMenuLayout.js");
+    reactHotLoader.register(NoMenuLayout, "NoMenuLayout", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/NoMenuLayout.js");
+    reactHotLoader.register(_default, "default", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/NoMenuLayout.js");
     leaveModule(module);
 })();
 
@@ -19528,7 +19528,7 @@ var NoNavigation = exports.NoNavigation = function (_AutoBindComponent) {
     return;
   }
 
-  reactHotLoader.register(NoNavigation, "NoNavigation", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/NoNavigation.js");
+  reactHotLoader.register(NoNavigation, "NoNavigation", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/NoNavigation.js");
   leaveModule(module);
 })();
 
@@ -19718,7 +19718,7 @@ var PrivateMenu = exports.PrivateMenu = function (_Component) {
     return;
   }
 
-  reactHotLoader.register(PrivateMenu, "PrivateMenu", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/PrivateMenu.js");
+  reactHotLoader.register(PrivateMenu, "PrivateMenu", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/PrivateMenu.js");
   leaveModule(module);
 })();
 
@@ -19898,7 +19898,7 @@ var PublicMenu = exports.PublicMenu = function (_Component) {
     return;
   }
 
-  reactHotLoader.register(PublicMenu, "PublicMenu", "D:/Projects/Erwin/flandersopen/FlandersOpen.Web/ClientApp/components/common/PublicMenu.js");
+  reactHotLoader.register(PublicMenu, "PublicMenu", "D:/Projects/Erwin/FlandersOpen/FlandersOpen.Web/ClientApp/components/common/PublicMenu.js");
   leaveModule(module);
 })();
 

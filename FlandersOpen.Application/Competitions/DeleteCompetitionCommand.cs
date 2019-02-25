@@ -1,28 +1,29 @@
+using System;
+using FlandersOpen.Application.Repositories;
 using FlandersOpen.Infrastructure;
-using FlandersOpen.Persistence;
 
 namespace FlandersOpen.Application.Competitions
 {
     public sealed class DeleteCompetitionCommand: BaseCommand
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 
     internal sealed class DeleteCompetitionCommandHandler : ICommandHandler<DeleteCompetitionCommand>
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ICompetitionRepository _repository;
 
-        public DeleteCompetitionCommandHandler(ApplicationDbContext context)
+        public DeleteCompetitionCommandHandler(ICompetitionRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
         public Result Handle(DeleteCompetitionCommand command)
         {
-            var competition = _context.Competitions.Find(command.Id);
+            var competition = _repository.GetById(command.Id);
             if (competition == null) return Result.Fail($"No competition found for Id {command.Id}");
             
-            _context.Competitions.Remove(competition);
+            _repository.Delete(competition);
 
             return Result.Ok();
         }
