@@ -1,4 +1,5 @@
-﻿using FlandersOpen.Domain.SeedWork;
+﻿using System;
+using FlandersOpen.Domain.SeedWork;
 using FlandersOpen.Domain.ValueObjects;
 
 namespace FlandersOpen.Domain.Entities
@@ -9,8 +10,10 @@ namespace FlandersOpen.Domain.Entities
 
         protected Event(string name, ColorString color)
         {
+            Id = Guid.NewGuid();
             Name = name;
             Color = color;
+            ModificationDate = DateTime.Now;
         }
 
         public string Name { get; private set; }

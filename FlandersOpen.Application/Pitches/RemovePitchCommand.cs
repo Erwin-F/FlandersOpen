@@ -1,12 +1,13 @@
 ﻿using System.Linq;
 using FlandersOpen.Application.Repositories;
 using FlandersOpen.Application.Core;
+using System;
 
 namespace FlandersOpen.Application.Pitches
 {
     public sealed class RemovePitchCommand : BaseCommand
     {
-        public int Number { get; set; }
+        public Guid Id { get; set; }
     }
 
     internal sealed class RemovePitchCommandHandler : ICommandHandler<RemovePitchCommand>
@@ -20,8 +21,8 @@ namespace FlandersOpen.Application.Pitches
 
         public Result Handle(RemovePitchCommand command)
         {
-            var pitch = _repository.GetByNumberWithItems(command.Number);
-            if (pitch == null) return Result.Fail($"No pitch found for number {command.Number}");
+            var pitch = _repository.GetById(command.Id);
+            if (pitch == null) return Result.Fail($"No pitch found for Id {command.Id}");
 
             _repository.Delete(pitch);
 

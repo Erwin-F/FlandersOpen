@@ -23,7 +23,7 @@ namespace FlandersOpen.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register([FromBody]CreateCompetitionCommand command)
+        public IActionResult Create([FromBody]CreateCompetitionCommand command)
         {
             if (!command.IsValid()) return FromValidation(command.ValidationMessages);
             

@@ -2,19 +2,19 @@
 using FlandersOpen.Application.Validation;
 using FlandersOpen.Domain.ValueObjects;
 using FlandersOpen.Application.Core;
+using System;
 
 namespace FlandersOpen.Application.Pitches
 {
     public sealed class AddTimeslotsToPitchCommand : BaseCommand
     {
-        public int PitchNumber { get; set; }
+        public Guid Id { get; set; }
         public int EventDurationInMinutes { get; set; }
         public Time StartTime { get; set; }
         public Time EndTime { get; set; }
 
         public AddTimeslotsToPitchCommand()
-        {
-            ValidationRules.Add(ValidationRule.For(() => PitchNumber).GreaterThan(0));
+        {            
             ValidationRules.Add(ValidationRule.For(() => EventDurationInMinutes).GreaterThan(0));
         }
     }
@@ -30,8 +30,8 @@ namespace FlandersOpen.Application.Pitches
 
         public Result Handle(AddTimeslotsToPitchCommand command)
         {
-            var pitch = _repository.GetByNumberWithItems(command.PitchNumber);
-            if (pitch == null) return Result.Fail($"No pitch found for number {command.PitchNumber}");
+            var pitch = _repository.GetById(command.Id);
+            if (pitch == null) return Result.Fail($"No pitch found for id {command.Id}");
 
             pitch.AddContinuousTimeslots(command.StartTime, command.EndTime, command.EventDurationInMinutes);
             _repository.Update(pitch);

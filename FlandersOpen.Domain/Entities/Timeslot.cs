@@ -18,9 +18,11 @@ namespace FlandersOpen.Domain.Entities
 
         private Timeslot (Guid pitchId, Time startTime, Time endTime)
         {
+            Id = Guid.NewGuid();
             PitchId = pitchId;
             StartTime = startTime;
             EndTime = endTime;
+            ModificationDate = DateTime.Now;
         }
 
         internal static Timeslot Build(Guid pitchId, Time startTime, Time endTime)
