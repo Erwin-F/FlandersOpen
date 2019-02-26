@@ -16,6 +16,7 @@ namespace FlandersOpen.Persistence
         public DbSet<Pitch> Pitches { get; set; }
         public DbSet<Timeslot> Timeslots { get; set; }
         public DbSet<Event> Events { get; set; }
+        public DbSet<Referee> Referees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +27,12 @@ namespace FlandersOpen.Persistence
             modelBuilder.Entity<Pitch>(ConfigurePitches);
             modelBuilder.Entity<Timeslot>(ConfigureTimeslots);
             modelBuilder.Entity<Event>(ConfigureEvents);
+            modelBuilder.Entity<Referee>(ConfigureReferees);
+        }
+
+        private void ConfigureReferees(EntityTypeBuilder<Referee> builder)
+        {
+            builder.OwnsOne(e => e.ShortName).Property(e => e.Value).HasColumnName("ShortName").IsRequired();
         }
 
         private void ConfigureEvents(EntityTypeBuilder<Event> builder)

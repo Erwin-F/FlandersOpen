@@ -39,18 +39,3 @@ namespace FlandersOpen.Domain.Entities
         }
     }
 }
-
-/*
-pitch =>
-    timeslot
-        => event
-            id
-            name
-            color (maybe received from competition)
-                => game
-                    team A
-                    team B
-                    score
-                    Referee
- 
-*/

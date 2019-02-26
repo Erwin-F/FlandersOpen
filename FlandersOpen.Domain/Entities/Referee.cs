@@ -27,7 +27,8 @@ namespace FlandersOpen.Domain.Entities
         public void Update(string name, ShortName shortName)
         {
             Name = name;
-            ShortName = ShortName;
+            ShortName = shortName;
+            ModificationDate = DateTime.Now;
         }
     }
 }
