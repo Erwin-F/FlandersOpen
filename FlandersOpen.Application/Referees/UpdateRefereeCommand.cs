@@ -6,7 +6,7 @@ using FlandersOpen.Domain.ValueObjects;
 
 namespace FlandersOpen.Application.Referees
 {
-    class UpdateRefereeCommand : BaseCommand
+    public sealed class UpdateRefereeCommand : BaseCommand
     {
         public Guid Id { get; set; }
         public string Name { get; set; }

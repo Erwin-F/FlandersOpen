@@ -13,8 +13,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F463F9C3-6F69-45F7-8513-4997705FC40F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{1D4647D3-0B50-4EE9-9E45-6FB1B9953809}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlandersOpen.Read", "FlandersOpen.Read\FlandersOpen.Read.csproj", "{FB16039E-E5AF-492F-9E12-5B8300363E66}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlandersOpen.Application", "FlandersOpen.Application\FlandersOpen.Application.csproj", "{1C85596E-0F49-4624-9DFF-BB548F5A4923}"
