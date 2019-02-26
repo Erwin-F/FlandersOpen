@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 using FlandersOpen.Web.Helpers;
 using Microsoft.AspNetCore.Mvc;
 

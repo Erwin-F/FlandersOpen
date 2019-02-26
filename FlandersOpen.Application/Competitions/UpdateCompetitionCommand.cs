@@ -2,7 +2,7 @@ using System;
 using FlandersOpen.Application.Repositories;
 using FlandersOpen.Application.Validation;
 using FlandersOpen.Domain.ValueObjects;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 
 namespace FlandersOpen.Application.Competitions
 {

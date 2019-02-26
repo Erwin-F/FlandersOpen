@@ -1,6 +1,6 @@
 using System.Text;
 using FlandersOpen.Application;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 using FlandersOpen.Persistence;
 using FlandersOpen.Read;
 using Microsoft.AspNetCore.Authentication.JwtBearer;

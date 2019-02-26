@@ -2,7 +2,7 @@
 using FlandersOpen.Application.Validation;
 using FlandersOpen.Domain.Entities;
 using FlandersOpen.Domain.ValueObjects;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 
 namespace FlandersOpen.Application.Referees
 {

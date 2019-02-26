@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using Dapper;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 using FlandersOpen.Read.Dtos;
 
 namespace FlandersOpen.Read.Competitions

@@ -3,7 +3,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using FlandersOpen.Application.Repositories;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 

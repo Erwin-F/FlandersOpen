@@ -1,5 +1,5 @@
 ﻿using System;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 
 namespace FlandersOpen.Application
 {

@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using FlandersOpen.Application.Repositories;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 
 namespace FlandersOpen.Application.Pitches
 {

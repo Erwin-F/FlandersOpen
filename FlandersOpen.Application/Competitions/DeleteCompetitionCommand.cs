@@ -1,6 +1,6 @@
 using System;
 using FlandersOpen.Application.Repositories;
-using FlandersOpen.Infrastructure;
+using FlandersOpen.Application.Core;
 
 namespace FlandersOpen.Application.Competitions
 {

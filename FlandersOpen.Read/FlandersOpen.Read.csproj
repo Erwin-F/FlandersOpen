@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FlandersOpen.Infrastructure\FlandersOpen.Infrastructure.csproj" />
+    <ProjectReference Include="..\FlandersOpen.Application.Core\FlandersOpen.Application.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

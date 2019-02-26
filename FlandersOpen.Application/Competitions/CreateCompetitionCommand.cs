@@ -1,10 +1,8 @@
-﻿using System;
-using FlandersOpen.Application.Validation;
+﻿using FlandersOpen.Application.Validation;
 using FlandersOpen.Domain.Entities;
-using FlandersOpen.Infrastructure;
 using FlandersOpen.Domain.ValueObjects;
 using FlandersOpen.Application.Repositories;
-using System.Threading.Tasks;
+using FlandersOpen.Application.Core;
 
 namespace FlandersOpen.Application.Competitions
 {

@@ -1,4 +1,4 @@
-﻿namespace FlandersOpen.Infrastructure
+﻿namespace FlandersOpen.Application.Core
 {
     public class AppSettings
     {

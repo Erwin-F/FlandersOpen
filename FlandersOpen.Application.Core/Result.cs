@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace FlandersOpen.Infrastructure
+namespace FlandersOpen.Application.Core
 {
     public struct Result : IResult, ISerializable
     {

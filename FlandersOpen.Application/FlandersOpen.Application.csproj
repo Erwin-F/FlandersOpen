@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FlandersOpen.Application.Core\FlandersOpen.Application.Core.csproj" />
     <ProjectReference Include="..\FlandersOpen.Domain\FlandersOpen.Domain.csproj" />
-    <ProjectReference Include="..\FlandersOpen.Infrastructure\FlandersOpen.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

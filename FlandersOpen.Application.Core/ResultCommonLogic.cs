@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Runtime.Serialization;
 
-namespace FlandersOpen.Infrastructure
+namespace FlandersOpen.Application.Core
 {
     internal class ResultCommonLogic<TError>
     {
