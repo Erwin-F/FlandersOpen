@@ -18,10 +18,7 @@
 - Remove UserService
 
 ### .Net ###
-- Test DB
-- Test Command validation
 - Implement ValueObject on username & pasword
-- Use FluentValidator on Commands
 - Transactions + Resilient Azure DB https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/implement-resilient-applications/implement-resilient-entity-framework-core-sql-connections 
 - Domain Events https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/domain-events-design-implementation
 
