@@ -12,6 +12,8 @@ namespace FlandersOpen.Persistence
         {
             services.AddScoped<IPitchRepository, PitchRepository>();
             services.AddScoped<ICompetitionRepository, CompetitionRepository>();
+            services.AddScoped<IRefereeRepository, RefereeRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
         }
     }
 }
