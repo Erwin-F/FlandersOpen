@@ -179,19 +179,19 @@ namespace FlandersOpen.Domain.Test.ValueObjects
         [Fact]
         public void SmallerReturnsTrue()
         {
-            var time1 = new Time(2, 1);
-            var time2 = new Time(1, 2);
+            var time1 = new Time(1, 1);
+            var time2 = new Time(2, 2);
 
-            Assert.True(time1 > time2);
+            Assert.True(time1 < time2);
         }
 
         [Fact]
         public void SmallerReturnsFalse()
         {
-            var time1 = new Time(1, 1);
-            var time2 = new Time(2, 2);
+            var time1 = new Time(2, 1);
+            var time2 = new Time(1, 2);
 
-            Assert.False(time1 > time2);
+            Assert.False(time1 < time2);
         }
     }
 }
