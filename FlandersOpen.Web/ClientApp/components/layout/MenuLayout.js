@@ -3,15 +3,15 @@ import { PublicMenu } from "./PublicMenu";
 import { PrivateMenu } from "./PrivateMenu";
 import PropTypes from "prop-types";
 
+import { Sidebar, Menu, Segment } from "semantic-ui-react";
+
 const MenuLayout = (props) => (
-    <React.Fragment>
-      <div className="col-sm-3">
-        {localStorage.getItem("user") ? <PrivateMenu /> : <PublicMenu />}
-      </div>
-      <div className="col-sm-9">
+  <React.Fragment>
+    {localStorage.getItem("user") ? <PrivateMenu /> : <PublicMenu />}
+    <Segment basic style={{ marginLeft: "7em" }}>
         {props.children}
-      </div>
-    </React.Fragment>
+    </Segment>
+  </React.Fragment>
 );
 
 MenuLayout.propTypes = {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AppContext } from "./AppContext";
+import { AppContext } from "../common/AppContext";
 import { userService } from "../services/userService";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

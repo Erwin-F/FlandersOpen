@@ -23,7 +23,7 @@ module.exports = env => {
             use: {
               loader: "babel-loader",
               options: {
-                  presets: ["babel-preset-env", "babel-preset-stage-2", "react", "es2015"],
+                presets: ["babel-preset-env", "babel-preset-stage-2", "react", "es2015"],
                 plugins: [
                   "react-hot-loader/babel",
                   "transform-class-properties"
@@ -37,7 +37,7 @@ module.exports = env => {
               ? ["style-loader", "css-loader"]
               : ExtractTextPlugin.extract({ use: "css-loader?minimize" })
           },
-          { test: /\.(png|jpg|jpeg|gif|svg)$/, use: "url-loader?limit=25000" }
+          { test: /\.(jpg|png|gif|jpeg|woff|woff2|eot|ttf|svg)$/, use: "url-loader?limit=25000" }
         ]
       },
       plugins: [

@@ -1,5 +1,4 @@
 import "./css/site.css";
-import "bootstrap";
 import React, { Component } from "react";
 import * as ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
@@ -11,6 +10,9 @@ import "../node_modules/toastr/build/toastr.min.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import * as icons from '@fortawesome/free-solid-svg-icons';
+
+import 'semantic-ui-css/semantic.min.css';
+//import "bootstrap";
 
 function renderApp() {
   library.add(icons.faIgloo);

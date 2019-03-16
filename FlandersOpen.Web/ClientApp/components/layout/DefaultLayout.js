@@ -1,18 +1,12 @@
 import React, { Component } from "react";
-import AppProvider from "./AppProvider";
-import { AppContext } from "./AppContext";
-import Loader from "./Loader";
+import AppProvider from "../common/AppProvider";
 import PropTypes from "prop-types";
 
 class DefaultLayout extends Component {
   render() {
     return (
       <AppProvider>
-        <div className="container-fluid">
-          <div className="row">
             {this.props.children}
-          </div>
-        </div>
       </AppProvider>
     );
   }

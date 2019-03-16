@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 
-import DefaultLayout from "./components/common/DefaultLayout";
+import DefaultLayout from "./components/layout/DefaultLayout";
 import AppRoute from "./components/common/AppRoute";
-import MenuLayout from "./components/common/MenuLayout";
-import NoMenuLayout from "./components/common/NoMenuLayout";
+import MenuLayout from "./components/layout/MenuLayout";
+import NoMenuLayout from "./components/layout/NoMenuLayout";
 
 import UsersPage from "./components/Users/UsersPage";
 import LoginPage from "./components/Login/LoginPage";
