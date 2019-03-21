@@ -39,7 +39,7 @@ export class CompetitionsPage extends AutoBindComponent {
         return (
             <Container>
                 <h1>Competitions</h1>
-                <EditableTable keyField="id" data={competitions} columns={columns} ColorRow Editable />
+                <EditableTable keyField="id" data={competitions} columns={columns} ColorRow Editable ButtonText="Add Competition" />
             </Container>
         );
     }

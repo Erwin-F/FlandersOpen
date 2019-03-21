@@ -13,7 +13,8 @@ const EditableTable = (props) => {
         OnCellClick,
         ColorCell,
         ColorRow,
-        Editable
+        Editable,
+        ButtonText
     } = props;
 
     function handleOnClickHeader(index) {
@@ -62,18 +63,16 @@ const EditableTable = (props) => {
         return <TableRow style={rowStyle} key={key}>{cells}</TableRow>;
     });
 
-    // const footer = () => {
-    //     return (
-    //     <TableFooter>
-    //         <TableRow>
-    //             <TableHeaderCell>
-    //                 <Button floated="left" icon labelPosition="left" primary size="small">
-    //                     <Icon name="plus" /> Add Item
-    //                 </Button>
-    //             </TableHeaderCell>
-    //         </TableRow>
-    //     </TableFooter>);
-    // };
+    const footer = (
+        <TableFooter>
+            <TableRow>
+                <TableHeaderCell colSpan={columns.length}>
+                    <Button floated="right" icon labelPosition="left" primary size="small">
+                        <Icon name="plus" />{ButtonText}
+                    </Button>
+                </TableHeaderCell>
+            </TableRow>
+        </TableFooter>);
 
     return (
         <Table celled>
@@ -85,7 +84,7 @@ const EditableTable = (props) => {
             <TableBody>
                 {rows}
             </TableBody>
-            
+            {Editable ? footer : null}
         </Table>
     );
 };
@@ -96,7 +95,8 @@ EditableTable.defaultProps = {
     data: [],
     ColorCell: false,
     ColorRow: false,
-    Editable: false
+    Editable: false,
+    ButtonText: "Add Item"
 };
 
 EditableTable.propTypes = {
@@ -107,7 +107,8 @@ EditableTable.propTypes = {
     OnCellClick: PropTypes.func,
     ColorCell: PropTypes.bool,
     ColorRow: PropTypes.bool,
-    Editable: PropTypes.bool
+    Editable: PropTypes.bool,
+    ButtonText: PropTypes.string
 };
 
 export default EditableTable;

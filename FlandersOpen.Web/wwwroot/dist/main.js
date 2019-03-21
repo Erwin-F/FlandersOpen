@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "67dac2380ab4cf25d829"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f11aa8b908a052f7ee80"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -11713,7 +11713,8 @@ var EditableTable = function EditableTable(props) {
         OnCellClick = props.OnCellClick,
         ColorCell = props.ColorCell,
         ColorRow = props.ColorRow,
-        Editable = props.Editable;
+        Editable = props.Editable,
+        ButtonText = props.ButtonText;
 
 
     function handleOnClickHeader(index) {
@@ -11778,18 +11779,24 @@ var EditableTable = function EditableTable(props) {
         );
     });
 
-    // const footer = () => {
-    //     return (
-    //     <TableFooter>
-    //         <TableRow>
-    //             <TableHeaderCell>
-    //                 <Button floated="left" icon labelPosition="left" primary size="small">
-    //                     <Icon name="plus" /> Add Item
-    //                 </Button>
-    //             </TableHeaderCell>
-    //         </TableRow>
-    //     </TableFooter>);
-    // };
+    var footer = _react2.default.createElement(
+        _semanticUiReact.TableFooter,
+        null,
+        _react2.default.createElement(
+            _semanticUiReact.TableRow,
+            null,
+            _react2.default.createElement(
+                _semanticUiReact.TableHeaderCell,
+                { colSpan: columns.length },
+                _react2.default.createElement(
+                    _semanticUiReact.Button,
+                    { floated: 'right', icon: true, labelPosition: 'left', primary: true, size: 'small' },
+                    _react2.default.createElement(_semanticUiReact.Icon, { name: 'plus' }),
+                    ButtonText
+                )
+            )
+        )
+    );
 
     return _react2.default.createElement(
         _semanticUiReact.Table,
@@ -11807,7 +11814,8 @@ var EditableTable = function EditableTable(props) {
             _semanticUiReact.TableBody,
             null,
             rows
-        )
+        ),
+        Editable ? footer : null
     );
 };
 
@@ -11817,7 +11825,8 @@ EditableTable.defaultProps = {
     data: [],
     ColorCell: false,
     ColorRow: false,
-    Editable: false
+    Editable: false,
+    ButtonText: "Add Item"
 };
 
 EditableTable.propTypes = {
@@ -11828,7 +11837,8 @@ EditableTable.propTypes = {
     OnCellClick: _propTypes2.default.func,
     ColorCell: _propTypes2.default.bool,
     ColorRow: _propTypes2.default.bool,
-    Editable: _propTypes2.default.bool
+    Editable: _propTypes2.default.bool,
+    ButtonText: _propTypes2.default.string
 };
 
 var _default = EditableTable;
@@ -27542,7 +27552,7 @@ var CompetitionsPage = exports.CompetitionsPage = function (_AutoBindComponent) 
                     null,
                     "Competitions"
                 ),
-                _react2.default.createElement(_EditableTable2.default, { keyField: "id", data: competitions, columns: columns, ColorRow: true, Editable: true })
+                _react2.default.createElement(_EditableTable2.default, { keyField: "id", data: competitions, columns: columns, ColorRow: true, Editable: true, ButtonText: "Add Competition" })
             );
         }
     }, {
