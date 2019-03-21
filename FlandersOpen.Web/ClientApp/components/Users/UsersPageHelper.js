@@ -25,21 +25,7 @@ export default class UserPageHelper {
             })
             .catch((ex) => {
                 this.appContext.ajaxEnded();
-                showToastrError(ex); 
-            });
-    }
-
-    deleteUser(id){
-        userApi.delete(id)
-            .then((response) => {
-                this.appContext.ajaxEnded();
-
-                const users = this.context.state.users.filter(user => user.id !== id);
-                this.context.setState({ users: users });
-            })
-            .catch((ex) => {
-                this.appContext.ajaxEnded();
-                showToastrError(ex); 
+                showToastrError(ex);
             });
     }
 }

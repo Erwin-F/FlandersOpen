@@ -11,6 +11,6 @@ const NoMenuLayout = (props) => (
 
 NoMenuLayout.propTypes = {
     children: PropTypes.object.isRequired
-  };  
+  };
 
 export default NoMenuLayout;

@@ -1,15 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { AppContext } from "../common/AppContext";
-import AutoBindComponent from "../common/AutobindComponent"
+import AutoBindComponent from "../common/AutobindComponent";
 import LoginPageHelper from "./LoginPageHelper";
-import Loader from "../common/Loader";
 
 export class LoginPage extends AutoBindComponent {
     constructor(props, context) {
         super(props, context);
 
-        this.state = { 
+        this.state = {
             username: "",
             password: "",
             submitted: false,

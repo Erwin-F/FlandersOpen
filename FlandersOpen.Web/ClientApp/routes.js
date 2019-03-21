@@ -8,7 +8,6 @@ import NoMenuLayout from "./components/layout/NoMenuLayout";
 
 import UsersPage from "./components/Users/UsersPage";
 import LoginPage from "./components/Login/LoginPage";
-import RegisterPage from "./components/Register/RegisterPage";
 import CompetitionsPage from "./components/Competitions/CompetitionsPage";
 
 //TODO To remove
@@ -22,13 +21,12 @@ export const routes = (
   <DefaultLayout>
     <Switch>
       <AppRoute exact path="/" layout={MenuLayout} component={Home} />
-      <AppRoute path="/counter"  layout={MenuLayout} component={AutoBindCounter} />      
+      <AppRoute path="/counter"  layout={MenuLayout} component={AutoBindCounter} />
       <AppRoute path="/fetchdata"  layout={MenuLayout} component={FetchData} />
       <AppRoute path="/nonavigation"  layout={NoMenuLayout} component={NoNavigation} />
       <AppRoute path="/counterprivate"  layout={MenuLayout} private component={AutoBindCounter} />
 
       <AppRoute path="/login" layout={MenuLayout} component={LoginPage} />
-      <AppRoute path="/register" layout={MenuLayout} component={RegisterPage} />
       <AppRoute path="/users" layout={MenuLayout} private component={UsersPage} />
       <AppRoute path="/competitions" layout={MenuLayout} private component={CompetitionsPage} />
     </Switch>

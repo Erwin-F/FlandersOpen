@@ -2,9 +2,9 @@ import React from "react";
 import { AppContext } from "../common/AppContext";
 import AutoBindComponent from "../common/AutobindComponent";
 import CompetitionsPageHelper from "./CompetitionsPageHelper";
-import BootstrapTable from 'react-bootstrap-table-next';
 
-import Loader from "../common/Loader";
+import { Container } from "semantic-ui-react";
+import EditableTable from "../common/EditableTable";
 
 export class CompetitionsPage extends AutoBindComponent {
     constructor(props, context) {
@@ -37,10 +37,10 @@ export class CompetitionsPage extends AutoBindComponent {
         ];
 
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <Container>
                 <h1>Competitions</h1>
-                <BootstrapTable keyField="id" bootstrap4 striped data={competitions} columns={columns} />
-            </div>
+                <EditableTable keyField="id" data={competitions} columns={columns} ColorRow Editable />
+            </Container>
         );
     }
 }

@@ -1,8 +1,4 @@
-import React, { Component, Fragment } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { AppContext } from "../common/AppContext";
-import { userService } from "../services/userService";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { Fragment } from "react";
 
 import { Menu, MenuItem, Icon, Container, Dropdown, DropdownMenu, DropdownItem } from "semantic-ui-react";
 import AutoBindComponent from "../common/AutobindComponent";
@@ -30,13 +26,9 @@ export class PrivateMenu extends AutoBindComponent {
       <Menu fixed="top" inverted>
         <Container>
           <MenuItem name="home" active={activeItem === "home"} onClick={this.handleOnClick}>
-              <AppContext.Consumer>
-                {(context) => (
-                  <Fragment>
-                    <Icon name="football ball"/><span style={{color: "white"}}>FOR 2019 - ajaxCounter: {context.ajaxCounter}</span>
-                  </Fragment>
-                )}
-              </AppContext.Consumer>
+            <Fragment>
+              <Icon name="football ball"/><span style={{color: "white"}}>FOR 2019</span>
+            </Fragment>
           </MenuItem>
           <Dropdown item text="Configuration">
             <DropdownMenu>

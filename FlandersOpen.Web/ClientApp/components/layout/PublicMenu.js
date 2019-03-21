@@ -25,13 +25,9 @@ export class PublicMenu extends AutoBindComponent {
       <Menu fixed="top" inverted>
         <Container>
           <MenuItem name="home" active={activeItem === "home"} onClick={this.handleOnClick}>
-              <AppContext.Consumer>
-                {(context) => (
-                  <Fragment>
-                    <Icon name="football ball"/><span style={{color: "white"}}>FOR 2019 - ajaxCounter: {context.ajaxCounter}</span>
-                  </Fragment>
-                )}
-              </AppContext.Consumer>
+            <Fragment>
+              <Icon name="football ball"/><span style={{color: "white"}}>FOR 2019</span>
+            </Fragment>
           </MenuItem>
           <MenuItem name="login" active={activeItem === "login"} onClick={this.handleOnClick}/>
         </Container>
