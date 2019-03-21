@@ -10,12 +10,11 @@
 
 ### React ###
 - update react security vulnarabilities
-- implement Loader correctly
-- Implement loader outside menu
 - register via userapi => toastr error or redirect
 - Verify password on update
 - 404 page
-- Remove UserService
+- Remove testpages
+- Remove packages: react-spinkit, bootstrap, 
 
 ### .Net ###
 - Implement ValueObject on username & pasword
@@ -28,3 +27,4 @@
 - Countries
 - Teams
 - Referees
+
