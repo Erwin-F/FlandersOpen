@@ -1,69 +1,55 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AppContext } from "../common/AppContext";
 import { userService } from "../services/userService";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export class PrivateMenu extends Component {
+import { Menu, MenuItem, Icon, Container, Dropdown, DropdownMenu, DropdownItem } from "semantic-ui-react";
+import AutoBindComponent from "../common/AutobindComponent";
+import menuHelper from "./menuHelper";
+
+export class PrivateMenu extends AutoBindComponent {
+    constructor(props, context){
+    super(props, context);
+
+    this.state = { activeItem: "" };
+  }
+
+  componentDidMount(){
+    this.pageHelper = new menuHelper(this);
+  }
+
+  handleOnClick = (e, {name}) => this.pageHelper.onMenuClick(e, name);
+  handleOnDropdownClick = (e, {value}) => this.pageHelper.onDropdownClick(e, value);
+  handleOnLogout = () => this.pageHelper.onLogout();
+
   render() {
+    const { activeItem } = this.state;
+
     return (
-      <React.Fragment>
-        <div className="main-nav">
-          <div className="navbar navbar-inverse">
-            <div className="navbar-header">
-              <button
-                type="button"
-                className="navbar-toggle"
-                data-toggle="collapse"
-                data-target=".navbar-collapse"
-              >
-                <span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-                <span className="icon-bar" />
-              </button>
-              <Link className="navbar-brand" to={"/"}>
-                FlandersOpen.Web - 
-                <AppContext.Consumer>
-                    {(context) => (
-                      <span> ajaxCounter: {context.ajaxCounter}</span>
-                    )}
-                  </AppContext.Consumer>
-              </Link>
-            </div>
-            <div className="clearfix" />
-            <div className="navbar-collapse collapse">
-              <ul className="nav navbar-nav">
-                <li>
-                  <NavLink to={"/"} exact activeClassName="active">
-                  <FontAwesomeIcon icon="football-ball" /> Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/counter"} activeClassName="active">
-                  <FontAwesomeIcon icon="th-list" /> Counter
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/competitions"} activeClassName="active">
-                  <FontAwesomeIcon icon="th-list" /> Competitions
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to={"/users"} activeClassName="active">
-                    <FontAwesomeIcon icon="users" /> Users
-                  </NavLink>
-                </li>
-                <li>
-                  <Link to={"/"} onClick={userService.logout}>
-                    <FontAwesomeIcon icon="user-slash" /> Logout
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </React.Fragment>
+      <Menu fixed="top" inverted>
+        <Container>
+          <MenuItem name="home" active={activeItem === "home"} onClick={this.handleOnClick}>
+              <AppContext.Consumer>
+                {(context) => (
+                  <Fragment>
+                    <Icon name="football ball"/><span style={{color: "white"}}>FOR 2019 - ajaxCounter: {context.ajaxCounter}</span>
+                  </Fragment>
+                )}
+              </AppContext.Consumer>
+          </MenuItem>
+          <Dropdown item text="Configuration">
+            <DropdownMenu>
+              <DropdownItem onClick={this.handleOnDropdownClick} active={activeItem === "competitions"} value="competitions">Competitions</DropdownItem>
+              <DropdownItem onClick={this.handleOnDropdownClick} active={activeItem === "teams"} value="teams">Teams</DropdownItem>
+              <DropdownItem onClick={this.handleOnDropdownClick} active={activeItem === "users"} value="users">Users</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+          <MenuItem name="counter" active={activeItem === "counter"} onClick={this.handleOnClick}/>
+          <MenuItem name="fetchdata" active={activeItem === "fetchdata"} onClick={this.handleOnClick}/>
+          <MenuItem name="logout" active={activeItem === "logout"} onClick={this.handleOnLogout}/>
+        </Container>
+      </Menu>
     );
   }
 }

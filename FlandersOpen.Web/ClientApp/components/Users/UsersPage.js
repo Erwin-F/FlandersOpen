@@ -4,7 +4,7 @@ import AutoBindComponent from "../common/AutobindComponent";
 import UsersPageHelper from "./UsersPageHelper";
 import BootstrapTable from 'react-bootstrap-table-next';
 
-import Loader from "../common/Loader";
+import { Container } from "semantic-ui-react";
 
 export class UsersPage extends AutoBindComponent {
     constructor(props, context) {
@@ -31,19 +31,19 @@ export class UsersPage extends AutoBindComponent {
         const user = JSON.parse(localStorage.getItem('user'));
 
         const columns = [
-            { dataField: 'id', text: 'Id' }, 
-            { dataField: 'username', text: 'Username' }, 
             { dataField: 'firstname', text: 'First name' },
-            { dataField: 'lastname', text: 'Last name' }            
+            { dataField: 'lastname', text: 'Last name' },
+            { dataField: 'username', text: 'Username' },
+            { dataField: 'id', text: 'Id' },
         ];
 
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <Container>
                 <div>
                     <h1>Hi {user.firstname}!</h1>
                     <h3>All registered users:</h3>
                     <BootstrapTable keyField="id" bootstrap4 striped data={ users } columns={ columns } />
- 
+
                     {/* <ul>
                         {users.map((u, index) =>
                             <li key={u.id}>
@@ -52,9 +52,9 @@ export class UsersPage extends AutoBindComponent {
                             </li>
                         )}
                     </ul> */}
-                    
+
                 </div>
-            </div>
+            </Container>
         );
     }
 }
