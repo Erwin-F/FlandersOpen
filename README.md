@@ -14,7 +14,7 @@
 - Verify password on update
 - 404 page
 - Remove testpages
-- Remove packages: react-spinkit, bootstrap, 
+- Remove packages: react-spinkit, bootstrap, loader
 
 ### .Net ###
 - Implement ValueObject on username & pasword
