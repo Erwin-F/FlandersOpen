@@ -9,6 +9,7 @@ import NoMenuLayout from "./components/layout/NoMenuLayout";
 import UsersPage from "./components/Users/UsersPage";
 import LoginPage from "./components/Login/LoginPage";
 import CompetitionsPage from "./components/Competitions/CompetitionsPage";
+import TeamsPage from "./components/Teams/TeamsPage";
 
 //TODO To remove
 import { Home } from "./components/Home";
@@ -29,6 +30,7 @@ export const routes = (
       <AppRoute path="/login" layout={MenuLayout} component={LoginPage} />
       <AppRoute path="/users" layout={MenuLayout} private component={UsersPage} />
       <AppRoute path="/competitions" layout={MenuLayout} private component={CompetitionsPage} />
+      <AppRoute path="/teams" layout={MenuLayout} private component={TeamsPage} />
     </Switch>
   </DefaultLayout>
 );

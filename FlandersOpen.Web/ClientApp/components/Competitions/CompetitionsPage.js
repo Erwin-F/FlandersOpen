@@ -20,10 +20,14 @@ export class CompetitionsPage extends AutoBindComponent {
         this.pageHelper.init();
     }
 
-    handleOnDelete(userId) {
+    handleOnDelete(competitionId) {
         return function (e) {
-            this.pageHelper.deleteUser(userId);
+            this.pageHelper.deleteCompetition(competitionId);
         };
+    }
+
+    handleOnAddClick(){
+
     }
 
     render() {
@@ -39,7 +43,12 @@ export class CompetitionsPage extends AutoBindComponent {
         return (
             <Container>
                 <h1>Competitions</h1>
-                <EditableTable keyField="id" data={competitions} columns={columns} ColorRow Editable ButtonText="Add Competition" />
+                <EditableTable
+                    keyField="id"
+                    data={competitions}
+                    columns={columns}
+                    ColorRow
+                />
             </Container>
         );
     }

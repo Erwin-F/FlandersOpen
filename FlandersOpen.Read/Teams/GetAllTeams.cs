@@ -21,7 +21,7 @@ namespace FlandersOpen.Read.Teams
 
         public IEnumerable<TeamDto> Handle(GetAllTeams query)
         {
-            const string sql = @"SELECT Id, Username, Firstname, Lastname FROM Users";
+            const string sql = @"SELECT Id, Name, CompetitionId FROM fo.Teams";
 
             using (var connection = new SqlConnection(_connectionstrings.Default))
             {
