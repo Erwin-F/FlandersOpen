@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1cc8e69be6046e5bae1a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "21b20b6fc736daeb2a3c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -28572,7 +28572,7 @@ var TeamsPage = exports.TeamsPage = function (_AutoBindComponent) {
             var teams = this.state.teams;
 
 
-            var columns = [{ dataField: 'id', text: 'Id' }, { dataField: 'name', text: 'Name' }, { dataField: 'competitionId', text: 'Competition' }];
+            var columns = [{ dataField: 'id', text: 'Id' }, { dataField: 'name', text: 'Name' }, { dataField: 'competitionName', text: 'Competition' }];
 
             return _react2.default.createElement(
                 _semanticUiReact.Container,
@@ -28580,7 +28580,7 @@ var TeamsPage = exports.TeamsPage = function (_AutoBindComponent) {
                 _react2.default.createElement(
                     "h1",
                     null,
-                    "Competitions"
+                    "Teams"
                 ),
                 _react2.default.createElement(_EditableTable2.default, { keyField: "id", data: teams, columns: columns, ColorRow: true })
             );

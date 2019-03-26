@@ -26,12 +26,12 @@ export class TeamsPage extends AutoBindComponent {
         const columns = [
             { dataField: 'id', text: 'Id' },
             { dataField: 'name', text: 'Name' },
-            { dataField: 'competitionId', text: 'Competition' }
+            { dataField: 'competitionName', text: 'Competition' },
         ];
 
         return (
             <Container>
-                <h1>Competitions</h1>
+                <h1>Teams</h1>
                 <EditableTable keyField="id" data={teams} columns={columns} ColorRow />
             </Container>
         );
