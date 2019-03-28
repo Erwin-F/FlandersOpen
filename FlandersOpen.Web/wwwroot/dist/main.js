@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "21b20b6fc736daeb2a3c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7fba9c3f15979b8835b5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -11989,7 +11989,9 @@ var MenuHelper = function () {
     }, {
         key: "onLogout",
         value: function onLogout() {
+            var history = this.context.props.history;
             localStorage.removeItem('user');
+            history.push("/");
         }
     }, {
         key: "__reactstandin__regenerateByEval",
@@ -28210,6 +28212,8 @@ var _LoginPageHelper = __webpack_require__(423);
 
 var _LoginPageHelper2 = _interopRequireDefault(_LoginPageHelper);
 
+var _semanticUiReact = __webpack_require__(56);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (function () {
@@ -28284,8 +28288,8 @@ var LoginPage = exports.LoginPage = function (_AutoBindComponent) {
 
 
             return _react2.default.createElement(
-                "div",
-                { className: "col-md-6 col-md-offset-3" },
+                _semanticUiReact.Container,
+                { text: true },
                 _react2.default.createElement(
                     "h2",
                     null,

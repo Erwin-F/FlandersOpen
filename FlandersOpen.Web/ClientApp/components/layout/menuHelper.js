@@ -47,6 +47,8 @@ export default class MenuHelper {
     }
 
     onLogout(){
+        const history = this.context.props.history;
         localStorage.removeItem('user');
+        history.push("/");
     }
 }

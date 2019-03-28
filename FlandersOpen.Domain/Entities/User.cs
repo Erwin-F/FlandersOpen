@@ -15,7 +15,6 @@ namespace FlandersOpen.Domain.Entities
             FirstName = firstname;
             LastName = lastname;
             SetPassword(password);
-            ModificationDate = DateTime.Now;
             Enabled = false;
         }
 
@@ -48,7 +47,6 @@ namespace FlandersOpen.Domain.Entities
             LastName = lastname;
 
             SetPassword(password);
-            ModificationDate = DateTime.Now;
         }
 
         public void Enable()

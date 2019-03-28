@@ -4,6 +4,8 @@ import { AppContext } from "../common/AppContext";
 import AutoBindComponent from "../common/AutobindComponent";
 import LoginPageHelper from "./LoginPageHelper";
 
+import { Container } from "semantic-ui-react";
+
 export class LoginPage extends AutoBindComponent {
     constructor(props, context) {
         super(props, context);
@@ -42,8 +44,13 @@ export class LoginPage extends AutoBindComponent {
         const { username, password, submitted } = this.state;
 
         return (
-            <div className="col-md-6 col-md-offset-3">
+            <Container text>
                 <h2>Login</h2>
+                
+
+
+
+
                 <form name="form" onSubmit={this.handleOnSubmit}>
                     <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
                         <label htmlFor="username">Username</label>
@@ -71,7 +78,7 @@ export class LoginPage extends AutoBindComponent {
                         <span style={{color: "red"}}>{this.state.authenticationError}</span>
                     </div>}
                 </form>
-            </div>
+            </Container>
         );
     }
 }

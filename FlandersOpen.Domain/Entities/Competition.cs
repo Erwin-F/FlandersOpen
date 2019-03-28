@@ -11,7 +11,6 @@ namespace FlandersOpen.Domain.Entities
         protected Competition(string name, ShortName shortName, ColorString color)
         {
             Id = Guid.NewGuid();
-            ModificationDate = DateTime.Now;
             Name = name;
             ShortName = shortName;
             Color = color;
@@ -31,7 +30,6 @@ namespace FlandersOpen.Domain.Entities
             Name = name;
             ShortName = shortName;
             Color = color;
-            ModificationDate = DateTime.Now;
         }
         
     }

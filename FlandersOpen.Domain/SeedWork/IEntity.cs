@@ -5,6 +5,5 @@ namespace FlandersOpen.Domain.SeedWork
     public interface IEntity
     {
         Guid Id { get; }
-        DateTime ModificationDate { get; }
     }
 }

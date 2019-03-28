@@ -13,7 +13,6 @@ namespace FlandersOpen.Domain.Entities
             Id = Guid.NewGuid();
             Name = name;
             Color = color;
-            ModificationDate = DateTime.Now;
         }
 
         public string Name { get; private set; }

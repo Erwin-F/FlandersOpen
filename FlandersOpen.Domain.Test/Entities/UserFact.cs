@@ -70,14 +70,6 @@ namespace FlandersOpen.Domain.Entities.Test
         }
 
         [Fact]
-        public void RegisterSetsModificationDate()
-        {
-            var user = User.Register("test", "firstname", "lastname", "testpassword");
-
-            Assert.False(user.ModificationDate == default(DateTime));
-        }
-
-        [Fact]
         public void UpdateModifiesUser()
         {
             var user = User.Register("test", "firstname", "lastname", "testpassword");

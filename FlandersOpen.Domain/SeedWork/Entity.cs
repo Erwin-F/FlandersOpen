@@ -10,7 +10,6 @@ namespace FlandersOpen.Domain.SeedWork
         private List<INotification> _domainEvents;
 
         public virtual Guid Id { get; protected set; }
-        public DateTime ModificationDate { get; protected set; }
 
         public List<INotification> DomainEvents => _domainEvents;
         public void AddDomainEvent(INotification eventItem)
