@@ -7,7 +7,7 @@ const competitionApi = {
     getall(){
         const url = routePrefix;
         return Axios.get(
-            url,             
+            url,
             {
                 headers: authHeader()
             });
@@ -15,7 +15,7 @@ const competitionApi = {
     create(competition){
         const url = routePrefix;
         return Axios.post(
-            url,             
+            url,
            competition,
             {
                 headers: {
@@ -26,7 +26,7 @@ const competitionApi = {
     update(competition){
         const url = routePrefix + "/" + competition.id;
         return Axios.put(
-            url,             
+            url,
            competition,
             {
                 headers: {
@@ -38,7 +38,7 @@ const competitionApi = {
     delete(competitionId){
         const url = routePrefix + "/" + competitionId;
         return Axios.delete(
-            url,             
+            url,
             {
                 headers: authHeader()
             });

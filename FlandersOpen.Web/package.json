@@ -41,7 +41,9 @@
     "url-loader": "0.5.9",
     "webpack": "^2.x",
     "webpack-node-externals": "^1.7.2",
-    "webpack-hot-middleware": "2.18.2"
+    "webpack-hot-middleware": "2.18.2",
+    "semantic-ui-react": "^0.86.0",
+    "semantic-ui-css": "^2.4.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
@@ -54,6 +56,8 @@
     "popper.js": "^1.14.6",
     "react-bootstrap-table-next": "^2.0.0",
     "react-spinkit": "^3.0.0",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.86.0",
     "toastr": "^2.1.4"
   }
 }

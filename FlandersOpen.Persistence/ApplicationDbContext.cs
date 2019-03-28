@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using FlandersOpen.Domain.Entities;
+using FlandersOpen.Domain.SeedWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,16 +33,19 @@ namespace FlandersOpen.Persistence
 
         private void ConfigureReferees(EntityTypeBuilder<Referee> builder)
         {
+            builder.Property<DateTime>("ModificationDate");
             builder.OwnsOne(e => e.ShortName).Property(e => e.Value).HasColumnName("ShortName").IsRequired();
         }
 
         private void ConfigureEvents(EntityTypeBuilder<Event> builder)
-        {            
+        {
+            builder.Property<DateTime>("ModificationDate");
             builder.OwnsOne(e => e.Color).Property(e => e.Value).HasColumnName("Color");
         }
 
         private void ConfigureTimeslots(EntityTypeBuilder<Timeslot> builder)
         {
+            builder.Property<DateTime>("ModificationDate");
             builder.Property(e => e.PitchId).IsRequired();
             builder.OwnsOne(e => e.StartTime).Property(e => e.Value).HasColumnName("StartTime").IsRequired();
             builder.OwnsOne(e => e.EndTime).Property(e => e.Value).HasColumnName("EndTime").IsRequired();
@@ -49,6 +53,7 @@ namespace FlandersOpen.Persistence
 
         private void ConfigurePitches(EntityTypeBuilder<Pitch> builder)
         {
+            builder.Property<DateTime>("ModificationDate");
             builder.Property(e => e.Name).IsRequired();
             builder.Property(e => e.Number).IsRequired();
             builder.Property(e => e.OrderNumber).IsRequired();
@@ -57,14 +62,29 @@ namespace FlandersOpen.Persistence
 
         private void ConfigureCompetition(EntityTypeBuilder<Competition> builder)
         {
+            builder.Property<DateTime>("ModificationDate");
             builder.Property(e => e.Name).IsRequired();
             builder.OwnsOne(e => e.ShortName).Property(e => e.Value).HasColumnName("ShortName").IsRequired();
             builder.OwnsOne(e => e.Color).Property(e => e.Value).HasColumnName("Color").IsRequired();
         }
 
         private static void ConfigureUser(EntityTypeBuilder<User> builder)
-        {            
+        {
+            builder.Property<DateTime>("ModificationDate");
             builder.Property(e => e.Username).IsRequired();
+        }
+
+        public override int SaveChanges()
+        {
+            var timestamp = DateTime.Now;
+
+            foreach (var entry in ChangeTracker.Entries()
+                .Where(e => e.Entity is Entity && (e.State == EntityState.Added || e.State == EntityState.Modified)))
+            {
+                entry.Property("ModificationDate").CurrentValue = timestamp;
+            }
+
+            return base.SaveChanges();
         }
     }
 }

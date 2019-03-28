@@ -16,7 +16,6 @@ namespace FlandersOpen.Domain.Entities
             Name = name;
             Number = number;
             OrderNumber = orderNumber;
-            ModificationDate = DateTime.Now;
             Timeslots = new List<Timeslot>();
         }
 
@@ -36,7 +35,6 @@ namespace FlandersOpen.Domain.Entities
             Name = name;
             Number = number;
             OrderNumber = orderNumber;
-            ModificationDate = DateTime.Now;
         }
 
         public void AddTimeslot(Time startTime, int duration)

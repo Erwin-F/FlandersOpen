@@ -11,7 +11,6 @@ namespace FlandersOpen.Domain.Entities
         protected Referee(string name, ShortName shortName)
         {
             Id = Guid.NewGuid();
-            ModificationDate = DateTime.Now;
             Name = name;
             ShortName = shortName;
         }
@@ -28,7 +27,6 @@ namespace FlandersOpen.Domain.Entities
         {
             Name = name;
             ShortName = shortName;
-            ModificationDate = DateTime.Now;
         }
     }
 }

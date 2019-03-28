@@ -1,8 +1,8 @@
 import assign from "object-assign";
-import userApi from "../../api/userApi";
+import teamApi from "../../api/teamApi";
 import { showToastrError, showToastrSuccess, showToastrWarning } from "../../util/toastr";
 
-export default class UserPageHelper {
+export default class CompetitionsPageHelper {
     constructor(context) {
         this.context = context;
         this.appContext = context.props.appContext;
@@ -10,17 +10,16 @@ export default class UserPageHelper {
 
     init() {
         this.appContext.ajaxStarted();
-        userApi.getall()
+        teamApi.getall()
             .then((response) => {
                 this.appContext.ajaxEnded();
                 const data = response.data;
-                const users = data.result;
+                const teams = data.result;
 
-                if (users) {
-                    showToastrSuccess("users loaded");
-                    this.context.setState({ users: users });
+                if (teams) {
+                    this.context.setState({ teams: teams });
                 } else {
-                    this.context.setState({ authenticationError: data.errorMessage }); //TODO Toastr Error
+                    showToastrError(data.errorMessage);
                 }
             })
             .catch((ex) => {

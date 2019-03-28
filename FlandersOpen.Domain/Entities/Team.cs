@@ -10,7 +10,6 @@ namespace FlandersOpen.Domain.Entities
         protected Team(Guid competitionId, Guid countryId, string name)
         {
             Id = Guid.NewGuid();
-            ModificationDate = DateTime.Now;
             Name = name;
             CompetitionId = competitionId;
             CountryId = countryId;
@@ -30,7 +29,6 @@ namespace FlandersOpen.Domain.Entities
 
         public void Update(Guid competitionId, Guid countryId, string name)
         {
-            ModificationDate = DateTime.Now;
             Name = name;
             CompetitionId = competitionId;
             CountryId = countryId;

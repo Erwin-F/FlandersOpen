@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const NoMenuLayout = (props) => (
     <React.Fragment>
-        <div className="col-sm-12">
+        <div>
             {props.children}
         </div>
     </React.Fragment>
@@ -11,6 +11,6 @@ const NoMenuLayout = (props) => (
 
 NoMenuLayout.propTypes = {
     children: PropTypes.object.isRequired
-  };  
+  };
 
 export default NoMenuLayout;

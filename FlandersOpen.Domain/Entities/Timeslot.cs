@@ -22,7 +22,6 @@ namespace FlandersOpen.Domain.Entities
             PitchId = pitchId;
             StartTime = startTime;
             EndTime = endTime;
-            ModificationDate = DateTime.Now;
         }
 
         internal static Timeslot Build(Guid pitchId, Time startTime, Time endTime)

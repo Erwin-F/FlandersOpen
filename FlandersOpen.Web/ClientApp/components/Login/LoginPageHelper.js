@@ -30,13 +30,13 @@ export default class LoginPageHelper {
                     history.push("/");
                 } else {
                     this.context.setState({ authenticationError: data.errorMessage });
-                    showToastrError(data.errorMessage); 
+                    showToastrError(data.errorMessage);
                 }
             })
             .catch((ex) => {
                 this.appContext.ajaxEnded();
                 this.context.setState({ authenticationError: "Username or Password wrong" });
-                showToastrError(ex); 
+                showToastrError(ex);
             });
     }
 }
