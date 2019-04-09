@@ -16,7 +16,7 @@ namespace FlandersOpen.Persistence
         public DbSet<Competition> Competitions { get; set; }
         public DbSet<Pitch> Pitches { get; set; }
         public DbSet<Timeslot> Timeslots { get; set; }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<Game> Events { get; set; }
         public DbSet<Referee> Referees { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -27,7 +27,7 @@ namespace FlandersOpen.Persistence
             modelBuilder.Entity<Competition>(ConfigureCompetition);
             modelBuilder.Entity<Pitch>(ConfigurePitches);
             modelBuilder.Entity<Timeslot>(ConfigureTimeslots);
-            modelBuilder.Entity<Event>(ConfigureEvents);
+            modelBuilder.Entity<Game>(ConfigureEvents);
             modelBuilder.Entity<Referee>(ConfigureReferees);
         }
 
@@ -37,10 +37,9 @@ namespace FlandersOpen.Persistence
             builder.OwnsOne(e => e.ShortName).Property(e => e.Value).HasColumnName("ShortName").IsRequired();
         }
 
-        private void ConfigureEvents(EntityTypeBuilder<Event> builder)
+        private void ConfigureEvents(EntityTypeBuilder<Game> builder)
         {
-            builder.Property<DateTime>("ModificationDate");
-            builder.OwnsOne(e => e.Color).Property(e => e.Value).HasColumnName("Color");
+            builder.Property<DateTime>("ModificationDate");           
         }
 
         private void ConfigureTimeslots(EntityTypeBuilder<Timeslot> builder)

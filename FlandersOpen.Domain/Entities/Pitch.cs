@@ -71,25 +71,5 @@ namespace FlandersOpen.Domain.Entities
 
             return realStarttime.IsTimeAvailableInDay(duration) ? Timeslot.Build(Id, realStarttime, duration) : null;
         }
-
-
-
-
-
-
-
-        //public void ModifyTimeslotDuration(Time time, int duration)
-        //{
-        //    var slot = Timeslots.FirstOrDefault(t => t.StartTime == time);
-        //    if (slot == null)
-        //        throw new ArgumentException($"No timeslot found at given time {time.Value}");
-        //}
-
-        //public void AddEvent(Time time, Event @event)
-        //{
-        //    var slot = Timeslots.FirstOrDefault(t => t.StartTime == time);
-        //    if (slot == null)
-        //        throw new ArgumentException($"No timeslot found at given time {time.Value}");
-        //}
     }
 }
