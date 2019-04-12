@@ -25,12 +25,12 @@ namespace FlandersOpen.Domain.Entities
             EndTime = endTime;
         }
 
-        public void UpdateDescription(string description)
+        internal void UpdateDescription(string description)
         {
             Description = description;
         }
 
-        public void UpdateColor(ColorString color)
+        internal void UpdateColor(ColorString color)
         {
             Color = color;
         }

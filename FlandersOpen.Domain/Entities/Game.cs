@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using FlandersOpen.Domain.Exceptions;
 using FlandersOpen.Domain.SeedWork;
 using FlandersOpen.Domain.ValueObjects;
 
@@ -44,29 +46,14 @@ namespace FlandersOpen.Domain.Entities
             if (team == null)
                 throw new ArgumentNullException(nameof(team));
 
+            if (Gameslots.Count == 2)
+                throw new GameslotsAlreadyFullException($"Impossible to add Team {team.Name} ({team.Id}) to Game with id: {Id}  - number: {Number}");
+
+            if (Gameslots.Any(g => g.ContainsTeam(team)))
+                throw new GameslotWithSameTeamException($"Impossible to add Team {team.Name} ({team.Id}) to Game with id: {Id}  - number: {Number}");
+
+            var gameslot = Gameslot.Build(team);
+            Gameslots.Add(gameslot);
         }
     }
 }
-
-/*
-    Game:
-    - Competition
-    - Referee
-    - GameNr (Once games in place / possibility to rearrange nrs)
-
-    - Gameslot (2)
-        - Team Id
-        - Fairplay points
-
-        Score:
-        - Scored
-        - Against
-        - Forfeited
-        - Yellow Cards
-        - Red Cards
-        - Points (calculated)
-
-    
-
-
-*/

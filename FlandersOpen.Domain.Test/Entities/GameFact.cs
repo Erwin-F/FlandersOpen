@@ -2,6 +2,7 @@
 using System;
 using Xunit;
 using FlandersOpen.Domain.ValueObjects;
+using FlandersOpen.Domain.Exceptions;
 
 namespace FlandersOpen.Domain.Test
 {
@@ -46,6 +47,20 @@ namespace FlandersOpen.Domain.Test
             game.AddTeam(team);
 
             Assert.Single(game.Gameslots);
+        }
+
+        [Fact]
+        public void AddGameslotsOnFullGameThrowsException()
+        {
+            var game = Game.Build(_competition, 1);
+            var team = Team.Build(_competition, null, "team");
+            var team2 = Team.Build(_competition, null, "team2");
+            var team3 = Team.Build(_competition, null, "team3");
+
+            game.AddTeam(team);
+            game.AddTeam(team2);            
+
+            Assert.Throws<GameslotsAlreadyFullException>(() => game.AddTeam(team3));
         }
     }
 }

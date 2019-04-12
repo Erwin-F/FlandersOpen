@@ -12,7 +12,7 @@ namespace FlandersOpen.Domain.Entities
             Id = Guid.NewGuid();
             Name = name;
             Competition = competition;
-            Country = country;
+            Country = country ?? null;
         }
 
         public string Name { get; private set; }
@@ -28,9 +28,6 @@ namespace FlandersOpen.Domain.Entities
             if (competition == null)
                 throw new ArgumentNullException(nameof(competition));
 
-            if (country == null)
-                throw new ArgumentNullException(nameof(country));
-
             return new Team(competition, country, name);
         }
 
@@ -42,7 +39,7 @@ namespace FlandersOpen.Domain.Entities
 
             Name = name;
             Competition = competition ?? throw new ArgumentNullException(nameof(competition));
-            Country = country ?? throw new ArgumentNullException(nameof(country));
+            Country = country ?? null;
         }
     }
 }
