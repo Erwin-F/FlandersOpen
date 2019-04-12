@@ -32,6 +32,9 @@ namespace FlandersOpen.Domain.Entities
 
         public void Update(string name, int number, int orderNumber)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentNullException(nameof(name));
+
             Name = name;
             Number = number;
             OrderNumber = orderNumber;
@@ -39,8 +42,11 @@ namespace FlandersOpen.Domain.Entities
 
         public void AddTimeslot(Time startTime, int duration)
         {
+            if (startTime == null)
+                throw new ArgumentNullException(nameof(startTime));
+
             if (Timeslots.Any(t => t.InConflict(startTime)))
-                throw new ArgumentException($"Time {startTime.Value} in conflict with existing timeslot");
+                throw new ArgumentException($"Time {startTime.Value} in conflict with existing timeslot"); //TODO Change exception
 
             var slot = Timeslot.Build(Id, startTime, duration);
             Timeslots.Add(slot);
@@ -48,6 +54,12 @@ namespace FlandersOpen.Domain.Entities
 
         public void AddContinuousTimeslots(Time startTime, Time endTime, int eventDurationInMinutes)
         {
+            if (startTime == null)
+                throw new ArgumentNullException(nameof(startTime));
+
+            if (endTime == null)
+                throw new ArgumentNullException(nameof(endTime));
+
             while (true)
             {
                 var slot = GetNextFreeTimeslot(startTime, eventDurationInMinutes);
@@ -58,9 +70,12 @@ namespace FlandersOpen.Domain.Entities
             }
         }
 
-        public Timeslot GetNextFreeTimeslot(Time starttime, int duration)
+        public Timeslot GetNextFreeTimeslot(Time startTime, int duration)
         {
-            var realStarttime = starttime;
+            if (startTime == null)
+                throw new ArgumentNullException(nameof(startTime));
+
+            var realStarttime = startTime;
 
             while (Timeslots.Any(t => t.InConflict(realStarttime)))
             {

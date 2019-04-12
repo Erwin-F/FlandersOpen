@@ -15,9 +15,6 @@ namespace FlandersOpen.Domain.Entities
         public ColorString Color { get; private set; }
 
 
-
-        public Pitch Pitch { get; private set; }
-
         public Game Game { get; private set; }
 
         private Timeslot (Guid pitchId, Time startTime, Time endTime)
@@ -40,6 +37,10 @@ namespace FlandersOpen.Domain.Entities
 
         internal static Timeslot Build(Guid pitchId, Time startTime, int durationInMinutes)
         {
+            if (startTime == null)
+                throw new ArgumentNullException(nameof(startTime));
+
+
             return new Timeslot(pitchId, startTime, startTime.AddMinutes(durationInMinutes));
         }
 

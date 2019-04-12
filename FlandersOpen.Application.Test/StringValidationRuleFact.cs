@@ -1,4 +1,3 @@
-using System;
 using FlandersOpen.Application.Validation;
 using Xunit;
 

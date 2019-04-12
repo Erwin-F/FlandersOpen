@@ -20,13 +20,22 @@ namespace FlandersOpen.Domain.Entities
 
         public static Referee Build(string name, ShortName shortName)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentNullException(nameof(name));
+
+            if (shortName == null)
+                throw new ArgumentNullException(nameof(shortName));
+
             return new Referee(name, shortName);
         }
 
         public void Update(string name, ShortName shortName)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentNullException(nameof(name));
+
             Name = name;
-            ShortName = shortName;
+            ShortName = shortName ?? throw new ArgumentNullException(nameof(shortName));
         }
     }
 }

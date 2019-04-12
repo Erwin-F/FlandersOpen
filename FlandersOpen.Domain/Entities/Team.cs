@@ -7,31 +7,42 @@ namespace FlandersOpen.Domain.Entities
     {
         private Team() { }
 
-        protected Team(Guid competitionId, Guid countryId, string name)
+        protected Team(Competition competition, Country country, string name)
         {
             Id = Guid.NewGuid();
             Name = name;
-            CompetitionId = competitionId;
-            CountryId = countryId;
+            Competition = competition;
+            Country = country;
         }
 
-        public Guid CompetitionId { get; private set; }
-        public Guid CountryId { get; private set; }
         public string Name { get; private set; }
 
         public Competition Competition { get; private set; }
         public Country Country { get; private set; }
 
-        public static Team Build(Guid competitionId, Guid countryId, string name)
+        public static Team Build(Competition competition, Country country, string name)
         {
-            return new Team(competitionId, countryId, name);
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentNullException(nameof(name));
+
+            if (competition == null)
+                throw new ArgumentNullException(nameof(competition));
+
+            if (country == null)
+                throw new ArgumentNullException(nameof(country));
+
+            return new Team(competition, country, name);
         }
 
-        public void Update(Guid competitionId, Guid countryId, string name)
+        public void Update(Competition competition, Country country, string name)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentNullException(nameof(name));
+
+
             Name = name;
-            CompetitionId = competitionId;
-            CountryId = countryId;
+            Competition = competition ?? throw new ArgumentNullException(nameof(competition));
+            Country = country ?? throw new ArgumentNullException(nameof(country));
         }
     }
 }
