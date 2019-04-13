@@ -11,12 +11,12 @@ namespace FlandersOpen.Domain.Entities
     {
         private Game() { }
 
-        public int Number { get; set; }
+        public int Number { get; private set; }
 
-        public Competition Competition { get; set; }
-        public Referee Referee { get; set; }                
+        public Competition Competition { get; private set; }
+        public Referee Referee { get; private set; }                
 
-        public List<Gameslot> Gameslots { get; set; }
+        public List<Gameslot> Gameslots { get; private set; }
 
 
         protected Game(Competition competition, int number)

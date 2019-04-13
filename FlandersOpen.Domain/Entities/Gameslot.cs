@@ -1,4 +1,5 @@
 ﻿using FlandersOpen.Domain.SeedWork;
+using FlandersOpen.Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,10 @@ namespace FlandersOpen.Domain.Entities
 {
     public class Gameslot : Entity
     {
-        public Team Team { get; set; }
+        public Team Team { get; private set; }
+
+        public Score Score { get; private set; }
+        
 
         private Gameslot() {}
 
@@ -25,28 +29,10 @@ namespace FlandersOpen.Domain.Entities
         {
             return new Gameslot(team);
         }
+
+        internal void UpdateScore(Score score)
+        {
+            Score = score;
+        }
     }
 }
-
-/*
-    Game:
-    - Competition
-    - Referee
-    - GameNr (Once games in place / possibility to rearrange nrs)
-
-    - Gameslot (2)
-        - Team Id
-        - Fairplay points
-
-        Score:
-        - Scored
-        - Against
-        - Forfeited
-        - Yellow Cards
-        - Red Cards
-        - Points (calculated)
-
-    
-
-
-*/
