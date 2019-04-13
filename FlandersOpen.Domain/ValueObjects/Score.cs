@@ -14,11 +14,31 @@ namespace FlandersOpen.Domain.ValueObjects
 
         public int Points => CalculatePoints();
 
-        public Score(int fairplaypoints, int scored, int against, bool forfeited, int yellowcards, int redcards)
+        public Score(int fairplaypoints, int scored, int against, bool forfeited, bool wonbyForfeit, int yellowcards, int redcards)
         {
             FairplayPoints = fairplaypoints;
-            Scored = scored;
-            Against = against;
+
+            if (forfeited && wonbyForfeit)
+            {
+                Scored = 0;
+                Against = 0;
+            }            
+            else if (forfeited)
+            {
+                Scored = 0;
+                Against = 21;
+            }
+            else if (wonbyForfeit)
+            {
+                Scored = 21;
+                Against = 0;
+            }
+            else
+            {
+                Scored = scored;
+                Against = against;
+            }
+
             Forfeited = forfeited;
             YellowCards = yellowcards;
             RedCards = redcards;

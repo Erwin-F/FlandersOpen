@@ -62,5 +62,13 @@ namespace FlandersOpen.Domain.Test
 
             Assert.Throws<GameslotsAlreadyFullException>(() => game.AddTeam(team3));
         }
+
+        [Fact]
+        public void AssignNullRefereeThrowsException()
+        {
+            var game = Game.Build(_competition, 1);
+
+            Assert.Throws<ArgumentNullException>(() => game.AssignReferee(null));
+        }
     }
 }
