@@ -5,6 +5,8 @@ namespace FlandersOpen.Domain.ValueObjects
 {
     public class Score : ValueObject
     {
+        private Score() { }
+
         public int FairplayPoints { get; private set; }
         public int Scored { get; private set; }
         public int Against { get; private set; }
@@ -14,9 +16,9 @@ namespace FlandersOpen.Domain.ValueObjects
 
         public int Points => CalculatePoints();
 
-        public Score(int fairplaypoints, int scored, int against, bool forfeited, bool wonbyForfeit, int yellowcards, int redcards)
+        public Score(int fairplayPoints, int scored, int against, bool forfeited, bool wonbyForfeit, int yellowcards, int redcards)
         {
-            FairplayPoints = fairplaypoints;
+            FairplayPoints = fairplayPoints;
 
             if (forfeited && wonbyForfeit)
             {

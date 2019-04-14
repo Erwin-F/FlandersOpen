@@ -48,7 +48,7 @@ namespace FlandersOpen.Domain.Entities
             if (Timeslots.Any(t => t.InConflict(startTime)))
                 throw new ArgumentException($"Time {startTime.Value} in conflict with existing timeslot"); //TODO Change exception
 
-            var slot = Timeslot.Build(Id, startTime, duration);
+            var slot = Timeslot.Build(this, startTime, duration);
             Timeslots.Add(slot);
         }
 
@@ -84,7 +84,7 @@ namespace FlandersOpen.Domain.Entities
                 realStarttime = realStarttime.AddMinutes(1);
             }
 
-            return realStarttime.IsTimeAvailableInDay(duration) ? Timeslot.Build(Id, realStarttime, duration) : null;
+            return realStarttime.IsTimeAvailableInDay(duration) ? Timeslot.Build(this, realStarttime, duration) : null;
         }
     }
 }

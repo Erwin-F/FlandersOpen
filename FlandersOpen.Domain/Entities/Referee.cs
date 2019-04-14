@@ -1,6 +1,7 @@
 ﻿using FlandersOpen.Domain.SeedWork;
 using FlandersOpen.Domain.ValueObjects;
 using System;
+using System.Collections.Generic;
 
 namespace FlandersOpen.Domain.Entities
 {
@@ -17,6 +18,8 @@ namespace FlandersOpen.Domain.Entities
 
         public string Name { get; private set; }
         public ShortName ShortName { get; private set; }
+
+        public List<Game> Games { get; private set; }
 
         public static Referee Build(string name, ShortName shortName)
         {

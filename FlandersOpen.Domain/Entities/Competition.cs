@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FlandersOpen.Domain.SeedWork;
 using FlandersOpen.Domain.ValueObjects;
 
@@ -6,7 +7,7 @@ namespace FlandersOpen.Domain.Entities
 {
     public class Competition : Entity
     {
-        private Competition() {}
+        private Competition() { }
 
         protected Competition(string name, ShortName shortName, ColorString color)
         {
@@ -19,6 +20,8 @@ namespace FlandersOpen.Domain.Entities
         public string Name { get; private set; }
         public ShortName ShortName { get; private set; }
         public ColorString Color { get; private set; }
+
+        public List<Game> Games { get; private set;}
 
         public static Competition Build(string name, ShortName shortName, ColorString color)
         {
@@ -36,7 +39,6 @@ namespace FlandersOpen.Domain.Entities
             Name = name;
             ShortName = shortName ?? throw new ArgumentNullException(nameof(shortName));
             Color = color ?? throw new ArgumentNullException(nameof(color));
-        }
-        
+        }        
     }
 }

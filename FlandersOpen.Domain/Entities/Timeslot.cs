@@ -8,6 +8,7 @@ namespace FlandersOpen.Domain.Entities
     {
         private Timeslot() { }
 
+        public Pitch Pitch { get; private set; }
         public Guid PitchId { get; private set; }
         public Time StartTime { get; private set; }
         public Time EndTime { get; private set; }
@@ -17,10 +18,10 @@ namespace FlandersOpen.Domain.Entities
 
         public Game Game { get; private set; }
 
-        private Timeslot (Guid pitchId, Time startTime, Time endTime)
+        private Timeslot (Pitch pitch, Time startTime, Time endTime)
         {
             Id = Guid.NewGuid();
-            PitchId = pitchId;
+            Pitch = pitch;
             StartTime = startTime;
             EndTime = endTime;
         }
@@ -35,13 +36,15 @@ namespace FlandersOpen.Domain.Entities
             Color = color;
         }
 
-        internal static Timeslot Build(Guid pitchId, Time startTime, int durationInMinutes)
+        internal static Timeslot Build(Pitch pitch, Time startTime, int durationInMinutes)
         {
             if (startTime == null)
                 throw new ArgumentNullException(nameof(startTime));
 
+            if (pitch == null)
+                throw new ArgumentNullException(nameof(pitch));
 
-            return new Timeslot(pitchId, startTime, startTime.AddMinutes(durationInMinutes));
+            return new Timeslot(pitch, startTime, startTime.AddMinutes(durationInMinutes));
         }
 
         internal bool InConflict(Time time)
