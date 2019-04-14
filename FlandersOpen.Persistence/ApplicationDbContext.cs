@@ -18,9 +18,6 @@ namespace FlandersOpen.Persistence
         public DbSet<Referee> Referees { get; set; }
         public DbSet<Team> Teams { get; set; }
 
-        //public DbSet<Gameslot> Gameslots { get; set; }
-        //public DbSet<Timeslot> Timeslots { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("fo");
@@ -39,13 +36,14 @@ namespace FlandersOpen.Persistence
         private void ConfigureTeam(EntityTypeBuilder<Team> builder)
         {
             builder.Property<DateTime>("ModificationDate");
-
+            builder.Property(e => e.Name).IsRequired();
+            builder.HasOne(e => e.Country).WithMany();
+            builder.HasOne(e => e.Competition).WithMany();
         }
 
         private void ConfigureGameslot(EntityTypeBuilder<Gameslot> builder)
         {
             builder.Property<DateTime>("ModificationDate");
-            builder.HasOne(e => e.Team); //TODO withmany?
             builder.OwnsOne(e => e.Score).Property(e => e.FairplayPoints).HasColumnName("FairplayPoints");
             builder.OwnsOne(e => e.Score).Property(e => e.Scored).HasColumnName("Scored");
             builder.OwnsOne(e => e.Score).Property(e => e.Against).HasColumnName("Against");
@@ -71,13 +69,12 @@ namespace FlandersOpen.Persistence
             builder.Property(e => e.Number).IsRequired();
             builder.HasOne(e => e.Referee).WithMany(e => e.Games);
             builder.HasOne(e => e.Competition).WithMany(e => e.Games);
-            builder.HasMany(e => e.Gameslots).WithOne(e => e.Game);
+            builder.HasMany(e => e.Gameslots).WithOne();
         }
 
         private void ConfigureTimeslots(EntityTypeBuilder<Timeslot> builder)
         {
             builder.Property<DateTime>("ModificationDate");
-            builder.Property(e => e.PitchId).IsRequired();
             builder.OwnsOne(e => e.StartTime).Property(e => e.Value).HasColumnName("StartTime").IsRequired();
             builder.OwnsOne(e => e.EndTime).Property(e => e.Value).HasColumnName("EndTime").IsRequired();
             builder.OwnsOne(e => e.Color).Property(e => e.Value).HasColumnName("Color").IsRequired();
@@ -89,7 +86,7 @@ namespace FlandersOpen.Persistence
             builder.Property(e => e.Name).IsRequired();
             builder.Property(e => e.Number).IsRequired();
             builder.Property(e => e.OrderNumber).IsRequired();
-            builder.HasMany<Timeslot>().WithOne(e => e.Pitch).HasForeignKey(e => e.PitchId); //TODO Remove Pitch
+            builder.HasMany<Timeslot>().WithOne();
         }
 
         private void ConfigureCompetition(EntityTypeBuilder<Competition> builder)
@@ -120,3 +117,18 @@ namespace FlandersOpen.Persistence
         }
     }
 }
+
+/*
+public ienumerable<player> players => _players.tolist();
+
+    private icaollection<player> _players;
+
+    public bool addplayer()...
+    --
+    var navigation = builder.metadata.findnaviagation(nameof(team.players));
+    navigation.setpropertyaccessmode(propertyaccessmode.field);
+
+
+
+    builder.hasone(t => t.manager).withone().hasforeignkey(typeof(manager), "currentteamid");
+*/

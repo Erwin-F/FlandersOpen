@@ -8,8 +8,6 @@ namespace FlandersOpen.Domain.Entities
 {
     public class Gameslot : Entity
     {
-        public Game Game { get; private set; }
-
         public Team Team { get; private set; }
 
         public Score Score { get; private set; }
