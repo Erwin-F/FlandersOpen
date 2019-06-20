@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace FlandersOpen.React
+namespace FlandersOpen.Portal
 {
     public class Program
     {
