@@ -25,6 +25,9 @@ namespace FlandersOpen.Domain.Entities
 
         public static Competition Build(string name, ShortName shortName, ColorString color)
         {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentOutOfRangeException(nameof(name));
+
             if (shortName == null)
                 throw new ArgumentNullException(nameof(shortName));
 
@@ -36,7 +39,7 @@ namespace FlandersOpen.Domain.Entities
         
         public void Update(string name, ShortName shortName, ColorString color)
         {
-            Name = name;
+            Name = !string.IsNullOrWhiteSpace(name) ? name : throw new ArgumentOutOfRangeException(nameof(name)); 
             ShortName = shortName ?? throw new ArgumentNullException(nameof(shortName));
             Color = color ?? throw new ArgumentNullException(nameof(color));
         }        
