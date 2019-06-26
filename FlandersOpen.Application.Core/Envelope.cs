@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
-namespace FlandersOpen.Web.Helpers
+namespace FlandersOpen.Application.Core
 {
     public class Envelope<T>
     {
         public T Result { get; }
         public string ErrorMessage { get; }
         public DateTime TimeGenerated { get; }
-        
+
         public IDictionary<string, IList<string>> ValidationMessages { get; }
 
         protected internal Envelope(T result, string errorMessage)
@@ -33,13 +32,13 @@ namespace FlandersOpen.Web.Helpers
         {
         }
 
-        private Envelope(IDictionary<string, IList<string>> validationMessages) 
+        private Envelope(IDictionary<string, IList<string>> validationMessages)
             : base(validationMessages)
-        {            
+        {
         }
 
         private Envelope() : base(null, null)
-        {            
+        {
         }
 
         public static Envelope<T> Ok<T>(T result)
@@ -56,7 +55,7 @@ namespace FlandersOpen.Web.Helpers
         {
             return new Envelope(validationMessages);
         }
-        
+
         public static Envelope Error(string errorMessage)
         {
             return new Envelope(errorMessage);
