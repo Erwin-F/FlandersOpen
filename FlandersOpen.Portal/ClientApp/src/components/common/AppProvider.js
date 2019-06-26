@@ -18,7 +18,7 @@ class AppProvider extends React.Component {
                     ajaxCounter: this.state.ajaxCounter - 1
                 });
             },
-            loggingIn: false
+            fullWidth: false
         };
     }
 
