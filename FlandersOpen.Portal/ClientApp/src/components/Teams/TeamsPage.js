@@ -36,8 +36,4 @@ export class TeamsPage extends AutoBindComponent {
     }
 }
 
-export default React.forwardRef((props, ref) => (
-    <AppContext.Consumer>
-        {appContext => <TeamsPage {...props} appContext={appContext} ref={ref} />}
-    </AppContext.Consumer>
-));
+TeamsPage.contextType = AppContext;

@@ -3,13 +3,13 @@ import teamApi from "../../api/teamApi";
 import { showToastrError, showToastrSuccess, showToastrWarning } from "../../util/toastr";
 
 export default class CompetitionsPageHelper {
-    constructor(context) {
-        this.context = context;
-        this.appContext = context.props.appContext;
+    constructor(pageContext) {
+        this.context = pageContext;
+        this.appContext = pageContext.context;
     }
 
     init() {
-        //this.appContext.ajaxStarted();
+        this.appContext.ajaxStarted();
         teamApi.getall()
             .then((response) => {
                 this.appContext.ajaxEnded();
