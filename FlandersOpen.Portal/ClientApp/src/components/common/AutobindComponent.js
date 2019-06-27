@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import { Component } from "react";
 
 class AutoBindComponent extends Component {
 	constructor(props, context) {

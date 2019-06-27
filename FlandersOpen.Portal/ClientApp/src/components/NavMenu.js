@@ -53,10 +53,16 @@ export class NavMenu extends Component {
                     Configure
                   </DropdownToggle>
                   <DropdownMenu>
-                    <DropdownItem>Competitions</DropdownItem>
-                    <DropdownItem href="/teams">Teams</DropdownItem>
+                    <DropdownItem>
+                      <NavLink tag={Link} className="text-dark" to="/competitions">Competitions</NavLink>
+                    </DropdownItem>
+                    <DropdownItem>
+                      <NavLink tag={Link} className="text-dark" to="/teams">Teams</NavLink>
+                    </DropdownItem>
                     <DropdownItem divider />
-                    <DropdownItem>Games</DropdownItem>
+                    <DropdownItem>
+                      <NavLink tag={Link} className="text-dark" to="/tournament">Tournament</NavLink>
+                    </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>
               </ul>

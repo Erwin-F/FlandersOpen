@@ -6,7 +6,9 @@ import { Layout } from './components/Layout';
 import { Home } from './components/Home';
 import { FetchData } from './components/FetchData';
 import { Counter } from './components/Counter';
+
 import { TeamsPage } from "./components/Teams/TeamsPage";
+import { CompetitionsPage } from "./components/Competitions/CompetitionsPage";
 
 export default class App extends Component {
   constructor(props) {
@@ -20,7 +22,7 @@ export default class App extends Component {
 
     this.ajaxEnded = () => {
       this.setState(state => ({
-        ajaxCounter: state.ajaxCounter + 1
+        ajaxCounter: state.ajaxCounter - 1
       }));
     };
 
@@ -42,6 +44,7 @@ export default class App extends Component {
           <Route path='/counter' component={Counter} />
           <Route path='/fetch-data' component={FetchData} />
           <Route path='/teams' component={TeamsPage} />
+          <Route path='/competitions' component={CompetitionsPage} />
         </Layout>
       </AppContext.Provider>
     );

@@ -2,7 +2,7 @@ import assign from "object-assign";
 import teamApi from "../../api/teamApi";
 import { showToastrError, showToastrSuccess, showToastrWarning } from "../../util/toastr";
 
-export default class CompetitionsPageHelper {
+export default class TeamsPageHelper {
     constructor(pageContext) {
         this.context = pageContext;
         this.appContext = pageContext.context;

@@ -17,7 +17,7 @@ export class TeamsPage extends AutoBindComponent {
 
     componentDidMount() {
         this.pageHelper = new TeamsPageHelper(this);
-        this.pageHelper.init();
+        //this.pageHelper.init();
     }
 
     render() {
