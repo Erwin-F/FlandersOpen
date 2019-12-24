@@ -10,7 +10,10 @@ const EditableTable = (props)  => {
         items, 
         ColorCell, 
         ColorRow, 
-        textSize
+        textSize,
+        onAdd,
+        onDelete,
+        onUpdate
     } = props;
 
     const headers = columns.map((column, i) => {
@@ -67,7 +70,10 @@ EditableTable.propTypes = {
     items: PropTypes.array,
     ColorCell: PropTypes.bool,
     ColorRow: PropTypes.bool,
-    textSize: PropTypes.number
+    textSize: PropTypes.number,
+    onDelete: PropTypes.func,
+    onAdd: PropTypes.func,
+    onUpdate: PropTypes.func
 };
 
 export default EditableTable;

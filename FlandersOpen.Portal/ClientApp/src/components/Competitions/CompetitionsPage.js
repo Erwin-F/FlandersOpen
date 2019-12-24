@@ -6,9 +6,6 @@ import CompetitionsPageHelper from "./CompetitionsPageHelper";
 import Table from "../common/Table";
 import Loader from "../common/Loader";
 
-// import { Container } from "semantic-ui-react";
-// import EditableTable from "../common/EditableTable";
-
 export class CompetitionsPage extends AutoBindComponent {
     constructor(props, context) {
         super(props, context);
@@ -29,15 +26,18 @@ export class CompetitionsPage extends AutoBindComponent {
         };
     }
 
-    handleOnAddClick(){
+    handleOnAdd(){
+
+    }
+
+    handleOnUpdate() {
 
     }
 
     render() {
         const ajaxCounter = this.context.ajaxCounter;
 
-
-        const { competitions: competitions } = this.state;
+        const { competitions } = this.state;
 
         const columns = [
             { dataField: 'id', text: 'Id' },
@@ -54,15 +54,12 @@ export class CompetitionsPage extends AutoBindComponent {
                     keyField="id"
                     items={competitions}
                     columns={columns}
-                    ColorRow                    
+                    ColorRow
+                    onDelete={this.handleOnDelete}
+                    onAdd={this.handleOnAdd}
+                    onUpdate={this.handleOnUpdate}
                 />}
             </Fragment>
-            // <EditableTable
-            //     keyField="id"
-            //     data={competitions}
-            //     columns={columns}
-            //     ColorRow
-            // />
         );
     }
 }

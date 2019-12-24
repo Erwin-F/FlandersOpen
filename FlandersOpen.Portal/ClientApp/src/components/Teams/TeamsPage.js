@@ -1,10 +1,10 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { AppContext } from "../common/AppContext";
 import AutoBindComponent from "../common/AutobindComponent";
 import TeamsPageHelper from "./TeamsPageHelper";
 
-// import { Container } from "semantic-ui-react";
-// import EditableTable from "../common/EditableTable";
+import Table from "../common/Table";
+import Loader from "../common/Loader";
 
 export class TeamsPage extends AutoBindComponent {
     constructor(props, context) {
@@ -17,21 +17,45 @@ export class TeamsPage extends AutoBindComponent {
 
     componentDidMount() {
         this.pageHelper = new TeamsPageHelper(this);
-        //this.pageHelper.init();
+        this.pageHelper.init();
+    }
+
+    handleOnDelete(teamId) {
+
+    }
+
+    handleOnAdd(){
+
+    }
+
+    handleOnUpdate() {
+
     }
 
     render() {
-        // const { teams: teams } = this.state;
+        const ajaxCounter = this.context.ajaxCounter;
+        const { teams } = this.state;
 
-        // const columns = [
-        //     { dataField: 'id', text: 'Id' },
-        //     { dataField: 'name', text: 'Name' },
-        //     { dataField: 'competitionName', text: 'Competition' },
-        // ];
+        const columns = [
+            { dataField: 'id', text: 'Id' },
+            { dataField: 'name', text: 'Name' },
+            { dataField: 'competitionName', text: 'Competition' },
+        ];
 
         return (
-            <h1>Teams</h1>
-            // <EditableTable keyField="id" data={teams} columns={columns} ColorRow />
+            <Fragment>
+            <h1>Teams</h1><br/>
+                {ajaxCounter > 0 ? <Loader /> :
+                <Table
+                    keyField="id"
+                    items={teams}
+                    columns={columns}
+                    ColorRow
+                    onDelete={this.handleOnDelete}
+                    onAdd={this.handleOnAdd}
+                    onUpdate={this.handleOnUpdate}
+                />}
+            </Fragment>
         );
     }
 }
